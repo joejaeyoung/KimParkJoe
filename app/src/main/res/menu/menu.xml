@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ranking_menu"
+        android:icon="@drawable/tab_home"
+        android:title="Main"></item>
+
+    <item
+        android:id="@+id/word_menu"
+        android:icon="@drawable/tab_words"
+        android:title="Words"></item>
+
+    <item
+        android:id="@+id/friend_menu"
+        android:icon="@drawable/tab_friend"
+        android:title="Friend"></item>
+
+    <item
+        android:id="@+id/Setting_menu"
+        android:icon="@drawable/tab_setting"
+        android:title="Setting"></item>
+
+</menu>
