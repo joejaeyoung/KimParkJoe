@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
+            android:name=".WrongANS_main"
+            android:exported="true"
+            tools:ignore="Instantiatable"/>
+        <activity
             android:name=".Setting_main"
             android:exported="true"
             tools:ignore="Instantiatable" />

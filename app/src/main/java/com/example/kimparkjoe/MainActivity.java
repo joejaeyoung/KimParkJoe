@@ -19,10 +19,12 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
+
     private Ranking_main ranking_main;
     private Word_main word_main;
     private Friend_main friend_main;
     private Setting_main setting_main;
+    private WrongANS_main wrongANS_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.word_menu:
                         setFrag(1);
                         break;
-                    case R.id.friend_menu:
+                    case R.id.wrongANS_menu:
                         setFrag(2);
                         break;
-                    case R.id.Setting_menu:
+                    case R.id.friend_menu:
                         setFrag(3);
+                        break;
+                    case R.id.setting_menu:
+                        setFrag(4);
                         break;
                 }
                 return false;
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         });
         ranking_main = new Ranking_main();
         word_main = new Word_main();
+        wrongANS_main = new WrongANS_main();
         friend_main = new Friend_main();
         setting_main = new Setting_main();
         setFrag(0);
@@ -75,10 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 2:
-                ft.replace(R.id.frameLayout, friend_main);
+                ft.replace(R.id.frameLayout, wrongANS_main);
                 ft.commit();
                 break;
             case 3:
+                ft.replace(R.id.frameLayout, friend_main);
+                ft.commit();
+                break;
+            case 4:
                 ft.replace(R.id.frameLayout, setting_main);
                 ft.commit();
                 break;
