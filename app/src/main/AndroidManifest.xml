@@ -11,9 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
+            android:name=".activity_memorize_method_select"
+            android:exported="true" />
+        <activity
             android:name=".WrongANS_main"
             android:exported="true"
-            tools:ignore="Instantiatable"/>
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".Setting_main"
             android:exported="true"

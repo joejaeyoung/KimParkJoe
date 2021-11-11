@@ -8,10 +8,15 @@
     android:weightSum="10">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="요기는 암기이지로"
-        android:textSize="50dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="암기 탭"
+        android:textSize="40dp"
+        android:gravity="center"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"/>
 
 </LinearLayout>
