@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
+            android:name=".RegisterAccept_main"
+            android:exported="true" />
+        <activity
             android:name=".activity_memorize_method_select"
             android:exported="true" />
         <activity
