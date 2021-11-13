@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <!-- 위쪽 여백 (세로 : 0 ~ 1.5)-->
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="회원가입"
+            android:textSize="30dp"
+            android:background="@color/teal_200"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- 아이디 ~ 가입하기 버튼 (세로 : 1.5 ~ 8.5)-->
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <!-- 왼쪽 여백 (가로 : 0 ~ 0.7) -->
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7">
+
+        </LinearLayout>
+
+        <!-- 아이디 ~ 가입하기 부분 (가로 : 0.7 ~ 4.3) -->
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3.6"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="15dp"
+            android:weightSum="7">
+
+            <!-- 아이디 부분 (세로 : 1.5 ~ 3) -->
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:weightSum="1.5">
+
+                <!-- "아이디" 부분이라고 명시 (세로 : 1.5 ~ 1.9) -->
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="아이디"
+                    android:gravity="bottom|left"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <!-- 입력 부분 + 중복확인 버튼 (세로 : 1.9 ~ 2.5)-->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:orientation="horizontal"
+                    android:weightSum="3.6">
+
+                    <!-- 입력 부분 (가로 : 0.7 ~ 4) -->
+                    <EditText
+                        android:id="@+id/et_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3.3"
+                        android:hint="6 ~ 13자리까지 입력 가능합니다"
+                        android:textColorHint="#808080"
+                        android:inputType="textPersonName"/>
+
+                    <!-- 입력 부분과 중복확인 버튼 사이 (가로 : 4 ~ 4.2) -->
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2">
+
+                    </LinearLayout>
+
+                    <!-- 중복확인 버튼 (가로 4.2 ~ 4.3) -->
+                    <Button android:id="@+id/btn_id_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:text="중복확인"
+                        android:textSize="18dp"
+                        android:textColor="#080808"
+                        android:textStyle="bold"
+                        android:backgroundTint="#AAC9CC"/>
+
+                </LinearLayout>
+
+                <!-- 멘트 뜨는 부분 (세로 : 2.5 ~ 3)-->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 비빌번호 부분 (세로 : 3 ~ 4.5) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:weightSum="1.5">
+
+                <!-- "비밀번호" 부분이라고 명시 (세로 : 3 ~ 3.4) -->
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="비밀번호"
+                    android:gravity="bottom|left"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <!-- 입력 부분 (세로 : 3.4 ~ 4) -->
+                <EditText
+                    android:id="@+id/et_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:hint="6 ~ 13자리까지 입력 가능합니다"
+                    android:textColorHint="#808080"
+                    android:inputType="textPersonName">
+
+                </EditText>
+
+                <!-- 멘트 뜨는 부분 (세로 : 4 ~ 4.5) -->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 비밀번호 재확인 부분 (세로 : 4.5 ~ 6) -->
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:weightSum="1.5">
+
+                <!-- "비밀번호 재확인" 부분이라고 명시 (세로 : 4.5 ~ 4.9) -->
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="비밀번호 재확인"
+                    android:gravity="bottom|left"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <!-- 입력 부분 (세로 : 4.9 ~ 5.5) -->
+                <EditText
+                    android:id="@+id/et_passcheck"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:hint="비밀번호를 한 번 더 입력해주세요"
+                    android:textColorHint="#808080"
+                    android:inputType="textPersonName">
+
+                </EditText>
+
+                <!-- 멘트 뜨는 부분 (세로 : 5.5 ~ 6) -->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 닉네임 부분 (세로 : 6 ~ 7.5) -->
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:weightSum="1.5">
+
+                <!-- "닉네임" 부분이라고 명시 (세로 : 6 ~ 6.4) -->
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="이름"
+                    android:gravity="bottom|left"
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <!-- 입력 부분 (세로 : 6.4 ~ 7) -->
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:hint="2 ~ 8자리까지 입력 가능합니다"
+                    android:textColorHint="#808080"
+                    android:inputType="textPersonName">
+
+                </EditText>
+
+                <!-- 멘트 뜨는 부분 (세로 : 7 ~ 7.5) -->
+                <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 닉네임 부분과 가입하기 사이 (세로 : 7.5 ~ 7.9) -->
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4">
+
+            </LinearLayout>
+
+            <!-- 가입하기 버튼 (세로 : 7.9 ~ 8.5) -->
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:text="가입하기"
+                android:textColor="#080808"
+                android:textStyle="bold"
+                android:backgroundTint="#AAC9CC"/>
+
+        </LinearLayout>
+
+        <!-- 오른쪽 여백 (가로 : 4.3 ~ 5) -->
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 아래쪽 여백(세로 : 8.5 ~ 10)-->
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5">
+
+    </LinearLayout>
+
+</LinearLayout>

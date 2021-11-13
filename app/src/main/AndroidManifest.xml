@@ -14,6 +14,12 @@
             android:name=".activity_memorize_method_select"
             android:exported="true" />
         <activity
+            android:name=".Register_main"
+            android:exported="true" />
+        <activity
+            android:name=".Login_main"
+            android:exported="true" />
+        <activity
             android:name=".WrongANS_main"
             android:exported="true"
             tools:ignore="Instantiatable" />
