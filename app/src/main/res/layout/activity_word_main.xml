@@ -10,9 +10,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="암기 탭"
+        android:text="  암기"
         android:textSize="40dp"
-        android:gravity="center"/>
+        android:gravity="left||center" />
 
     <ListView
         android:layout_width="match_parent"
