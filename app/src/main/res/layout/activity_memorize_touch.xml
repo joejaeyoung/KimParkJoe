@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:id="@+id/memorize_touch_upper_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" N주차"
+            android:textSize="50dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_memorize_touch_quit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.85">
+
+        <TextView
+            android:id="@+id/text_memorize_touch_word"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="apple"
+            android:textSize="80dp" />
+
+        <ImageButton
+            android:id="@+id/btn_memorize_touch_bookmark"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_above="@id/text_memorize_touch_word"
+            android:layout_alignRight="@id/text_memorize_touch_word" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <Button
+            android:id="@+id/btn_memorize_touch_before"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:text="이전"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btn_memorize_touch_next"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_centerVertical="true"
+            android:text="다음"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

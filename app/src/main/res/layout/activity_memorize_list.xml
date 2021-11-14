@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:id="@+id/memorize_list_upper_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" N주차"
+            android:textSize="50dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_memorize_list_quit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/memorize_list_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_list_ENG_hider"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_list_KOR_hider"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/img_memorize_list_ENG_hider"
+            android:layout_marginLeft="20dp"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <Button
+            android:id="@+id/btn_memorize_hide_ENG"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"/>
+
+        <Button
+            android:id="@+id/btn_memorize_hide_KOR"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
