@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "638684992528",
+    "project_id": "memorymate-d8aa5",
+    "storage_bucket": "memorymate-d8aa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638684992528:android:ba085ff3a025f664766695",
+        "android_client_info": {
+          "package_name": "com.example.kimparkjoe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638684992528-2ap9qdsoiadiqnmpl1e7pcsp0tvktlr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kimparkjoe",
+            "certificate_hash": "710b47788bf07b8462442f03feee201a83d62bd6"
+          }
+        },
+        {
+          "client_id": "638684992528-jdgndeqqokevvqp5qfkq55100vv5kigj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYgBb_B5DXQDChj1hUE5Xea7AftFI_xiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638684992528-jdgndeqqokevvqp5qfkq55100vv5kigj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
