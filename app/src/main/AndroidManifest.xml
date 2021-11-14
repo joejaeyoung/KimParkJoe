@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
+            android:name=".BackPress_main"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".RegisterAccept_main"
             android:exported="true" />
         <activity
@@ -21,7 +25,13 @@
             android:exported="true" />
         <activity
             android:name=".Login_main"
-            android:exported="true" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".WrongANS_main"
             android:exported="true"
@@ -45,11 +55,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
