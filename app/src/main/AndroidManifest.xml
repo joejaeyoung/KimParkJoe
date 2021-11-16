@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
+            android:name=".WongANS_wrongquestion_main"
+            android:exported="true" />
+        <activity
+            android:name=".WrongANS_bookmark_main"
+            android:exported="true" />
+        <activity
             android:name=".Test_testing_main"
             android:exported="true" />
         <activity
