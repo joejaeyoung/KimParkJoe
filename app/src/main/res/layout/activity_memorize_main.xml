@@ -10,9 +10,10 @@
         android:layout_height="80dp"
         android:text="  암기"
         android:textSize="40dp"
-        android:gravity="start|center" />
+        android:gravity="start|center"/>
 
     <ListView
+        android:id="@+id/lv_memorize_week"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"/>

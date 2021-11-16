@@ -15,19 +15,19 @@
             android:exported="true"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".memorize_select"
+            android:name=".Memorize_select"
             android:exported="true" />
         <activity
-            android:name=".memorize_list"
+            android:name=".Memorize_list"
             android:exported="true" />
         <activity
-            android:name=".memorize_touch"
+            android:name=".Memorize_touch"
             android:exported="true" />
         <activity
             android:name=".RegisterAccept_main"
             android:exported="true" />
         <activity
-            android:name=".activity_memorize_method_select"
+            android:name=".Memorize_method_select"
             android:exported="true" />
         <activity
             android:name=".Register_main"

@@ -2,7 +2,6 @@ package com.example.kimparkjoe;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -18,7 +17,7 @@ public class Word_main extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("암기 메인 전환!");
-        view=inflater.inflate(R.layout.activity_word_main,container,false);
+        view=inflater.inflate(R.layout.activity_memorize_main,container,false);
 
         return view;
     }

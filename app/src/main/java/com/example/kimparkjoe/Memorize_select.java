@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class memorize_list extends AppCompatActivity {
+public class Memorize_select extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_memorize_list);
+        setContentView(R.layout.activity_memorize_select);
     }
 }
