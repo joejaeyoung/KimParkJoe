@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:id="@+id/memorize_select_upper_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" N주차"
+            android:textSize="50dp"/>
+
+        <TextView
+            android:id="@+id/test_timer"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_horizontal"
+            android:text="1:59"
+            android:textSize="45dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/text_memorize_select_word"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:text="apple"
+            android:textSize="80dp"
+            android:background="@color/teal_200"/>
+
+        <TextView
+            android:id="@+id/test_totalNum"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@id/text_memorize_select_word"
+            android:layout_alignRight="@id/text_memorize_select_word"
+            android:layout_marginTop="189dp"
+            android:text="1/50"
+            android:textSize="40dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/text_memorize_select_FIRST"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/text_memorize_select_word"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="사진"
+            android:textSize="40dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/text_memorize_select_SECOND"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/text_memorize_select_FIRST"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="사과"
+            android:textSize="40dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/text_memorize_select_THIRD"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/text_memorize_select_SECOND"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="사망"
+            android:textSize="40dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/text_memorize_select_FORTH"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/text_memorize_select_THIRD"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="사랑"
+            android:textSize="40dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <Button
+            android:id="@+id/btn_memorize_select_before"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:text="이전"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btn_memorize_select_next"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_centerVertical="true"
+            android:text="다음"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
