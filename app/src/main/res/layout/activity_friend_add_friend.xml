@@ -21,8 +21,7 @@
             android:id="@+id/close_add_friend_btn"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_gravity="top"
-            android:background="@drawable/ic_baseline_close_24"></ImageButton>
+            android:layout_gravity="top"/>
     </LinearLayout>
 
 
@@ -40,7 +39,6 @@
             android:orientation="horizontal"
             android:weightSum="4"
             android:layout_weight="0.8"
-            android:background="@drawable/round"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
@@ -56,7 +54,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.2"></View>
+                    android:layout_weight="0.2"/>
 
 
                 <LinearLayout
@@ -74,8 +72,7 @@
                     <ImageButton
                         android:id="@+id/btn_add_friend_search"
                         android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_baseline_person_search_24"/>
+                        android:layout_height="40dp"/>
 
                 </LinearLayout>
 

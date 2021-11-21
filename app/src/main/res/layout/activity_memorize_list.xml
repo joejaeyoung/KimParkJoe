@@ -34,17 +34,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <ImageView
-            android:id="@+id/img_memorize_list_ENG_hider"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"/>
-
-        <ImageView
-            android:id="@+id/img_memorize_list_KOR_hider"
+        <View
+            android:id="@+id/view_memorize_list_ENG_hider"
             android:layout_width="170dp"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/img_memorize_list_ENG_hider"
-            android:layout_marginLeft="20dp"/>
+            android:background="@color/black"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/view_memorize_list_KOR_hider"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/view_memorize_list_ENG_hider"
+            android:layout_marginLeft="20dp"
+            android:background="@color/black"
+            android:visibility="invisible"/>
 
 
 
@@ -59,8 +63,9 @@
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
-            android:layout_centerVertical="true"/>
+            android:text="영어 가리기" />
 
         <Button
             android:id="@+id/btn_memorize_hide_KOR"
@@ -68,7 +73,8 @@
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:text="뜻 가리기"/>
 
     </RelativeLayout>
 

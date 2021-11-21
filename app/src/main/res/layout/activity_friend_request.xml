@@ -24,8 +24,7 @@
             android:id="@+id/btn_close"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_gravity="top"
-            android:background="@drawable/ic_baseline_close_24"></ImageButton>
+            android:layout_gravity="top"/>
 
 
     </LinearLayout>
@@ -46,10 +45,7 @@
             android:textSize="25dp"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:background="@drawable/round"
-            android:layout_margin="10dp"
-            android:drawableLeft="@drawable/ic_baseline_group_35"
-            ></TextView>
+            android:layout_margin="10dp"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -61,7 +57,7 @@
             android:paddingRight="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:background="@color/white"></androidx.recyclerview.widget.RecyclerView>
+            android:background="@color/white"/>
 
     </LinearLayout>
 
