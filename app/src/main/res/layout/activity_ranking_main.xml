@@ -93,6 +93,7 @@
                         android:layout_weight="1.2"/>
 
                     <Button
+                        android:id="@+id/btn_test_start"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.6"

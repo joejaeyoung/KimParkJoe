@@ -33,14 +33,10 @@
                     android:textSize="25dp"
                     android:textStyle="bold"></TextView>
 
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
         </LinearLayout>
-
-
 
 </LinearLayout>
