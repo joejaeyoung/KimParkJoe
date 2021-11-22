@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class WongANS_wrongquestion_main extends AppCompatActivity {
+public class WrongANS_wrongquestion_main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
