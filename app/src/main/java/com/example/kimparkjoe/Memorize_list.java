@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 //TODO : 단어 파일 확정 되면 리사이클러에 뿌리기 & 랜덤/순서대로 구현
 public class Memorize_list extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +28,13 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
 
         engHider = (View) findViewById(R.id.view_memorize_list_ENG_hider);
         korHider = (View) findViewById(R.id.view_memorize_list_KOR_hider);
+
+        ArrayList<String> Eng_list = new ArrayList<>();
+        MainActivity mainActivity = new MainActivity();
+        //TODO : static?
+//        for(String key : ){
+//            Eng_list.add("");
+//        }
     }
 
     @Override
@@ -39,6 +48,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
 
     private void toggleENGVisibility(){
         if(engHider.getVisibility() == View.VISIBLE){

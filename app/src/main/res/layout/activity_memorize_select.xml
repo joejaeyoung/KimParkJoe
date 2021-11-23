@@ -51,9 +51,9 @@
             android:layout_below="@id/text_memorize_select_word"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:text="사진"
-            android:textSize="40dp"
-            android:gravity="center"/>
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/text_memorize_select_SECOND"
@@ -61,10 +61,10 @@
             android:layout_height="50dp"
             android:layout_below="@id/text_memorize_select_FIRST"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
             android:text="사과"
-            android:textSize="40dp"
-            android:gravity="center"/>
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/text_memorize_select_THIRD"
@@ -72,7 +72,7 @@
             android:layout_height="50dp"
             android:layout_below="@id/text_memorize_select_SECOND"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="사망"
             android:textSize="40dp"
             android:gravity="center"/>
@@ -83,7 +83,7 @@
             android:layout_height="50dp"
             android:layout_below="@id/text_memorize_select_THIRD"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="사랑"
             android:textSize="40dp"
             android:gravity="center"/>
@@ -92,7 +92,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="50dp">
 
         <Button
             android:id="@+id/btn_memorize_select_before"

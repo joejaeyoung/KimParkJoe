@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.HashMap;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private Friend_main friend_main;
     private Setting_main setting_main;
     private WrongANS_main wrongANS_main;
+
+    //TODO : static?
+    public HashMap<String, String> wordMap = new HashMap<String, String>();    // 단어 불러올 공간
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,22 @@ public class MainActivity extends AppCompatActivity {
                 ft.replace(R.id.frameLayout, setting_main);
                 ft.commit();
                 break;
+        }
+    }
+
+    public void putWordsFromDB(Number week){
+        //TODO : 파이어 베이스랑 연동해서 코드 수정
+        wordMap.clear();
+        {   // 단어 삽입
+            wordMap.put("apple", "사과");
+            wordMap.put("banana", "바나나");
+            wordMap.put("cat", "고양이");
+            wordMap.put("dog", "고양이");
+            wordMap.put("lion", "사자");
+            wordMap.put("list", "목록");
+            wordMap.put("select", "선택");
+            wordMap.put("memorize", "외우다");
+            wordMap.put("center", "중심");
         }
     }
 }
