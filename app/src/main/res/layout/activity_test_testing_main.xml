@@ -33,7 +33,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv_memorize_select_word"
+            android:id="@+id/tv_test_select_word"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:gravity="center"
@@ -45,18 +45,18 @@
             android:id="@+id/test_totalNum"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_alignTop="@id/tv_memorize_select_word"
-            android:layout_alignRight="@id/tv_memorize_select_word"
+            android:layout_alignTop="@id/tv_test_select_word"
+            android:layout_alignRight="@id/tv_test_select_word"
             android:layout_marginTop="189dp"
             android:text="1/50"
             android:textSize="40dp"
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_memorize_select_FIRST"
+            android:id="@+id/text_test_select_FIRST"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/tv_memorize_select_word"
+            android:layout_below="@id/tv_test_select_word"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:gravity="center"
@@ -64,10 +64,10 @@
             android:textSize="40dp" />
 
         <TextView
-            android:id="@+id/text_memorize_select_SECOND"
+            android:id="@+id/text_test_select_SECOND"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_FIRST"
+            android:layout_below="@id/text_test_select_FIRST"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="사과"
@@ -75,10 +75,10 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_memorize_select_THIRD"
+            android:id="@+id/text_test_select_THIRD"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_SECOND"
+            android:layout_below="@id/text_test_select_SECOND"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="사망"
@@ -86,10 +86,10 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_memorize_select_FORTH"
+            android:id="@+id/text_test_select_FORTH"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_THIRD"
+            android:layout_below="@id/text_test_select_THIRD"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="사랑"
@@ -103,17 +103,17 @@
         android:layout_height="80dp">
 
         <Button
-            android:id="@+id/btn_memorize_select_pre"
+            android:id="@+id/btn_test_select_pre"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
             android:text="이전"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <Button
-            android:id="@+id/btn_memorize_select_next"
+            android:id="@+id/btn_test_select_next"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
