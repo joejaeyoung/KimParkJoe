@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/friend_request_item.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_check_40.xml" value="0.13055555555555556" />
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_40_white.xml" value="0.13055555555555556" />
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_group_35.xml" value="0.1" />
+        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.1" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/main_layout_bottom_bar.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/round.xml" value="0.1" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_add_friend.xml" value="0.2" />
