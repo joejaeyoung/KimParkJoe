@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-//TODO : 단어 파일 확정 되면 리사이클러에 뿌리기 & 랜덤/순서대로 구현
 public class Memorize_list extends AppCompatActivity implements View.OnClickListener {
 
     private Button hideEng, hideKOR;
@@ -71,7 +70,6 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         for(String key : ENG_list){
             KOR_list.add(MainActivity.wordMap.get(key));
         }
-
     }
 
     private void toggleENGVisibility(){

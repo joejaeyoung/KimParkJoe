@@ -24,12 +24,13 @@ public class Memorize_method_select extends AppCompatActivity {
     public boolean isRandom() { return isRandom; }                  // getter
     public void setRandom(boolean random) { isRandom = random; }    // setter
 
-    private boolean isEng;                                          // 암기 유형 영어 맞추기면 true
+
+    public static boolean isAskingEng;    // 암기 유형 영어 맞추기면 true
     public boolean isEng() {
-        return isEng;
+        return isAskingEng;
     }                        // getter
     public void setEng(boolean eng) {
-        isEng = eng;
+        isAskingEng = eng;
     }                // setter
 
     @Override

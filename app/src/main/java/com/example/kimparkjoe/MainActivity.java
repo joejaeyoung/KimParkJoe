@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private Setting_main setting_main;
     private WrongANS_main wrongANS_main;
 
-    //TODO : static?
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
     public static String testString;
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void putWordsFromDB(Number week){
-        //TODO : 파이어 베이스랑 연동해서 코드 수정
+        //TODO : 파이어 베이스랑 연동해서 코드 수정` week=해당주차
         wordMap.clear();                    // Map 비우기
         {                                   // 단어 삽입
             wordMap.put("apple", "사과");

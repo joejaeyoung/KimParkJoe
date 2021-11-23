@@ -30,7 +30,7 @@
         android:layout_weight="0.85">
 
         <TextView
-            android:id="@+id/text_memorize_touch_word"
+            android:id="@+id/tv_memorize_touch_word"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_centerInParent="true"
@@ -42,8 +42,8 @@
             android:id="@+id/btn_memorize_touch_bookmark"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_above="@id/text_memorize_touch_word"
-            android:layout_alignRight="@id/text_memorize_touch_word" />
+            android:layout_above="@id/tv_memorize_touch_word"
+            android:layout_alignRight="@id/tv_memorize_touch_word" />
 
     </RelativeLayout>
 
@@ -52,7 +52,7 @@
         android:layout_height="80dp">
 
         <Button
-            android:id="@+id/btn_memorize_touch_before"
+            android:id="@+id/btn_memorize_touch_pre"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"

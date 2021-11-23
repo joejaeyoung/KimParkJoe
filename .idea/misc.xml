@@ -3,12 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/friend_request_item.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_check_40.xml" value="0.13055555555555556" />
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_40_white.xml" value="0.13055555555555556" />
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_group_35.xml" value="0.1" />
-        <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.1" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/drawable/main_layout_bottom_bar.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_main.xml" value="0.536" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_main.xml" value="0.28067700987306066" />
@@ -28,6 +22,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_list.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_method_select.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_select.xml" value="0.24909420289855072" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_touch.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_ranking_main.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_setting_main.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_word_main.xml" value="0.25317028985507245" />
