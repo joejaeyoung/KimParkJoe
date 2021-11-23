@@ -33,7 +33,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/text_memorize_select_word"
+            android:id="@+id/tv_memorize_select_word"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:gravity="center"
@@ -45,8 +45,8 @@
             android:id="@+id/test_totalNum"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_alignTop="@id/text_memorize_select_word"
-            android:layout_alignRight="@id/text_memorize_select_word"
+            android:layout_alignTop="@id/tv_memorize_select_word"
+            android:layout_alignRight="@id/tv_memorize_select_word"
             android:layout_marginTop="189dp"
             android:text="1/50"
             android:textSize="40dp"
@@ -56,7 +56,7 @@
             android:id="@+id/text_memorize_select_FIRST"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_word"
+            android:layout_below="@id/tv_memorize_select_word"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="사진"
@@ -103,7 +103,7 @@
         android:layout_height="80dp">
 
         <Button
-            android:id="@+id/btn_memorize_select_before"
+            android:id="@+id/btn_memorize_select_pre"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
