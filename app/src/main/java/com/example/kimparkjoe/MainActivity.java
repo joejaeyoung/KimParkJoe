@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -28,12 +29,16 @@ public class MainActivity extends AppCompatActivity {
     private WrongANS_main wrongANS_main;
 
     //TODO : static?
-    public HashMap<String, String> wordMap = new HashMap<String, String>();    // 단어 불러올 공간
+    public static HashMap<String, String> wordMap = new HashMap<String, String>();    // 단어 불러올 공간
+    public static Context context_main;
+    public static String testString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context_main = this;
 
         //타이틀 바 없애기
         ActionBar actionBar = getSupportActionBar();

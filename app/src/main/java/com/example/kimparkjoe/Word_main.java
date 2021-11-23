@@ -34,9 +34,8 @@ public class Word_main extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.temp_btn_to_method_select:
-                //TODO : static?
-//                MainActivity ma = new MainActivity();
-//                ma.putWordsFromDB(1);
+                ((MainActivity)MainActivity.context_main).putWordsFromDB(1);
+
                 getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
                 break;
         }

@@ -1,6 +1,8 @@
 package com.example.kimparkjoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
     private Button hideEng, hideKOR;
     private View engHider, korHider;
 
+    MainActivity mainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +33,19 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         engHider = (View) findViewById(R.id.view_memorize_list_ENG_hider);
         korHider = (View) findViewById(R.id.view_memorize_list_KOR_hider);
 
-        ArrayList<String> Eng_list = new ArrayList<>();
-        MainActivity mainActivity = new MainActivity();
-        //TODO : static?
-//        for(String key : ){
-//            Eng_list.add("");
-//        }
+        ArrayList<String> ENG_list = new ArrayList<>();
+        ArrayList<String> KOR_list = new ArrayList<>();
+
+        for(String key : MainActivity.wordMap.keySet()){
+            ENG_list.add(key);
+            KOR_list.add(MainActivity.wordMap.get(key));
+        }
+
+        RecyclerView recyclerView = findViewById(R.id.rv_memorize_list_content );
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        MemorizeListAdapter adapter = new MemorizeListAdapter(ENG_list,KOR_list);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
