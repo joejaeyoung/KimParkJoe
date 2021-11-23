@@ -10,11 +10,11 @@
         android:layout_height="70dp">
 
         <TextView
-            android:id="@+id/memorize_select_upper_bar"
+            android:id="@+id/test_weeks"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text=" N주차"
-            android:textSize="50dp"/>
+            android:textSize="50dp" />
 
         <TextView
             android:id="@+id/test_timer"
@@ -59,9 +59,9 @@
             android:layout_below="@id/tv_memorize_select_word"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:text="사진"
-            android:textSize="40dp"
-            android:gravity="center"/>
+            android:textSize="40dp" />
 
         <TextView
             android:id="@+id/text_memorize_select_SECOND"
