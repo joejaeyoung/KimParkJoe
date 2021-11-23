@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 //TODO : 단어 파일 확정 되면 리사이클러에 뿌리기 & 랜덤/순서대로 구현
 public class Memorize_list extends AppCompatActivity implements View.OnClickListener {
 
     private Button hideEng, hideKOR;
     private View engHider, korHider;
+    private ArrayList<String> ENG_list, KOR_list;
 
     MainActivity mainActivity;
 
@@ -33,14 +36,16 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         engHider = (View) findViewById(R.id.view_memorize_list_ENG_hider);
         korHider = (View) findViewById(R.id.view_memorize_list_KOR_hider);
 
-        ArrayList<String> ENG_list = new ArrayList<>();
-        ArrayList<String> KOR_list = new ArrayList<>();
+        ENG_list = new ArrayList<>();
+        KOR_list = new ArrayList<>();
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
             KOR_list.add(MainActivity.wordMap.get(key));
         }
-
+        if(Memorize_method_select.isRandom){
+            shuffleList();
+        }
         RecyclerView recyclerView = findViewById(R.id.rv_memorize_list_content );
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -60,6 +65,14 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    private void shuffleList(){
+        Collections.shuffle(ENG_list);
+        KOR_list.clear();
+        for(String key : ENG_list){
+            KOR_list.add(MainActivity.wordMap.get(key));
+        }
+
+    }
 
     private void toggleENGVisibility(){
         if(engHider.getVisibility() == View.VISIBLE){

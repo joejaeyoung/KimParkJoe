@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.HashMap;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private WrongANS_main wrongANS_main;
 
     //TODO : static?
-    public static HashMap<String, String> wordMap = new HashMap<String, String>();    // 단어 불러올 공간
+    public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
     public static String testString;
 
@@ -106,12 +107,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void putWordsFromDB(Number week){
         //TODO : 파이어 베이스랑 연동해서 코드 수정
-        wordMap.clear();
-        {   // 단어 삽입
+        wordMap.clear();                    // Map 비우기
+        {                                   // 단어 삽입
             wordMap.put("apple", "사과");
             wordMap.put("banana", "바나나");
             wordMap.put("cat", "고양이");
-            wordMap.put("dog", "고양이");
+            wordMap.put("puppy", "강아지");
             wordMap.put("lion", "사자");
             wordMap.put("list", "목록");
             wordMap.put("select", "선택");

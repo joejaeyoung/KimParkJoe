@@ -20,7 +20,7 @@ public class Memorize_method_select extends AppCompatActivity {
     private String selectedType, selectedMethod;
 
 
-    private boolean isRandom;                                       // 암기 방식 랜덤 선택이면 true
+    public static boolean isRandom;                                       // 암기 방식 랜덤 선택이면 true
     public boolean isRandom() { return isRandom; }                  // getter
     public void setRandom(boolean random) { isRandom = random; }    // setter
 
