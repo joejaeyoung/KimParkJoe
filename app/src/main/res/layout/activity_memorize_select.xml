@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/tv_memorize_select_word"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:gravity="center"
             android:text="apple"
             android:textSize="80dp" />
@@ -87,6 +87,74 @@
             android:text="사랑"
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_check_FIRST"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_FIRST"
+            android:layout_alignTop="@id/text_memorize_select_FIRST"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/img_memorize_x_FIRST"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_FIRST"
+            android:layout_alignTop="@id/text_memorize_select_FIRST"
+            android:src="@drawable/icon_x_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_check_SECOND"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_SECOND"
+            android:layout_alignTop="@id/text_memorize_select_SECOND"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/img_memorize_x_SECOND"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_SECOND"
+            android:layout_alignTop="@id/text_memorize_select_SECOND"
+            android:src="@drawable/icon_x_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_check_THIRD"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_THIRD"
+            android:layout_alignTop="@id/text_memorize_select_THIRD"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/img_memorize_x_THIRD"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_THIRD"
+            android:layout_alignTop="@id/text_memorize_select_THIRD"
+            android:src="@drawable/icon_x_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_memorize_check_FORTH"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_FORTH"
+            android:layout_alignTop="@id/text_memorize_select_FORTH"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/img_memorize_x_FORTH"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/text_memorize_select_FORTH"
+            android:layout_alignTop="@id/text_memorize_select_FORTH"
+            android:src="@drawable/icon_x_mark"
+            android:visibility="invisible"/>
 
     </RelativeLayout>
 

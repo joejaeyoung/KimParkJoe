@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         context_main = this;
 
         //타이틀 바 없애기
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
 
         //화면 전환
         NavigationBarView navigationBarView = findViewById(R.id.navigationView);
