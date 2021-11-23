@@ -18,10 +18,12 @@
             android:exported="true"/>
         <activity
             android:name=".Friend_request"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.KimParkJoe."/>
         <activity
             android:name=".Friend_addFriend"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.KimParkJoe."/>
         <activity
             android:name=".Test_testing_main"
             android:exported="true" />

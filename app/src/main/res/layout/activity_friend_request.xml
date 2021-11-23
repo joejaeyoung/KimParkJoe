@@ -24,7 +24,8 @@
             android:id="@+id/btn_close"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_gravity="top"/>
+            android:layout_gravity="top"
+            android:background="@drawable/ic_baseline_close_24"/>
 
 
     </LinearLayout>
@@ -45,7 +46,9 @@
             android:textSize="25dp"
             android:gravity="center_vertical"
             android:textStyle="bold"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@drawable/round"
+            android:drawableLeft="@drawable/ic_baseline_group_35"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
