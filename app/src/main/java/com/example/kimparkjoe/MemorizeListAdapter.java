@@ -16,7 +16,6 @@ import java.util.Set;
 
 public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapter.ViewHolder>{
 
-    private ArrayList<ItemList> arrayList;
     private ArrayList<String> ENG_Data = null;
     private ArrayList<String> KOR_Data = null;
 

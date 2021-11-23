@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     //TODO : static?
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private ArrayList<String> Eng = new ArrayList<>();
-    private ArrayList<String> Kor = new ArrayList<>();
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
     private MemorizeListAdapter adapter;
@@ -115,27 +113,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void putWordsFromDB(Number week){
+        week = 1;   //확인용
+
+        //주차 path 설정
         String level = "level";
         String val = level.concat(Integer.toString((Integer) week));
+        System.out.println(val);
 
         database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("word").child(val);
 
-        databaseReference = database.getReference(val);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Eng.clear();
-                Kor.clear();
                 wordMap.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    ItemList WordList = snapshot.getValue(ItemList.class); // 만들어뒀던 객체에 데이터를 담는다.
-                    wordMap.put(WordList.getEng(), WordList.getKor());
+                    ItemList word = dataSnapshot.getValue(ItemList.class);
 
-                    Eng.add(WordList.getEng());
-                    Kor.add(WordList.getKor());
-
+                    String Eng = word.getEng();
+                    String Kor = word.getKor();
+                    
+                    Log.d("TAG", "Eng is " + Eng + "/Kor is " + Kor);
+                    
+                    wordMap.put(Eng, Kor);
                 }
-                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
             }
 
             @Override
@@ -144,19 +145,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });
-
-        //TODO : 파이어 베이스랑 연동해서 코드 수정` week=해당주차
-        wordMap.clear();                    // Map 비우기
-        {                                   // 단어 삽입
-            wordMap.put("apple", "사과");
-            wordMap.put("banana", "바나나");
-            wordMap.put("cat", "고양이");
-            wordMap.put("puppy", "강아지");
-            wordMap.put("lion", "사자");
-            wordMap.put("list", "목록");
-            wordMap.put("select", "선택");
-            wordMap.put("memorize", "외우다");
-            wordMap.put("center", "중심");
-        }
     }
 }
