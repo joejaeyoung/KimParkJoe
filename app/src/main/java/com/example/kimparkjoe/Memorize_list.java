@@ -18,6 +18,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
 
     private Button hideEng, hideKOR;
     private View engHider, korHider;
+    private ArrayList<ItemList> arrayList;
     private ArrayList<String> ENG_list, KOR_list;
 
     MainActivity mainActivity;
