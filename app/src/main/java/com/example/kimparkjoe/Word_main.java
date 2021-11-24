@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +20,16 @@ public class Word_main extends Fragment implements View.OnClickListener {
     private View view;
     private Button btn_temp;
 
+    private int curr_week;
+    public int getCurr_week() {
+        return curr_week;
+    }
+    public void setCurr_week(int curr_week) {
+        this.curr_week = curr_week;
+    }
+    //private Button btn_week1, btn_week2, btn_week3, btn_week4, btn_week5, btn_week6, btn_week7, btn_week8, btn_week9, btn_week10;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +37,16 @@ public class Word_main extends Fragment implements View.OnClickListener {
         view=inflater.inflate(R.layout.activity_memorize_main,container,false);
         btn_temp = (Button) view.findViewById(R.id.temp_btn_to_method_select);
         btn_temp.setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_1).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_2).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_3).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_4).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_5).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_6).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_7).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_8).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_9).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_10).setOnClickListener(this);
 
         return view;
     }
@@ -38,6 +59,14 @@ public class Word_main extends Fragment implements View.OnClickListener {
 
                 getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
                 break;
+            default:
+                String weekString = (String) ((TextView)view).getText();
+                System.out.println("weekString : "+weekString);
+                String week = weekString.substring(1,2);
+                System.out.println("week : "+week);
+                setCurr_week(Integer.parseInt(week));
+                ((MainActivity)MainActivity.context_main).putWordsFromDB(Integer.parseInt(week));
+                getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
         }
     }
 

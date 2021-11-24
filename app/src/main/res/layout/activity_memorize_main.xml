@@ -11,12 +11,101 @@
         android:text="  암기"
         android:textSize="40dp"
         android:gravity="start|center"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_memorize_week"
+    <ScrollView
+        android:id="@+id/sv_memorize_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tv_memorize_main_upper_bar" />
+        android:layout_below="@id/tv_memorize_main_upper_bar" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_memorize_week_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 1주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 2주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 3주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 4주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 5주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 6주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_7"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 7주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_8"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 8주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_9"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 9주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_memorize_week_10"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 10주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
     <Button
         android:id="@+id/temp_btn_to_method_select"
