@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private Setting_main setting_main;
     private WrongANS_main wrongANS_main;
 
-    //TODO : static?
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
@@ -113,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void putWordsFromDB(Number week){
-        week = 1;   //확인용
 
         //주차 path 설정
         String level = "level";

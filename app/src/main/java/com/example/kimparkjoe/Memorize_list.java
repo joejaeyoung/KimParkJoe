@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,8 +21,10 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
     private View engHider, korHider;
     private ArrayList<ItemList> arrayList;
     private ArrayList<String> ENG_list, KOR_list;
+    private TextView upperBar;
 
     MainActivity mainActivity;
+    Word_main wordMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
 
         engHider = (View) findViewById(R.id.view_memorize_list_ENG_hider);
         korHider = (View) findViewById(R.id.view_memorize_list_KOR_hider);
+
+        upperBar = (TextView) findViewById(R.id.memorize_list_upper_bar);
+        upperBar.setText(" "+Word_main.curr_week+"주차");
 
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();

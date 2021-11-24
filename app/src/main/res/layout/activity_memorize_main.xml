@@ -107,11 +107,11 @@
     </ScrollView>
 
 
-    <Button
-        android:id="@+id/temp_btn_to_method_select"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:text="temp button" />
+<!--    <Button-->
+<!--        android:id="@+id/temp_btn_to_method_select"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="temp button" />-->
 
 </RelativeLayout>

@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text=" N주차"
-            android:textSize="50dp"/>
+            android:textSize="50dp" />
 
         <ImageButton
             android:id="@+id/btn_memorize_list_quit"

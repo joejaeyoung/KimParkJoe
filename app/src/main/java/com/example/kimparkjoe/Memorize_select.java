@@ -20,6 +20,7 @@ public class Memorize_select extends AppCompatActivity {
     private boolean currShownIsENG;  // true 면 영어 띄우기
     private ImageView firstCheckIMG, secondCheckIMG, thirdCheckIMG, forthCheckIMG;
     private ImageView firstXIMG, secondXIMG, thirdXIMG, forthXIMG;
+    private TextView upperBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,9 @@ public class Memorize_select extends AppCompatActivity {
         thirdXIMG = findViewById(R.id.img_memorize_x_THIRD);
         forthCheckIMG = findViewById(R.id.img_memorize_check_FORTH);
         forthXIMG = findViewById(R.id.img_memorize_x_FORTH);
+
+        upperBar = (TextView) findViewById(R.id.memorize_select_upper_bar);
+        upperBar.setText(" "+Word_main.curr_week+"주차");
 
         position =0;
         ENG_list = new ArrayList<>();

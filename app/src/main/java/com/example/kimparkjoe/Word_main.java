@@ -18,15 +18,9 @@ import java.util.Map;
 public class Word_main extends Fragment implements View.OnClickListener {
 
     private View view;
-    private Button btn_temp;
+//    private Button btn_temp;
 
-    private int curr_week;
-    public int getCurr_week() {
-        return curr_week;
-    }
-    public void setCurr_week(int curr_week) {
-        this.curr_week = curr_week;
-    }
+    public static int curr_week;
     //private Button btn_week1, btn_week2, btn_week3, btn_week4, btn_week5, btn_week6, btn_week7, btn_week8, btn_week9, btn_week10;
 
 
@@ -35,8 +29,8 @@ public class Word_main extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("암기 메인 전환!");
         view=inflater.inflate(R.layout.activity_memorize_main,container,false);
-        btn_temp = (Button) view.findViewById(R.id.temp_btn_to_method_select);
-        btn_temp.setOnClickListener(this);
+//        btn_temp = (Button) view.findViewById(R.id.temp_btn_to_method_select);
+//        btn_temp.setOnClickListener(this);
         view.findViewById(R.id.tv_memorize_week_1).setOnClickListener(this);
         view.findViewById(R.id.tv_memorize_week_2).setOnClickListener(this);
         view.findViewById(R.id.tv_memorize_week_3).setOnClickListener(this);
@@ -54,17 +48,17 @@ public class Word_main extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.temp_btn_to_method_select:
-                ((MainActivity)MainActivity.context_main).putWordsFromDB(1);
-
-                getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
-                break;
+//            case R.id.temp_btn_to_method_select:
+//                ((MainActivity)MainActivity.context_main).putWordsFromDB(1);
+//
+//                getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
+//                break;
             default:
                 String weekString = (String) ((TextView)view).getText();
                 System.out.println("weekString : "+weekString);
                 String week = weekString.substring(1,2);
                 System.out.println("week : "+week);
-                setCurr_week(Integer.parseInt(week));
+                curr_week = Integer.parseInt(week);
                 ((MainActivity)MainActivity.context_main).putWordsFromDB(Integer.parseInt(week));
                 getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
         }

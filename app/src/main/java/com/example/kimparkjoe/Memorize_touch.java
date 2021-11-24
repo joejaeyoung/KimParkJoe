@@ -17,6 +17,7 @@ public class Memorize_touch extends AppCompatActivity {
     private TextView wordShown;
     private int position;
     private boolean currShownIsENG;  // true 면 영어 띄우기
+    private TextView upperBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,10 @@ public class Memorize_touch extends AppCompatActivity {
         findViewById(R.id.btn_memorize_touch_pre).setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_touch_next).setOnClickListener(onClickListener);
         wordShown.setOnClickListener(onClickListener);
+
+        upperBar = (TextView) findViewById(R.id.memorize_touch_upper_bar);
+        upperBar.setText(" "+Word_main.curr_week+"주차");
+
 
         position =0;
         ENG_list = new ArrayList<>();
