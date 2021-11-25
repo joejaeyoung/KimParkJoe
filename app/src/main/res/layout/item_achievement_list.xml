@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <ImageView
+        android:id="@+id/img_achieve_item"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/tab_check"/>
+
+    <TextView
+        android:id="@+id/tv_achieve_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:text="temp_achieve_name_temp_achieve_name"
+        android:textSize="20dp"/>
+
+    <ImageView
+        android:id="@+id/img_achieve_is_completed"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
