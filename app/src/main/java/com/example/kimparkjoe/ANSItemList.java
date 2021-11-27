@@ -8,6 +8,11 @@ public class ANSItemList {
         
     }
 
+    public ANSItemList(String eng, String kor) {
+        Eng = eng;
+        Kor = kor;
+    }
+
     public String getEng() {
         return Eng;
     }

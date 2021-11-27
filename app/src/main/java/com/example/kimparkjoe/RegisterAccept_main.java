@@ -22,9 +22,10 @@ import java.util.ArrayList;
 
 public class RegisterAccept_main extends AppCompatActivity {
 
-    private FirebaseDatabase userDatabase, getDatabase, setDatabase;
-    private DatabaseReference userDatabaseReference, getReference, setReference;
+    private FirebaseDatabase userDatabase, getDatabase, setDatabase, friendDatabase;
+    private DatabaseReference userDatabaseReference, getReference, setReference, friendDatabaseReference;
     private String uid, profile, name, message;
+    private int number = 0;
     private static ArrayList<AchieveItemList> arrayList = new ArrayList<AchieveItemList>();
 
     @Override
@@ -32,6 +33,7 @@ public class RegisterAccept_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_accept_main);
 
+        friendDatabaseReference = friendDatabase.getInstance().getReference();
         userDatabaseReference = userDatabase.getInstance().getReference();
         setReference = setDatabase.getInstance().getReference();
         //현재 유저의 uid 받아오기
@@ -43,6 +45,8 @@ public class RegisterAccept_main extends AppCompatActivity {
 
         message = "null";
         profile = "https://firebasestorage.googleapis.com/v0/b/memorymate-d8aa5.appspot.com/o/profile_sample.png?alt=media&token=b2428a1a-fcd2-4e9e-a229-13dcecd709ff";
+
+        friendDatabaseReference.child("user").child(uid).child("friendNum").setValue(number);
 
         PersonItemList myProf = new PersonItemList(profile, name, message);
         userDatabaseReference.child("user").child(uid).child("profile").setValue(myProf);

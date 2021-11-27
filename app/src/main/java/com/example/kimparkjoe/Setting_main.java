@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,16 +32,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class Setting_main extends Fragment implements View.OnClickListener {
 
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private ArrayList<PersonItemList> arrayList = new ArrayList<>();
     private FirebaseDatabase userDatabase, achieveDatabase;
     private DatabaseReference databaseReference, achieveReference;
 
+    private ImageView myImage;
+    private TextView myName, myMessage, AchieveNum;
+    private String DBImage, DBName, DBMessage, Num;
     private View view;
     private String[] rankingType = {"친구만","전체 사용자"};
     private AlertDialog rankTypeSelectDialog;
@@ -58,25 +60,21 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.tv_setting_main_rankTypeSelect).setOnClickListener(this);
         view.findViewById(R.id.Linear_setting_achieve).setOnClickListener(this);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.my_profile); // 아디 연결
-        adapter = new PersonListAdapter(arrayList, getActivity());
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
+        myImage = (ImageView)view.findViewById(R.id.my_image);
+        myName = (TextView)view.findViewById(R.id.my_name);
+        myMessage = (TextView)view.findViewById(R.id.my_message);
+        AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
 
         userDatabase = FirebaseDatabase.getInstance();
         databaseReference = userDatabase.getReference("user").child(MainActivity.uid).child("profile");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    PersonItemList myProfile = snapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                PersonItemList myProfile = snapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
 
-                    arrayList.add(myProfile); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
-                }
-                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+                DBImage = myProfile.getProfile();
+                DBName = myProfile.getName();
+                DBMessage = myProfile.getMessage();
             }
 
             @Override
@@ -85,6 +83,20 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
             }
         });
+
+        //개인정보 DB에서 받아오기
+        Glide.with(getContext())
+                .load(DBImage)
+                .into(myImage);
+
+        myName.setText(DBName);
+        if(Objects.equals(DBMessage, "null")) {
+        }
+        else {
+            myMessage.setText(DBMessage);
+        }
+
+        AchieveNum.setText(Num);
 
         if(selectedRankType != null){
             ((TextView)view.findViewById(R.id.tv_setting_main_rankTypeSelect)).setText(selectedRankType);
@@ -101,8 +113,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 .setTitle("랭킹 표시 설정")
                 .setNegativeButton("취소",null)
                 .create();
-
-        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
         return view;
     }
@@ -121,6 +131,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     }
 
     private void getAchievementsFromDB(){
+
         achieveDatabase = FirebaseDatabase.getInstance();
 
         achieveReference = achieveDatabase.getReference("user").child(MainActivity.uid).child("achievement");
@@ -151,5 +162,8 @@ public class Setting_main extends Fragment implements View.OnClickListener {
             }
         });
 
+        Num = Integer.toString(achieveNum) + " / 50";
+
+        System.out.println(Num);
     }
 }
