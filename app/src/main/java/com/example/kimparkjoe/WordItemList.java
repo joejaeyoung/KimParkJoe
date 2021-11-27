@@ -5,11 +5,12 @@ import com.google.firebase.database.Exclude;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class ItemList {
+public class WordItemList {
     private String Eng;
     private String Kor;
+    private String part;
 
-    public ItemList() {
+    public WordItemList() {
         
     }
 
@@ -29,12 +30,11 @@ public class ItemList {
         Kor = kor;
     }
 
-    @Exclude
-    public Map<String, String> makeMap() {
-        TreeMap<String, String> wordMap = new TreeMap<>();
+    public String getPart() {
+        return part;
+    }
 
-        wordMap.put(Eng, Kor);
-
-        return wordMap;
+    public void setPart(String part) {
+        this.part = part;
     }
 }

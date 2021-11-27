@@ -20,7 +20,6 @@ public class Login_main extends AppCompatActivity {
 
     private String TAG = "Login_main";
     private FirebaseAuth firebaseAuth;
-
     private Intent intent;
 
     @Override

@@ -60,10 +60,12 @@
 
     </LinearLayout>
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/friend_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8.8"/>
-
+        android:layout_weight="8.8"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"/>
 
 </LinearLayout>

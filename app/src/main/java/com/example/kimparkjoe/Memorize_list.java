@@ -4,22 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Memorize_list extends AppCompatActivity implements View.OnClickListener {
 
     private Button hideEng, hideKOR;
     private View engHider, korHider;
-    private ArrayList<ItemList> arrayList;
+    private ArrayList<WordItemList> arrayList;
     private ArrayList<String> ENG_list, KOR_list;
     private TextView upperBar;
 
