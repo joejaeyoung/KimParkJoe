@@ -35,53 +35,82 @@ public class Friend_main extends Fragment implements View.OnClickListener{
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private ArrayList<PersonItemList> arrayList = new ArrayList<>();
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
+    private FirebaseDatabase database, friendDatabase;
+    private DatabaseReference databaseReference, friendDatabaseReference;
 
     private View view;
     private ImageButton requestButton;
     private ImageButton addButton;
 
+    private int friendNum;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("친구 메인 전환!");
-        view=inflater.inflate(R.layout.activity_friend_main,container,false);
 
-        requestButton = view.findViewById(R.id.btn_friend_request);
-        requestButton.setOnClickListener(this);
-        addButton = view.findViewById(R.id.btn_friend_add);
-        addButton.setOnClickListener(this);
+        friendDatabaseReference = friendDatabase.getInstance().getReference();
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.friend_recyclerView); // 아디 연결
-        adapter = new PersonListAdapter(arrayList, getActivity());
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
-
-        databaseReference = database.getInstance().getReference();
-
-        databaseReference.child("user").child(MainActivity.uid).child("friend");
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        friendDatabaseReference.child("user").child(MainActivity.uid).child("friendNum").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-                arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    PersonItemList FriendList = dataSnapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                    arrayList.add(FriendList); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
-                }
-                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int number = dataSnapshot.getValue(int.class);
+                friendNum = number;
+
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // 디비를 가져오던중 에러 발생 시
-                Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });
 
-        recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
+        if(friendNum == 0) {
+            view=inflater.inflate(R.layout.activity_friend_zero,container,false);
+
+            requestButton = view.findViewById(R.id.btn_friend_zero_request);
+            requestButton.setOnClickListener(this);
+            addButton = view.findViewById(R.id.btn_friend_zero_add);
+            addButton.setOnClickListener(this);
+        }
+        else {
+            view=inflater.inflate(R.layout.activity_friend_main,container,false);
+
+            requestButton = view.findViewById(R.id.btn_friend_request);
+            requestButton.setOnClickListener(this);
+            addButton = view.findViewById(R.id.btn_friend_add);
+            addButton.setOnClickListener(this);
+
+            recyclerView = (RecyclerView)view.findViewById(R.id.friend_recyclerView); // 아디 연결
+            adapter = new PersonListAdapter(arrayList, getActivity());
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
+
+            databaseReference = database.getInstance().getReference();
+
+            databaseReference.child("user").child(MainActivity.uid).child("friend");
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+                    arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                        PersonItemList FriendList = dataSnapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                        arrayList.add(FriendList); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                    }
+                    adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // 디비를 가져오던중 에러 발생 시
+                    Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+                }
+            });
+
+            recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
+        }
 
         return view;
     }
@@ -90,10 +119,12 @@ public class Friend_main extends Fragment implements View.OnClickListener{
     public void onClick(View v){
         switch(v.getId()){
             case R.id.btn_friend_request:
+            case R.id.btn_friend_zero_request:
                 //FragmentDialog dialog = new FragmentWrapper()
                 getActivity().startActivity(new Intent(getActivity(), Friend_request.class));
-                return ;
+                break;
             case R.id.btn_friend_add:
+            case R.id.btn_friend_zero_add:
                 getActivity().startActivity(new Intent(getActivity(), Friend_addFriend.class));
                 break;
         }

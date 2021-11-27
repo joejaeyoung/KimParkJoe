@@ -21,6 +21,8 @@
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/round.xml" value="0.228125" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_add_friend.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_main.xml" value="0.16" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_request.xml" value="0.146875" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_zero.xml" value="0.146875" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_login_main.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_list.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_main.xml" value="0.13405797101449277" />
@@ -33,6 +35,7 @@
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_wong_ans_wrongquestion_main.xml" value="0.1765625" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_wrong_ans_bookmark_main.xml" value="0.1765625" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/friend_list_item.xml" value="0.2" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/friend_request_item.xml" value="0.146875" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/item_memorize_list.xml" value="0.1765625" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/test_selectweek_item.xml" value="0.1765625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_main.xml" value="0.25317028985507245" />
