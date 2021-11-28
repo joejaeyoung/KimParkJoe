@@ -1,36 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:weightSum="10">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_test_week_upper_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="80dp"
+        android:gravity="start|center"
+        android:text="  TEST"
+        android:textSize="40dp" />
 
-        <TextView
+    <ScrollView
+        android:id="@+id/sv_test_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_test_week_upper_bar" >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Test"
-            android:textSize="50dp"
-            android:background="@color/teal_200"
-            android:textStyle="bold"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_test_week_1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 1 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_group_info_alarm"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3.25"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"/>
+            <TextView
+                android:id="@+id/tv_test_week_2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 2 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 3 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 4 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 5 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 6 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_7"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 7 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_8"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 8 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_9"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 9 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_10"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 10 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_11"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 11 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_12"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 12 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_13"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 13 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_14"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 14 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_15"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 15 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_test_week_16"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text=" 16 주차"
+                android:textSize="30dp"
+                android:gravity="center|left"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 
-</LinearLayout>
+</RelativeLayout>
