@@ -41,6 +41,12 @@ public class Word_main extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.tv_memorize_week_8).setOnClickListener(this);
         view.findViewById(R.id.tv_memorize_week_9).setOnClickListener(this);
         view.findViewById(R.id.tv_memorize_week_10).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_11).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_12).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_13).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_14).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_15).setOnClickListener(this);
+        view.findViewById(R.id.tv_memorize_week_16).setOnClickListener(this);
 
         return view;
     }
@@ -55,11 +61,9 @@ public class Word_main extends Fragment implements View.OnClickListener {
 //                break;
             default:
                 String weekString = (String) ((TextView)view).getText();
-                System.out.println("weekString : "+weekString);
-                String week = weekString.substring(1,2);
-                System.out.println("week : "+week);
-                curr_week = Integer.parseInt(week);
-                ((MainActivity)MainActivity.context_main).putWordsFromDB(Integer.parseInt(week));
+                String[] week_array = weekString.split(" ");
+                curr_week = Integer.parseInt(week_array[1]);
+                ((MainActivity)MainActivity.context_main).putWordsFromDB(curr_week);
                 getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
         }
     }
