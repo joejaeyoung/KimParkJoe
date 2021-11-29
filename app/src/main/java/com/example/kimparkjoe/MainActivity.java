@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     public static String uid;
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
-    private MemorizeListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void putWordsFromDB(Number week){
+        System.out.println("getting words from DB...");
 
         //주차 path 설정
         String level = "level";

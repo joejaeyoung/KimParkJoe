@@ -29,13 +29,13 @@ public class Memorize_select extends AppCompatActivity {
         wordShown = (TextView) findViewById(R.id.tv_memorize_select_word);
         findViewById(R.id.btn_memorize_select_pre).setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_select_next).setOnClickListener(onClickListener);
-        selection_1 = (TextView) findViewById(R.id.text_memorize_select_FIRST);
+        selection_1 = (TextView) findViewById(R.id.tv_memorize_select_FIRST);
         selection_1.setOnClickListener(onClickListener);
-        selection_2 = (TextView) findViewById(R.id.text_memorize_select_SECOND);
+        selection_2 = (TextView) findViewById(R.id.tv_memorize_select_SECOND);
         selection_2.setOnClickListener(onClickListener);
-        selection_3 = (TextView) findViewById(R.id.text_memorize_select_THIRD);
+        selection_3 = (TextView) findViewById(R.id.tv_memorize_select_THIRD);
         selection_3.setOnClickListener(onClickListener);
-        selection_4 = (TextView) findViewById(R.id.text_memorize_select_FORTH);
+        selection_4 = (TextView) findViewById(R.id.tv_memorize_select_FORTH);
         selection_4.setOnClickListener(onClickListener);
         firstCheckIMG = findViewById(R.id.img_memorize_check_FIRST);
         firstXIMG = findViewById(R.id.img_memorize_x_FIRST);
@@ -195,16 +195,16 @@ public class Memorize_select extends AppCompatActivity {
             else{                                               // 오답을 고른 경우
                 System.out.println("오답!");
                 switch(textView.getId()){             // 오답 표시
-                    case R.id.text_memorize_select_FIRST:
+                    case R.id.tv_memorize_select_FIRST:
                         firstXIMG.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.text_memorize_select_SECOND:
+                    case R.id.tv_memorize_select_SECOND:
                         secondXIMG.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.text_memorize_select_THIRD:
+                    case R.id.tv_memorize_select_THIRD:
                         thirdXIMG.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.text_memorize_select_FORTH:
+                    case R.id.tv_memorize_select_FORTH:
                         forthXIMG.setVisibility(View.VISIBLE);
                         break;
                 }

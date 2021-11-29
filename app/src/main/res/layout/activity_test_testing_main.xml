@@ -10,7 +10,7 @@
         android:layout_height="70dp">
 
         <TextView
-            android:id="@+id/test_weeks"
+            android:id="@+id/tv_testing_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:text=" N주차"
@@ -42,18 +42,18 @@
             android:textSize="80dp" />
 
         <TextView
-            android:id="@+id/test_totalNum"
-            android:layout_width="100dp"
+            android:id="@+id/tv_testing_totalNum"
+            android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_alignTop="@id/tv_test_select_word"
             android:layout_alignRight="@id/tv_test_select_word"
             android:layout_marginTop="189dp"
+            android:gravity="center"
             android:text="1/50"
-            android:textSize="40dp"
-            android:gravity="center"/>
+            android:textSize="40dp" />
 
         <TextView
-            android:id="@+id/text_test_select_FIRST"
+            android:id="@+id/tv_test_select_FIRST"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_below="@id/tv_test_select_word"
@@ -64,10 +64,10 @@
             android:textSize="40dp" />
 
         <TextView
-            android:id="@+id/text_test_select_SECOND"
+            android:id="@+id/tv_test_select_SECOND"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_test_select_FIRST"
+            android:layout_below="@id/tv_test_select_FIRST"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사과"
@@ -75,10 +75,10 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_test_select_THIRD"
+            android:id="@+id/tv_test_select_THIRD"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_test_select_SECOND"
+            android:layout_below="@id/tv_test_select_SECOND"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사망"
@@ -86,15 +86,51 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_test_select_FORTH"
+            android:id="@+id/tv_test_select_FORTH"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_test_select_THIRD"
+            android:layout_below="@id/tv_test_select_THIRD"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사랑"
             android:textSize="40dp"
             android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/img_testing_check_FIRST"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/tv_test_select_FIRST"
+            android:layout_alignTop="@id/tv_test_select_FIRST"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_testing_check_SECOND"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/tv_test_select_SECOND"
+            android:layout_alignTop="@id/tv_test_select_SECOND"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_testing_check_THIRD"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/tv_test_select_THIRD"
+            android:layout_alignTop="@id/tv_test_select_THIRD"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/img_testing_check_FORTH"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignRight="@id/tv_test_select_FORTH"
+            android:layout_alignTop="@id/tv_test_select_FORTH"
+            android:src="@drawable/icon_check_mark"
+            android:visibility="invisible"/>
 
     </RelativeLayout>
 
@@ -103,7 +139,7 @@
         android:layout_height="50dp">
 
         <Button
-            android:id="@+id/btn_test_select_pre"
+            android:id="@+id/btn_testing_select_pre"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
@@ -113,13 +149,22 @@
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/btn_test_select_next"
+            android:id="@+id/btn_testing_select_next"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
             android:text="다음"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btn_testing_submit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="제출"
             android:textSize="20dp"/>
 
     </RelativeLayout>

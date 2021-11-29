@@ -45,7 +45,7 @@
             android:layout_alignRight="@id/tv_memorize_select_word" />
 
         <TextView
-            android:id="@+id/text_memorize_select_FIRST"
+            android:id="@+id/tv_memorize_select_FIRST"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_below="@id/tv_memorize_select_word"
@@ -56,10 +56,10 @@
             android:textSize="40dp" />
 
         <TextView
-            android:id="@+id/text_memorize_select_SECOND"
+            android:id="@+id/tv_memorize_select_SECOND"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_FIRST"
+            android:layout_below="@id/tv_memorize_select_FIRST"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:gravity="center"
@@ -67,10 +67,10 @@
             android:textSize="40dp" />
 
         <TextView
-            android:id="@+id/text_memorize_select_THIRD"
+            android:id="@+id/tv_memorize_select_THIRD"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_SECOND"
+            android:layout_below="@id/tv_memorize_select_SECOND"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사망"
@@ -78,10 +78,10 @@
             android:gravity="center"/>
 
         <TextView
-            android:id="@+id/text_memorize_select_FORTH"
+            android:id="@+id/tv_memorize_select_FORTH"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@id/text_memorize_select_THIRD"
+            android:layout_below="@id/tv_memorize_select_THIRD"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사랑"
@@ -92,16 +92,16 @@
             android:id="@+id/img_memorize_check_FIRST"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_FIRST"
-            android:layout_alignTop="@id/text_memorize_select_FIRST"
+            android:layout_alignRight="@id/tv_memorize_select_FIRST"
+            android:layout_alignTop="@id/tv_memorize_select_FIRST"
             android:src="@drawable/icon_check_mark"
             android:visibility="invisible"/>
         <ImageView
             android:id="@+id/img_memorize_x_FIRST"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_FIRST"
-            android:layout_alignTop="@id/text_memorize_select_FIRST"
+            android:layout_alignRight="@id/tv_memorize_select_FIRST"
+            android:layout_alignTop="@id/tv_memorize_select_FIRST"
             android:src="@drawable/icon_x_mark"
             android:visibility="invisible"/>
 
@@ -109,16 +109,16 @@
             android:id="@+id/img_memorize_check_SECOND"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_SECOND"
-            android:layout_alignTop="@id/text_memorize_select_SECOND"
+            android:layout_alignRight="@id/tv_memorize_select_SECOND"
+            android:layout_alignTop="@id/tv_memorize_select_SECOND"
             android:src="@drawable/icon_check_mark"
             android:visibility="invisible"/>
         <ImageView
             android:id="@+id/img_memorize_x_SECOND"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_SECOND"
-            android:layout_alignTop="@id/text_memorize_select_SECOND"
+            android:layout_alignRight="@id/tv_memorize_select_SECOND"
+            android:layout_alignTop="@id/tv_memorize_select_SECOND"
             android:src="@drawable/icon_x_mark"
             android:visibility="invisible"/>
 
@@ -126,16 +126,16 @@
             android:id="@+id/img_memorize_check_THIRD"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_THIRD"
-            android:layout_alignTop="@id/text_memorize_select_THIRD"
+            android:layout_alignRight="@id/tv_memorize_select_THIRD"
+            android:layout_alignTop="@id/tv_memorize_select_THIRD"
             android:src="@drawable/icon_check_mark"
             android:visibility="invisible"/>
         <ImageView
             android:id="@+id/img_memorize_x_THIRD"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_THIRD"
-            android:layout_alignTop="@id/text_memorize_select_THIRD"
+            android:layout_alignRight="@id/tv_memorize_select_THIRD"
+            android:layout_alignTop="@id/tv_memorize_select_THIRD"
             android:src="@drawable/icon_x_mark"
             android:visibility="invisible"/>
 
@@ -143,16 +143,16 @@
             android:id="@+id/img_memorize_check_FORTH"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_FORTH"
-            android:layout_alignTop="@id/text_memorize_select_FORTH"
+            android:layout_alignRight="@id/tv_memorize_select_FORTH"
+            android:layout_alignTop="@id/tv_memorize_select_FORTH"
             android:src="@drawable/icon_check_mark"
             android:visibility="invisible"/>
         <ImageView
             android:id="@+id/img_memorize_x_FORTH"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignRight="@id/text_memorize_select_FORTH"
-            android:layout_alignTop="@id/text_memorize_select_FORTH"
+            android:layout_alignRight="@id/tv_memorize_select_FORTH"
+            android:layout_alignTop="@id/tv_memorize_select_FORTH"
             android:src="@drawable/icon_x_mark"
             android:visibility="invisible"/>
 

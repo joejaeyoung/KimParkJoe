@@ -46,7 +46,9 @@ public class Test_selectweeks_main extends AppCompatActivity implements View.OnC
                 String weekString = (String) ((TextView)view).getText();
                 String[] week_array = weekString.split(" ");
                 curr_week = Integer.parseInt(week_array[1]);
+                System.out.println("curr_week : "+curr_week);
                 ((MainActivity)MainActivity.context_main).putWordsFromDB(curr_week);
+                System.out.println("wordMap -> "+MainActivity.wordMap);
                 myStartActivity(Test_testing_main.class);
         }
     }
