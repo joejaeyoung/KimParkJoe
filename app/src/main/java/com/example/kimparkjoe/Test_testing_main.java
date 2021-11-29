@@ -61,7 +61,6 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         findViewById(R.id.btn_testing_submit).setOnClickListener(this);
 
         //TODO : 선택한 선택지 이미지 표시
-        // ->>
         upperBar = (TextView)findViewById(R.id.tv_testing_upper_bar);
         upperBar.setText(" "+Test_selectweeks_main.curr_week+"주차");
 

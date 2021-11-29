@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static String uid;
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
+    public static Activity activity_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context_main = this;
+        activity_main = this;
 
         //타이틀 바 없애기
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.hide();
+
+        putWordsFromDB(1);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

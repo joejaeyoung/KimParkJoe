@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class Test_selectweeks_main extends AppCompatActivity implements View.OnClickListener {
 
+    private View view;
+
     public static int curr_week;
     public static Activity test_select_weeks_activity;
 
@@ -52,6 +54,8 @@ public class Test_selectweeks_main extends AppCompatActivity implements View.OnC
                 curr_week = Integer.parseInt(week_array[1]);
                 System.out.println("curr_week : "+curr_week);
                 ((MainActivity)MainActivity.context_main).putWordsFromDB(curr_week);
+//                MainActivity main = (MainActivity) MainActivity.activity_main;
+//                main.putWordsFromDB(curr_week);
                 System.out.println("wordMap -> "+MainActivity.wordMap);
                 myStartActivity(Test_testing_main.class);
         }
