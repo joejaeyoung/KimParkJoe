@@ -2,6 +2,7 @@ package com.example.kimparkjoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +11,14 @@ import android.widget.TextView;
 public class Test_selectweeks_main extends AppCompatActivity implements View.OnClickListener {
 
     public static int curr_week;
+    public static Activity test_select_weeks_activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_selectweeks_main);
+
+        test_select_weeks_activity = Test_selectweeks_main.this;
 
         findViewById(R.id.tv_test_week_2).setOnClickListener(this);
         findViewById(R.id.tv_test_week_3).setOnClickListener(this);

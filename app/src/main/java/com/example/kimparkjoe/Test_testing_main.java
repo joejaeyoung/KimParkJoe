@@ -2,6 +2,7 @@ package com.example.kimparkjoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ import java.util.Random;
 public class Test_testing_main extends AppCompatActivity implements View.OnClickListener {
 
     private ArrayList<String> ENG_list, KOR_list, User_ans_list;
-    private ArrayList<Integer> ans_num_list;
+    private ArrayList<Integer> ans_num_list, User_ans_index;
     private TextView wordShown, selection_1, selection_2, selection_3, selection_4;
     private ImageView check_1, check_2, check_3, check_4;
     private int position;
@@ -26,6 +27,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private TextView test_timer;
 
     public static int correct_ans_num;
+    public static Activity test_testing_activity;
 
     MainActivity mainActivity;
 
@@ -33,6 +35,8 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_testing_main);
+
+        test_testing_activity = Test_testing_main.this;
 
         wordShown = (TextView) findViewById(R.id.tv_test_select_word);
         wordShown.setOnClickListener(this);
@@ -68,12 +72,14 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
         User_ans_list = new ArrayList<>();
+        User_ans_index = new ArrayList<>();
         ans_num_list = new ArrayList<>();
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
             KOR_list.add(MainActivity.wordMap.get(key));
             User_ans_list.add("temp_answer");
+            User_ans_index.add(-1);
         }
 
         shuffleList();
@@ -132,7 +138,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         int r=-1;
         for(String key : ENG_list){
             r = rand.nextInt(4)+1;
-            System.out.println(r);
+//            System.out.println(r);
             ans_num_list.add((Integer)r);
         }
     }
@@ -161,8 +167,27 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
                 break;
         }
         int real_position = position + 1;
-
         totalNum.setText(real_position+"/"+ENG_list.size());
+
+
+        check_1.setVisibility(View.INVISIBLE);
+        check_2.setVisibility(View.INVISIBLE);
+        check_3.setVisibility(View.INVISIBLE);
+        check_4.setVisibility(View.INVISIBLE);
+        switch(User_ans_index.get(position)){
+            case 1:
+                check_1.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                check_2.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                check_3.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                check_4.setVisibility(View.VISIBLE);
+                break;
+        }
 
         // TODO : 선택시 이미지 표시
     }
@@ -176,28 +201,35 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         switch(textView.getId()){
             case R.id.tv_test_select_FIRST:
                 check_1.setVisibility(View.VISIBLE);
+                User_ans_index.set(position,1);
                 break;
             case R.id.tv_test_select_SECOND:
                 check_2.setVisibility(View.VISIBLE);
+                User_ans_index.set(position,2);
                 break;
             case R.id.tv_test_select_THIRD:
                 check_3.setVisibility(View.VISIBLE);
+                User_ans_index.set(position,3);
                 break;
             case R.id.tv_test_select_FORTH:
                 check_4.setVisibility(View.VISIBLE);
+                User_ans_index.set(position,4);
                 break;
         }
-
         User_ans_list.set(position,(String) textView.getText());
+        System.out.println("선택 : "+User_ans_list.get(position));
+        System.out.println("정답 : "+KOR_list.get(position));
     }
 
     private void submit(){
         int pos = 0;
         correct_ans_num =0;
         for(String key : KOR_list){
-            if(User_ans_list.get(pos) == KOR_list.get(pos)){
+            if(User_ans_list.get(pos).equals(KOR_list.get(pos))){
                 correct_ans_num++;
+                System.out.println("정답!");
             }
+            pos++;
         }
 
         myStartActivity(Test_result_main.class);

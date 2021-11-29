@@ -39,7 +39,7 @@
             android:background="@color/teal_200"
             android:gravity="center"
             android:text="apple"
-            android:textSize="80dp" />
+            android:textSize="70dp" />
 
         <TextView
             android:id="@+id/tv_testing_totalNum"
@@ -61,7 +61,7 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:text="사진"
-            android:textSize="40dp" />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/tv_test_select_SECOND"
@@ -71,7 +71,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사과"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:gravity="center"/>
 
         <TextView
@@ -82,7 +82,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사망"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:gravity="center"/>
 
         <TextView
@@ -93,7 +93,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="사랑"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:gravity="center"/>
 
         <ImageView
