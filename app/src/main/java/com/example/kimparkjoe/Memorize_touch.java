@@ -27,6 +27,7 @@ public class Memorize_touch extends AppCompatActivity {
         findViewById(R.id.btn_memorize_touch_pre).setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_touch_next).setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_touch_quit).setOnClickListener(onClickListener);
+        findViewById(R.id.btn_memorize_touch_bookmark).setOnClickListener(onClickListener);
         wordShown.setOnClickListener(onClickListener);
 
         upperBar = (TextView) findViewById(R.id.memorize_touch_upper_bar);
@@ -72,6 +73,8 @@ public class Memorize_touch extends AppCompatActivity {
                 case R.id.btn_memorize_touch_quit:
                     finish();
                     break;
+                case R.id.btn_memorize_touch_bookmark:
+                    //TODO : 북마크추가
             }
         }
     };

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,8 +37,16 @@ public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapte
             tv_ENG = itemView.findViewById(R.id.tv_memorize_list_ENG);
             tv_KOR = itemView.findViewById(R.id.tv_memorize_list_KOR);
             btn_bookmark = itemView.findViewById(R.id.btn_memorize_list_bookmark);
+
+            // 북마크 추가 버튼
+            btn_bookmark.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO : 북마크 추가 버튼 구현
+                }
+            });
         }
-    }
+   }
 
 
     @NonNull

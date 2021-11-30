@@ -18,6 +18,8 @@ public class WrongANS_main extends Fragment {
     private Button bookmarkButton;
     private Button wrongButton;
 
+    public static boolean isBookMark;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class WrongANS_main extends Fragment {
         bookmarkButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                isBookMark = true;
                 Intent intent1 = new Intent(getActivity(), WrongANS_bookmark_main.class);
                 startActivity(intent1);
             }
@@ -38,6 +41,7 @@ public class WrongANS_main extends Fragment {
         wrongButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isBookMark = false;
                 Intent intent2 = new Intent(getActivity(), WrongANS_wrongquestion_main.class);
                 startActivity(intent2);
             }

@@ -89,7 +89,7 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btn_wrong_ans_bookmark_start:
+            case R.id.btn_wrong_ans_wrong_question_start:
                 myStartActivity(WrongAnsTest.class);
                 break;
             case R.id.btn_wrong_ans_wrong_question_quit:

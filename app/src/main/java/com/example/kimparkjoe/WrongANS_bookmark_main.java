@@ -28,12 +28,14 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
     private ArrayList<String> ENG_list, KOR_list;
     private Button btn_start;
 
-    public static TreeMap<String, String> bookmarkWordMap = new TreeMap<String, String>();
+    public static TreeMap<String, String> bookmarkWordMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrong_ans_bookmark_main);
+
+        bookmarkWordMap = new TreeMap<>();
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("user").child(MainActivity.uid).child("wrongWord");
@@ -84,6 +86,7 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
 
         WrongANSAdapter adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
+
     }
 
     @Override
