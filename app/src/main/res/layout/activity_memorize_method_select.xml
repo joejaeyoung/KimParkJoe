@@ -7,15 +7,18 @@
     <ImageButton
         android:id="@+id/btn_memorize_method_select_back"
         android:layout_width="70dp"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:background="#00FFFFFF"
+        android:src="@drawable/back"/>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:textSize="50dp"
+        android:gravity="center"
         android:text="암기 방식 선택"
-        android:gravity="center"/>
+        android:textSize="50dp" />
 
     <LinearLayout
         android:id="@+id/Lnr_selection"

@@ -20,7 +20,10 @@
             android:id="@+id/btn_memorize_touch_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:background="#00FFFFFF"
+            android:src="@drawable/back"/>
 
     </RelativeLayout>
 

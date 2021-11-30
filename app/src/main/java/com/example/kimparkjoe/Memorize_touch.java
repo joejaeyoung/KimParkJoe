@@ -26,6 +26,7 @@ public class Memorize_touch extends AppCompatActivity {
         wordShown = (TextView) findViewById(R.id.tv_memorize_touch_word);
         findViewById(R.id.btn_memorize_touch_pre).setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_touch_next).setOnClickListener(onClickListener);
+        findViewById(R.id.btn_memorize_touch_quit).setOnClickListener(onClickListener);
         wordShown.setOnClickListener(onClickListener);
 
         upperBar = (TextView) findViewById(R.id.memorize_touch_upper_bar);
@@ -67,6 +68,9 @@ public class Memorize_touch extends AppCompatActivity {
                     break;
                 case R.id.tv_memorize_touch_word:
                     toggleWordShown();
+                    break;
+                case R.id.btn_memorize_touch_quit:
+                    finish();
                     break;
             }
         }

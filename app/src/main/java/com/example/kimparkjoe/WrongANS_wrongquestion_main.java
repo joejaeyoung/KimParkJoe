@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -69,6 +70,7 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
 
         btn_start = (Button) findViewById(R.id.btn_wrong_ans_wrong_question_start);
         btn_start.setOnClickListener(this);
+        findViewById(R.id.btn_wrong_ans_wrong_question_quit).setOnClickListener(this);
 
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
@@ -88,8 +90,16 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_wrong_ans_bookmark_start:
-                Toast.makeText((this), "아직 미구현!", Toast.LENGTH_SHORT).show();
+                myStartActivity(WrongAnsTest.class);
+                break;
+            case R.id.btn_wrong_ans_wrong_question_quit:
+                finish();
                 break;
         }
+    }
+
+    private void myStartActivity(Class c){
+        Intent intent = new Intent(this, c);
+        startActivity(intent);
     }
 }

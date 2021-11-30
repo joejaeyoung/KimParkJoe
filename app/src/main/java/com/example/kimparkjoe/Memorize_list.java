@@ -32,6 +32,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         hideKOR = (Button)findViewById(R.id.btn_memorize_hide_KOR);
         hideEng.setOnClickListener(this);
         hideKOR.setOnClickListener(this);
+        findViewById(R.id.btn_memorize_list_quit).setOnClickListener(this);
 
         engHider = (View) findViewById(R.id.view_memorize_list_ENG_hider);
         korHider = (View) findViewById(R.id.view_memorize_list_KOR_hider);
@@ -64,6 +65,9 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btn_memorize_hide_KOR:
                 toggleKORVisibility();
+                break;
+            case R.id.btn_memorize_list_quit:
+                finish();
                 break;
         }
     }
