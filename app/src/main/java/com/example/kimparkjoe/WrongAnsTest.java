@@ -70,7 +70,6 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_wrong_ans_touch_pre).setOnClickListener(this);
         findViewById(R.id.btn_wrong_ans_touch_next).setOnClickListener(this);
         findViewById(R.id.btn_wrong_ans_touch_quit).setOnClickListener(this);
-        findViewById(R.id.btn_wrong_ans_touch_bookmark).setOnClickListener(this);
         wordShown = (TextView) findViewById(R.id.tv_wrong_ans_touch_word);
         wordShown.setOnClickListener(this);
 
