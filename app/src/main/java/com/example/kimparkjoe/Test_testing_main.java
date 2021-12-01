@@ -24,7 +24,13 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private boolean currShownIsEng; // true면 영어 띄움
     private TextView upperBar, totalNum;
 
-    private TextView test_timer;
+    //타이머
+    private TextView test_timer = (TextView)findViewById(R.id.test_timer);
+    String conversionTime;
+    {
+        conversionTime = "001000";
+    }
+
 
     public static int correct_ans_num;
     public static Activity test_testing_activity;

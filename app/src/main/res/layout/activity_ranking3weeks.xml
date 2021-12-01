@@ -31,7 +31,7 @@
                 android:textAlignment="center">
 
                 <Button
-                    android:id="@+id/btn_prev_ranking"
+                    android:id="@+id/prev_ranking"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
 
@@ -42,13 +42,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="40dp"
-                    android:text="1단계 랭킹"
+                    android:text="3단계 랭킹"
                     android:textSize="50dp"
 
                     android:gravity="center" />
 
                 <Button
-                    android:id="@+id/btn_next_ranking"
+                    android:id="@+id/next_ranking"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="50dp"

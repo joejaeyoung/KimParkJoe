@@ -31,7 +31,7 @@
                 android:textAlignment="center">
 
                 <Button
-                    android:id="@+id/btn_prev_ranking"
+                    android:id="@+id/btn_prev_ranking1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
 
@@ -48,7 +48,7 @@
                     android:gravity="center" />
 
                 <Button
-                    android:id="@+id/btn_next_ranking"
+                    android:id="@+id/btn_next_ranking1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="50dp"
@@ -105,7 +105,7 @@
                         android:layout_weight="1.2"/>
 
                     <Button
-                        android:id="@+id/btn_test_start"
+                        android:id="@+id/btn_test_start1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.6"
