@@ -37,6 +37,8 @@ public class Memorize_select extends AppCompatActivity {
         selection_3.setOnClickListener(onClickListener);
         selection_4 = (TextView) findViewById(R.id.tv_memorize_select_FORTH);
         selection_4.setOnClickListener(onClickListener);
+        findViewById(R.id.btn_memorize_select_quit).setOnClickListener(onClickListener);
+        findViewById(R.id.btn_memorize_select_bookmark).setOnClickListener(onClickListener);
         firstCheckIMG = findViewById(R.id.img_memorize_check_FIRST);
         firstXIMG = findViewById(R.id.img_memorize_x_FIRST);
         secondCheckIMG = findViewById(R.id.img_memorize_check_SECOND);
@@ -85,7 +87,11 @@ public class Memorize_select extends AppCompatActivity {
                 case R.id.btn_memorize_select_next:
                     goNextWord();
                     break;
-                    //TODO : 즐찾이랑 뒤로가기 등 나머지 버튼 구현할 것
+                case R.id.btn_memorize_select_quit:
+                    finish();
+                    break;
+                case R.id.btn_memorize_select_bookmark:
+                    //TODO : 북마크 추가 구현
                 default:
                     answerSelected((TextView) view);
 

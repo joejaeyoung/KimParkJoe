@@ -20,6 +20,9 @@
             android:name=".Ranking_2weeks"
             android:exported="true" />
         <activity
+            android:name=".WrongAnsTest"
+            android:exported="true" />
+        <activity
             android:name=".Achievement_list"
             android:exported="true" />
         <activity

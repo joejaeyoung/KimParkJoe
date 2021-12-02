@@ -19,7 +19,6 @@ public class Memorize_method_select extends AppCompatActivity {
     private AlertDialog typeSelectDialog, methodSelectDialog;
     private String selectedType, selectedMethod;
 
-
     public static boolean isRandom;                                       // 암기 방식 랜덤 선택이면 true
     public boolean isRandom() { return isRandom; }                  // getter
     public void setRandom(boolean random) { isRandom = random; }    // setter
@@ -41,9 +40,10 @@ public class Memorize_method_select extends AppCompatActivity {
         typeSelect = (TextView)findViewById(R.id.tv_memorize_type_select);
         methodSelect = (TextView)findViewById(R.id.tv_memorize_method_select);
 
-        findViewById(R.id.tv_memorize_type_select).setOnClickListener(onClickListener);    // 유형 선택 버튼
-        findViewById(R.id.tv_memorize_method_select).setOnClickListener(onClickListener);  // 방식 선택 버튼
-        findViewById(R.id.btn_memorize_start).setOnClickListener(onClickListener);          // 시작 버튼
+        findViewById(R.id.tv_memorize_type_select).setOnClickListener(onClickListener);         // 유형 선택 버튼
+        findViewById(R.id.tv_memorize_method_select).setOnClickListener(onClickListener);       // 방식 선택 버튼
+        findViewById(R.id.btn_memorize_start).setOnClickListener(onClickListener);              // 시작 버튼
+        findViewById(R.id.btn_memorize_method_select_back).setOnClickListener(onClickListener); //뒤로가기 버튼
 
         typeSelectDialog = new AlertDialog.Builder(Memorize_method_select.this)
                 .setItems(type, new DialogInterface.OnClickListener() {
@@ -77,15 +77,15 @@ public class Memorize_method_select extends AppCompatActivity {
             switch(v.getId()){
                 case R.id.btn_memorize_start:
                     checkStart();
-                    //myStartActivity(Memorize_list.class);
-
-                    //finish();
                     break;
                 case R.id.tv_memorize_type_select:
                     typeSelectDialog.show();
                     break;
                 case R.id.tv_memorize_method_select:
                     methodSelectDialog.show();
+                    break;
+                case R.id.btn_memorize_method_select_back:
+                    finish();
                     break;
 
             }

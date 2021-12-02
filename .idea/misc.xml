@@ -45,14 +45,19 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_list.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_method_select.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_select.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_touch.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_touch.xml" value="0.176" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_ranking_main.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_setting_main.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_test_result_main.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_test_selectweeks_main.xml" value="0.13055555555555556" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_test_testing_main.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_wong_ans_wrongquestion_main.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_word_main.xml" value="0.25317028985507245" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_wrong_ans_bookmark_main.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_wrong_ans_main.xml" value="0.25317028985507245" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_wrong_ans_test.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/item_memorize_list.xml" value="0.13323201621073963" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/item_wrong_ans.xml" value="0.2513586956521739" />
       </map>
     </option>
   </component>

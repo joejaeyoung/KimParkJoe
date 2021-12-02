@@ -10,14 +10,14 @@
         android:layout_height="70dp">
 
         <TextView
-            android:id="@+id/memorize_touch_upper_bar"
+            android:id="@+id/tv_wrong_ans_test_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text=" N주차"
+            android:text=" 즐겨찾기"
             android:textSize="50dp"/>
 
         <ImageButton
-            android:id="@+id/btn_memorize_touch_quit"
+            android:id="@+id/btn_wrong_ans_touch_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentRight="true"
@@ -33,7 +33,7 @@
         android:layout_weight="0.85">
 
         <TextView
-            android:id="@+id/tv_memorize_touch_word"
+            android:id="@+id/tv_wrong_ans_touch_word"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_centerInParent="true"
@@ -41,12 +41,12 @@
             android:text="apple"
             android:textSize="80dp" />
 
-        <ImageButton
-            android:id="@+id/btn_memorize_touch_bookmark"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_above="@id/tv_memorize_touch_word"
-            android:layout_alignRight="@id/tv_memorize_touch_word" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_wrong_ans_touch_bookmark"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_above="@id/tv_wrong_ans_touch_word"-->
+<!--            android:layout_alignRight="@id/tv_wrong_ans_touch_word" />-->
 
     </RelativeLayout>
 
@@ -55,7 +55,7 @@
         android:layout_height="80dp">
 
         <Button
-            android:id="@+id/btn_memorize_touch_pre"
+            android:id="@+id/btn_wrong_ans_touch_pre"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
@@ -65,7 +65,7 @@
             android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/btn_memorize_touch_next"
+            android:id="@+id/btn_wrong_ans_touch_next"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
