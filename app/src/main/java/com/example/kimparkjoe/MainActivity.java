@@ -163,4 +163,89 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //BookmarkWord DB에 집어넣는 함수
+    public void putBookmarkWordsToDB(String Eng, String Kor){
+        System.out.println("put Bookmark words to DB...");
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(uid).child("Bookmark");
+
+        WrongANS_bookmark_main.bookmarkWordMap.clear();
+        ANSItemList BookmarkWord = new ANSItemList(Eng, Kor);
+
+        databaseReference.child(Eng).setValue(BookmarkWord);
+    }
+
+    //BookmarkWord DB에서 가져오는 함수
+    public void getBookmarkWordsFromDB() {
+        System.out.println("getting Bookmark words from DB...");
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(uid).child("Bookmark");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                WrongANS_bookmark_main.bookmarkWordMap.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
+
+                    String Eng = wrongWord.getEng();
+                    String Kor = wrongWord.getKor();
+
+                    WrongANS_bookmark_main.bookmarkWordMap.put(Eng, Kor);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // 디비를 가져오던중 에러 발생 시
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
+
+    //WrongWord DB에 집어넣는 함수
+    public void putWrongWordsToDB(String Eng, String Kor){
+        System.out.println("put Wrong words to DB...");
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(uid).child("Wrong");
+
+        WrongANS_wrongquestion_main.wrongWordMap.clear();
+        ANSItemList WrongWord = new ANSItemList(Eng, Kor);
+
+        databaseReference.child(Eng).setValue(WrongWord);
+    }
+
+
+    //WrongWord DB에서 가져오는 함수
+    public void getWrongWordsFromDB(Number week){
+        System.out.println("getting Wrong words from DB...");
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(uid).child("Wrong");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                WrongANS_wrongquestion_main.wrongWordMap.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
+
+                    String Eng = wrongWord.getEng();
+                    String Kor = wrongWord.getKor();
+
+                    WrongANS_wrongquestion_main.wrongWordMap.put(Eng, Kor);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // 디비를 가져오던중 에러 발생 시
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
 }
