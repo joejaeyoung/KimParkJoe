@@ -52,7 +52,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listview_received_request"
+            android:id="@+id/rv_received_request_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"

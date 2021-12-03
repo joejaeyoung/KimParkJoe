@@ -15,7 +15,8 @@
         android:layout_height="0dp"
         android:gravity="right|bottom"
         android:layout_weight="0.28"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#00FFFF00">
 
         <ImageButton
             android:id="@+id/btn_friend_add_close"
@@ -70,7 +71,7 @@
                     <View
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.7"></View>
+                        android:layout_weight="0.7"/>
 
                     <ImageButton
                         android:id="@+id/btn_add_friend_search"
@@ -107,7 +108,7 @@
                     android:layout_weight="0.6">
 
                     <EditText
-                        android:id="@+id/add_friend_keyword"
+                        android:id="@+id/et_add_friend_keyword"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2.8"
@@ -148,7 +149,7 @@
                 android:weightSum="1">
 
                 <ImageView
-                    android:id="@+id/add_friend_result_image"
+                    android:id="@+id/iv_add_friend_result_image"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"/>
@@ -161,13 +162,13 @@
                     android:weightSum="1">
 
                     <TextView
-                        android:id="@+id/add_friend_result_name"
+                        android:id="@+id/tv_add_friend_result_name"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
                         android:textSize="30dp"/>
                     <TextView
-                        android:id="@+id/add_friend_result_status"
+                        android:id="@+id/tv_add_friend_result_status"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.4"
