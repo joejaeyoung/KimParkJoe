@@ -11,12 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KimParkJoe">
         <activity
-            android:name=".Ranking_1weeks"
-            android:exported="true" />
-        <activity
-            android:name=".Ranking_3weeks"
-            android:exported="true" />
-        <activity
             android:name=".Ranking_2weeks"
             android:exported="true" />
         <activity

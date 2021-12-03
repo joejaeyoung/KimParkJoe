@@ -2,6 +2,7 @@ package com.example.kimparkjoe;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -42,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
     public static Activity activity_main;
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frameLayout, fragment).commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
