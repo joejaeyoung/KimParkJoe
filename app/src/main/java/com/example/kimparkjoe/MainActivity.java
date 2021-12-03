@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    public static String uid;
+    public static String userEmail;
     public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
     public static Context context_main;
     public static Activity activity_main;
@@ -66,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            uid = user.getUid();
+            userEmail = user.getEmail();
         }
+
+        userEmail = encodeUserEmail(userEmail);
 
         //화면 전환
         NavigationBarView navigationBarView = findViewById(R.id.navigationView);
@@ -169,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("put Bookmark words to DB...");
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(uid).child("Bookmark");
+        databaseReference = database.getReference("user").child(userEmail).child("Bookmark");
 
         WrongANS_bookmark_main.bookmarkWordMap.clear();
         ANSItemList BookmarkWord = new ANSItemList(Eng, Kor);
@@ -182,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("getting Bookmark words from DB...");
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(uid).child("Bookmark");
+        databaseReference = database.getReference("user").child(userEmail).child("Bookmark");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -211,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("put Wrong words to DB...");
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(uid).child("Wrong");
+        databaseReference = database.getReference("user").child(userEmail).child("Wrong");
 
         WrongANS_wrongquestion_main.wrongWordMap.clear();
         ANSItemList WrongWord = new ANSItemList(Eng, Kor);
@@ -225,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("getting Wrong words from DB...");
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(uid).child("Wrong");
+        databaseReference = database.getReference("user").child(userEmail).child("Wrong");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -247,5 +251,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });
+    }
+
+    public static String encodeUserEmail(String userEmail) {
+        return userEmail.replace(".", ",");
+    }
+
+    public static String decodeUserEmail(String userEmail) {
+        return userEmail.replace(",", ".");
     }
 }

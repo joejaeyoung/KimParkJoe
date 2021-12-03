@@ -35,6 +35,7 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wong_ans_wrongquestion_main);
 
+
         //TODO : DB에 정보 추가 후 아래 코드 삭제
         {
             wrongWordMap.put("temp_1.1","temp_1.2");

@@ -37,16 +37,18 @@ import java.util.TreeMap;
 
 public class Setting_main extends Fragment implements View.OnClickListener {
 
-    private FirebaseDatabase userDatabase, achieveDatabase;
+    private FirebaseDatabase database, achieveDatabase;
     private DatabaseReference databaseReference, achieveReference;
 
     private ImageView myImage;
     private TextView myName, myMessage, AchieveNum;
-    private String DBImage, DBName, DBMessage, Num;
+    private String DBImage, DBMessage, Num;
+    public static String DBName;
     private View view;
     private String[] rankingType = {"친구만","전체 사용자"};
     private AlertDialog rankTypeSelectDialog;
-    public static String selectedRankType;
+    private static String selectedRankType;
+    public static int RankTypeNum;
     public static TreeMap<String, Boolean> achieveMap = new TreeMap<>();    // 도전과제 <"도전과제명",달성여부>
     public int achieveNum = 0;
 
@@ -54,6 +56,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("세팅 메인 전환!");
+
         getAchievementsFromDB();
         view=inflater.inflate(R.layout.activity_setting_main,container,false);
 
@@ -65,8 +68,8 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         myMessage = (TextView)view.findViewById(R.id.my_message);
         AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
 
-        userDatabase = FirebaseDatabase.getInstance();
-        databaseReference = userDatabase.getReference("user").child(MainActivity.uid).child("profile");
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("profile");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -85,7 +88,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         });
 
         //개인정보 DB에서 받아오기
-        Glide.with(getContext())
+        Glide.with(this)
                 .load(DBImage)
                 .into(myImage);
 
@@ -108,6 +111,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ((TextView)view.findViewById(R.id.tv_setting_main_rankTypeSelect)).setText(rankingType[i]);
                         selectedRankType = rankingType[i];
+                        RankTypeNum = i;
                     }
                 })
                 .setTitle("랭킹 표시 설정")
@@ -134,7 +138,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
         achieveDatabase = FirebaseDatabase.getInstance();
 
-        achieveReference = achieveDatabase.getReference("user").child(MainActivity.uid).child("achievement");
+        achieveReference = achieveDatabase.getReference("user").child(MainActivity.userEmail).child("achievement");
         achieveReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -163,7 +167,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         });
 
         Num = Integer.toString(achieveNum) + " / 50";
-
         System.out.println(Num);
     }
 }

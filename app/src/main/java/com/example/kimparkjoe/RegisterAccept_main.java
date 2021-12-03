@@ -24,7 +24,7 @@ public class RegisterAccept_main extends AppCompatActivity {
 
     private FirebaseDatabase userDatabase, getDatabase, setDatabase, friendDatabase;
     private DatabaseReference userDatabaseReference, getReference, setReference, friendDatabaseReference;
-    private String uid, profile, name, message;
+    private String uid, profile, name, message, email, path;
     private int number = 0;
     private static ArrayList<AchieveItemList> arrayList = new ArrayList<AchieveItemList>();
 
@@ -33,27 +33,28 @@ public class RegisterAccept_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_accept_main);
 
-        friendDatabaseReference = friendDatabase.getInstance().getReference();
-        userDatabaseReference = userDatabase.getInstance().getReference();
-        setReference = setDatabase.getInstance().getReference();
         //현재 유저의 uid 받아오기
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            uid = user.getUid();
+            email = user.getEmail();
             name = Register_main.name;
         }
 
         message = "null";
         profile = "https://firebasestorage.googleapis.com/v0/b/memorymate-d8aa5.appspot.com/o/profile_sample.png?alt=media&token=b2428a1a-fcd2-4e9e-a229-13dcecd709ff";
 
-        friendDatabaseReference.child("user").child(uid).child("friendNum").setValue(number);
+        path = MainActivity.encodeUserEmail(email);
+
+        friendDatabaseReference = friendDatabase.getInstance().getReference();
+        userDatabaseReference = userDatabase.getInstance().getReference();
+        setReference = setDatabase.getInstance().getReference();
+
+        friendDatabaseReference.child("user").child(path).child("friendNum").setValue(number);
 
         PersonItemList myProf = new PersonItemList(profile, name, message);
-        userDatabaseReference.child("user").child(uid).child("profile").setValue(myProf);
+        userDatabaseReference.child("user").child(path).child("profile").setValue(myProf);
 
         arrayList = new ArrayList<>();
-
-        putAchievementToDB(arrayList);
 
         getDatabase = FirebaseDatabase.getInstance();
         getReference = getDatabase.getReference("achieve");
@@ -75,7 +76,7 @@ public class RegisterAccept_main extends AppCompatActivity {
 
                     AchieveItemList achieve = new AchieveItemList(achievement, check);
 
-                    setReference.child("user").child(uid).child("achievement").child(temp).setValue(achieve);
+                    setReference.child("user").child(path).child("achievement").child(temp).setValue(achieve);
                     i++;
                 }
             }
@@ -98,10 +99,6 @@ public class RegisterAccept_main extends AppCompatActivity {
                 finish();
             }
         });
-
-    }
-
-    private void putAchievementToDB(ArrayList<AchieveItemList> arrayList) {
 
     }
 }

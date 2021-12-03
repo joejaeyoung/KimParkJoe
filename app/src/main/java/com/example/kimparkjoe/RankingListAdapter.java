@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -37,8 +38,6 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(holder.itemView)
-                .load(holder.image_ranking);
         holder.name_ranking.setText(arrayList.get(position).getName());
         holder.score_ranking.setText(arrayList.get(position).getScore());
     }
@@ -49,14 +48,14 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView image_ranking;
+        //ImageView image_ranking;
         TextView name_ranking;
         TextView score_ranking;
 
         public ViewHolder (@NonNull View itemView){
             super(itemView);
 
-            this.image_ranking = itemView.findViewById(R.id.ranking_image);
+            //this.image_ranking = itemView.findViewById(R.id.ranking_image);
             this.name_ranking = itemView.findViewById(R.id.ranking_name);
             this.name_ranking = itemView.findViewById(R.id.ranking_score);
         }

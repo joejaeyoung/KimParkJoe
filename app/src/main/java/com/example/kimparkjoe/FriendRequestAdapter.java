@@ -1,33 +1,40 @@
 package com.example.kimparkjoe;
 
-import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdapter.ViewHolder> {
 
 
-    private ArrayList<String> NAME_data = null;
+    private ArrayList<PersonItemList> FRIENDPROF_data = null;
     private ArrayList<Number> PROFILE_data = null;
+    private FirebaseDatabase database, acceptDatabase, numDatabase;
+    private DatabaseReference databaseReference, acceptReference, numRefernece;
+
+    private String friendEmail, friendName, userName;
 
 
-    public FriendRequestAdapter(ArrayList<String> NAME_list, ArrayList<Number> PROFILE_list) {
-        NAME_data = NAME_list;
+    public FriendRequestAdapter(ArrayList<PersonItemList> FRIENDPROF_list, ArrayList<Number> PROFILE_list) {
+        FRIENDPROF_data = FRIENDPROF_list;
         PROFILE_data = PROFILE_list;
     }
 
@@ -43,10 +50,72 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
             iv_profile = itemView.findViewById(R.id.iv_item_friend_request_profile);
             btn_accept = (ImageButton)itemView.findViewById(R.id.btn_item_accept_friend);
             btn_refuse = itemView.findViewById(R.id.btn_item_refuse_friend);
+
+            userName = Setting_main.DBName;
+
+            databaseReference = database.getReference("user").child(MainActivity.userEmail).child("friend").child("request");
+
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    FriendRequestItemList friendInfo = snapshot.getValue(FriendRequestItemList.class);
+
+                    friendEmail = snapshot.getValue(String.class);
+                    friendName = snapshot.getValue(String.class);
+
+                    databaseReference.child(friendEmail).removeValue();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                }
+            });
+
+            Friend_main.friendNum++;
+
             btn_accept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // TODO : 친구 요청 수락 처리
+                    databaseReference = database.getReference("user").child(MainActivity.userEmail).child("friend").child("accept");
+
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            FriendRequestItemList friendInfo = new FriendRequestItemList(friendEmail, friendName);
+
+                            databaseReference.child(friendEmail).setValue(friendInfo);
+
+                            numRefernece = FirebaseDatabase.getInstance().getReference();
+                            numRefernece.child("user").child(MainActivity.userEmail).child("friendNum").setValue(Friend_main.friendNum);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                        }
+                    });
+
+                    acceptReference = acceptDatabase.getReference("user").child(friendEmail).child("friend").child("accept");
+
+                    acceptReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            FriendRequestItemList userInfo = new FriendRequestItemList(MainActivity.userEmail, userName);
+
+                            acceptReference.child(MainActivity.userEmail).setValue(userInfo);
+
+                            numRefernece = FirebaseDatabase.getInstance().getReference();
+                            numRefernece.child("user").child(friendEmail).child("friendNum").setValue(Friend_main.friendNum);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                        }
+                    });
+
                     System.out.println(tv_name.getText()+"요청 수락!");
                 }
             });
@@ -58,9 +127,6 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                     System.out.println(tv_name.getText()+"요청 거절!");
                 }
             });
-
-
-
         }
     }
 
@@ -78,14 +144,14 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
 
     @Override
     public void onBindViewHolder(@NonNull FriendRequestAdapter.ViewHolder holder, int position) {
-        String NAME = NAME_data.get(position);
-        holder.tv_name.setText(NAME);
-        //TODO : 프로필 이미지 골라서 넣기
-        holder.iv_profile.setImageResource(R.drawable.profile_sample);
+        holder.tv_name.setText(FRIENDPROF_data.get(position).getName());
+        Glide.with(holder.itemView)
+                .load(Uri.parse(FRIENDPROF_data.get(position).getProfile()))
+                .into(holder.iv_profile);
     }
 
     @Override
     public int getItemCount() {
-        return NAME_data.size();
+        return FRIENDPROF_data.size();
     }
 }

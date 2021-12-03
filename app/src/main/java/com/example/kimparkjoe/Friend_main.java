@@ -42,7 +42,7 @@ public class Friend_main extends Fragment implements View.OnClickListener{
     private ImageButton requestButton;
     private ImageButton addButton;
 
-    private int friendNum;
+    public static int friendNum;
 
     @Nullable
     @Override
@@ -51,7 +51,7 @@ public class Friend_main extends Fragment implements View.OnClickListener{
 
         friendDatabaseReference = friendDatabase.getInstance().getReference();
 
-        friendDatabaseReference.child("user").child(MainActivity.uid).child("friendNum").addValueEventListener(new ValueEventListener() {
+        friendDatabaseReference.child("user").child(MainActivity.userEmail).child("friendNum").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int number = dataSnapshot.getValue(int.class);
@@ -82,14 +82,13 @@ public class Friend_main extends Fragment implements View.OnClickListener{
             addButton.setOnClickListener(this);
 
             recyclerView = (RecyclerView)view.findViewById(R.id.friend_recyclerView); // 아디 연결
-            adapter = new PersonListAdapter(arrayList, getActivity());
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
 
             databaseReference = database.getInstance().getReference();
 
-            databaseReference.child("user").child(MainActivity.uid).child("friend");
+            databaseReference.child("user").child(MainActivity.userEmail).child("friend").child("accept");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,6 +108,7 @@ public class Friend_main extends Fragment implements View.OnClickListener{
                 }
             });
 
+            adapter = new PersonListAdapter(arrayList, getActivity());
             recyclerView.setAdapter(adapter); // 리사이클러뷰에 어댑터 연결
 
         }

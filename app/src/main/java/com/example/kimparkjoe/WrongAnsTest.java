@@ -34,29 +34,7 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(MainActivity.uid).child("wrongWord");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                testWordMap.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
-
-                    String Eng = wrongWord.getEng();
-                    String Kor = wrongWord.getKor();
-
-                    testWordMap.put(Eng, Kor);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // 디비를 가져오던중 에러 발생 시
-                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
         //TODO : DB에 정보 추가 후 아래 코드 삭제
         {
             testWordMap.put("temp_1.1","temp_1.2");

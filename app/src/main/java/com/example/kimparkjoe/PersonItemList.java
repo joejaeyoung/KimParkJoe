@@ -14,6 +14,11 @@ public class PersonItemList {
 
     }
 
+    public PersonItemList(String profile, String name) {
+        this.profile = profile;
+        this.name = name;
+    }
+
     public PersonItemList(String profile, String name, String message) {
         this.profile = profile;
         this.name = name;

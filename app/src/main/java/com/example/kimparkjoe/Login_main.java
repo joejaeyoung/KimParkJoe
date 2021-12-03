@@ -68,6 +68,7 @@ public class Login_main extends AppCompatActivity {
         //if(checkBox.isChecked() == true) SaveSharedPreference.setUserName(Login_main.this, email);
 
         if(email.length() >0 && password.length() >0){
+            email = MainActivity.decodeUserEmail(email);
             firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
