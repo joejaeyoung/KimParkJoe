@@ -42,30 +42,12 @@ public class Friend_main extends Fragment implements View.OnClickListener{
     private ImageButton requestButton;
     private ImageButton addButton;
 
-    public static int friendNum;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("친구 메인 전환!");
 
-        friendDatabaseReference = friendDatabase.getInstance().getReference();
-
-        friendDatabaseReference.child("user").child(MainActivity.userEmail).child("friendNum").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int number = dataSnapshot.getValue(int.class);
-                friendNum = number;
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-            }
-        });
-
-        if(friendNum == 0) {
+        if(MainActivity.friendNum == 0) {
             view=inflater.inflate(R.layout.activity_friend_zero,container,false);
 
             requestButton = view.findViewById(R.id.btn_friend_zero_request);
@@ -86,19 +68,37 @@ public class Friend_main extends Fragment implements View.OnClickListener{
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             arrayList = new ArrayList<>(); // User 객체를 담을 어레이 리스트 (어댑터쪽으로)
 
-            databaseReference = database.getInstance().getReference();
-
-            databaseReference.child("user").child(MainActivity.userEmail).child("friend");
+            database = FirebaseDatabase.getInstance();
+            databaseReference = database.getReference("user").child(MainActivity.userEmail).child("friend");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                     arrayList.clear(); // 기존 배열리스트가 존재하지않게 초기화
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                        PersonItemList FriendList = dataSnapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                        arrayList.add(FriendList); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                        FriendRequestItemList friendInfo = dataSnapshot.getValue(FriendRequestItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+
+                        String fEmail = friendInfo.getEmail();
+
+                        System.out.println(fEmail);
+
+                        friendDatabase = FirebaseDatabase.getInstance();
+
+                        friendDatabaseReference = friendDatabase.getReference("user").child(fEmail).child("profile");
+                        friendDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                PersonItemList FriendList = snapshot.getValue(PersonItemList.class);
+
+                                arrayList.add(FriendList); // 담은 데이터들을 배열리스트에 넣고 리사이클러뷰로 보낼 준비
+                                adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                            }
+                        });
                     }
-                    adapter.notifyDataSetChanged(); // 리스트 저장 및 새로고침
                 }
 
                 @Override

@@ -22,15 +22,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+interface OnItemClickListener{
+    void onAcceptClick(View view, int position); //추가
+    void onRefuseClick(View view, int position);//삭제
+}
+
 public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdapter.ViewHolder> {
 
+    //리스너 객체 참조를 어댑터에 전달 메서드
+    private OnItemClickListener mListener = null;
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mListener = listener;
+    }
 
     private ArrayList<PersonItemList> FRIENDPROF_data;
-    private FirebaseDatabase database, acceptDatabase, friendDatabase, numDatabase;
-    private DatabaseReference databaseReference, acceptReference, friendReference, numRefernece;
-
-    private String friendEmail, friendName, userName;
-    private FriendRequestItemList friendInfo;
     Context context;
 
 
@@ -57,93 +62,27 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                 @Override
                 public void onClick(View view) {
                     //TODO : 친구 요청 수락 처리
-
-                    userName = Setting_main.DBName;
-                    Friend_main.friendNum++;
-
-                    database = FirebaseDatabase.getInstance();
-                    databaseReference = database.getReference("user").child(MainActivity.userEmail).child("request");
-                    databaseReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            friendInfo = snapshot.getValue(FriendRequestItemList.class);
-
-                            friendEmail = snapshot.getValue(String.class);
-
-                            databaseReference.child(friendEmail).removeValue();
+                    int position = getAdapterPosition();
+                    if (position!=RecyclerView.NO_POSITION){
+                        if (mListener!=null){
+                            mListener.onAcceptClick(view, position);
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-                        }
-                    });
-
-                    acceptDatabase = FirebaseDatabase.getInstance();
-                    acceptReference = acceptDatabase.getReference("user").child(MainActivity.userEmail).child("friend");
-                    acceptReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            databaseReference.child(friendEmail).setValue(friendInfo);
-
-                            numRefernece = FirebaseDatabase.getInstance().getReference();
-                            numRefernece.child("user").child(MainActivity.userEmail).child("friendNum").setValue(Friend_main.friendNum);
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-                        }
-                    });
-
-                    friendDatabase = FirebaseDatabase.getInstance();
-                    friendReference = friendDatabase.getReference("user").child(friendEmail).child("friend");
-                    friendReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            FriendRequestItemList userInfo = new FriendRequestItemList(MainActivity.userEmail, userName);
-
-                            acceptReference.child(MainActivity.userEmail).setValue(userInfo);
-
-                            numRefernece = FirebaseDatabase.getInstance().getReference();
-                            numRefernece.child("user").child(friendEmail).child("friendNum").setValue(Friend_main.friendNum);
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-                        }
-                    });
-
-
+                    }
                     System.out.println(tv_name.getText()+"요청 수락!");
                 }
             });
 
             btn_refuse.setClickable(true);
-
             btn_refuse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     //TODO : 친구 요청 거절 처리
-                    database = FirebaseDatabase.getInstance();
-                    databaseReference = database.getReference("user").child(MainActivity.userEmail).child("request");
-                    databaseReference.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            friendInfo = snapshot.getValue(FriendRequestItemList.class);
-
-                            friendEmail = snapshot.getValue(String.class);
-
-                            databaseReference.child(friendEmail).removeValue();
+                    int position = getAdapterPosition();
+                    if (position!=RecyclerView.NO_POSITION){
+                        if (mListener!=null){
+                            mListener.onRefuseClick(view, position);
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
-                        }
-                    });
-
+                    }
                     System.out.println(tv_name.getText()+"요청 거절!");
                 }
             });

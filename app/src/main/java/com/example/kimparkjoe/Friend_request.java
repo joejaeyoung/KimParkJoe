@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,12 +23,11 @@ import java.util.TreeMap;
 public class Friend_request extends AppCompatActivity {
 
     private ArrayList<PersonItemList> FRIENDPROF_list = new ArrayList<>();
-    private ArrayList<Number> PROFILE_list = new ArrayList<>();
-    private FirebaseDatabase database, friendDatabase;
-    private DatabaseReference databaseReference, friendReference;
+    private FirebaseDatabase database, friendDatabase, acceptDatabase, numDatabase;
+    private DatabaseReference databaseReference, friendReference, acceptReference, numRefernece;
     private FriendRequestAdapter adapter;
 
-    public static TreeMap<String, Number> friendRequestMap = new TreeMap<>();
+    private String fEmail, fName, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +44,15 @@ public class Friend_request extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    friendRequestMap.clear(); // 기존 배열리스트가 존재하지않게 초기화
-                    int num = 0;
                     FRIENDPROF_list.clear();
                     for (DataSnapshot friendInfo : dataSnapshot.getChildren()) {
                         FriendRequestItemList friendList = friendInfo.getValue(FriendRequestItemList.class);
 
-                        String friendEmail = friendList.getEmail();
+                        fEmail = friendList.getEmail();
 
-                        friendReference = friendDatabase.getInstance().getReference("user").child(friendEmail).child("profile");
+                        System.out.println(fEmail);
+
+                        friendReference = friendDatabase.getInstance().getReference("user").child(fEmail).child("profile");
                         friendReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -59,10 +60,12 @@ public class Friend_request extends AppCompatActivity {
                                 PersonItemList profile = snapshot.getValue(PersonItemList.class);
 
                                 String image = profile.getProfile();
-                                String name = profile.getName();
+                                fName = profile.getName();
+
+                                System.out.println(fName);
 
                                 FRIENDPROF_list.add(profile);
-                                //friendRequestMap.put(name, (Number) num);
+                                adapter.notifyDataSetChanged();
                             }
 
                             @Override
@@ -72,9 +75,9 @@ public class Friend_request extends AppCompatActivity {
                             }
                         });
                     }
-                } else {
+                }
+                else {
                     isNotRequest();
-                    finish();
                 }
             }
             @Override
@@ -84,31 +87,69 @@ public class Friend_request extends AppCompatActivity {
             }
         });
 
-
-
-        //TODO : DB에서 친구 요청을 보낸 사용자의 프로필 사진 숫자와 이름을 불러옴
-        /*{
-            friendRequestMap.put("REQUESTER_1",1);
-            friendRequestMap.put("REQUESTER_2",2);
-            friendRequestMap.put("REQUESTER_3",3);
-            friendRequestMap.put("REQUESTER_4",4);
-            friendRequestMap.put("REQUESTER_5",5);
-        }
-
-
-
-        for(String key : friendRequestMap.keySet()){
-            FRIENDPROF_list.add(key);
-            PROFILE_list.add(friendRequestMap.get(key));
-        }
-
-         */
-
         RecyclerView recyclerView = findViewById(R.id.rv_received_request_container);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         adapter = new FriendRequestAdapter(FRIENDPROF_list, this);
         recyclerView.setAdapter(adapter);
+
+        //클릭 이벤트 처리
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            String requestPath = "user/" + MainActivity.userEmail + "/request";
+            @Override
+            public void onAcceptClick(View view, int position) {
+                int Num = MainActivity.friendNum++;
+
+                databaseReference = database.getInstance().getReference();
+                databaseReference.child(requestPath).child(fEmail).removeValue();
+
+                acceptDatabase = FirebaseDatabase.getInstance();
+                acceptReference = acceptDatabase.getReference("user").child(MainActivity.userEmail).child("friend");
+                acceptReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        FriendRequestItemList acceptInfo = new FriendRequestItemList(fEmail, fName);
+
+                        acceptReference.child(fEmail).setValue(acceptInfo);
+
+                        numRefernece = FirebaseDatabase.getInstance().getReference();
+                        numRefernece.child("user").child(MainActivity.userEmail).child("friendNum").setValue(Num);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                    }
+                });
+
+                friendDatabase = FirebaseDatabase.getInstance();
+                friendReference = friendDatabase.getReference("user").child(fEmail).child("friend");
+                friendReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        FriendRequestItemList userInfo = new FriendRequestItemList(MainActivity.userEmail, userName);
+
+                        friendReference.child(MainActivity.userEmail).setValue(userInfo);
+
+                        numRefernece = FirebaseDatabase.getInstance().getReference();
+                        numRefernece.child("user").child(fEmail).child("friendNum").setValue(Num);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                    }
+                });
+
+            }
+
+            @Override
+            public void onRefuseClick(View view, int position) {
+                databaseReference = database.getInstance().getReference();
+                databaseReference.child(requestPath).child(fEmail).removeValue();
+            }
+        });
     }
 
     private void isNotRequest() {

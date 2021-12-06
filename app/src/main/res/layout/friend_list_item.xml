@@ -8,13 +8,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardBackgroundView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:cardCornerRadius="70dp"
+            android:layout_marginRight="10dp"
+            app:cardCornerRadius="100dp"
             app:cardElevation="0dp" >
 
             <ImageView
@@ -55,7 +59,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.4"
-                    android:text="상태메세지"
                     android:gravity="center|left"
                     android:textStyle="bold"
                     android:textSize="10dp"

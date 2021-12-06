@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     public static Context context_main;
     public static Activity activity_main;
 
+    public static int friendNum;
+
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -104,6 +106,22 @@ public class MainActivity extends AppCompatActivity {
         friend_main = new Friend_main();
         setting_main = new Setting_main();
         setFrag(0);
+
+        databaseReference = database.getInstance().getReference();
+
+        databaseReference.child("user").child(MainActivity.userEmail).child("friendNum").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int number = dataSnapshot.getValue(int.class);
+                friendNum = number;
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
     }
 
     private void setFrag(int n){

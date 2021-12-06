@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.ViewHolder>{
 
@@ -42,7 +43,11 @@ public class PersonListAdapter extends RecyclerView.Adapter<PersonListAdapter.Vi
                 .load(arrayList.get(position).getProfile())
                 .into(holder.image_friend);
         holder.name_friend.setText(arrayList.get(position).getName());
-        holder.message_friend.setText(arrayList.get(position).getMessage());
+        if(Objects.equals(arrayList.get(position).getMessage(), "null")) {
+        }
+        else {
+            holder.message_friend.setText(arrayList.get(position).getMessage());
+        }
     }
 
     // 몇개의 데이터를 리스트로 뿌려줘야하는지 반드시 정의해줘야한다
