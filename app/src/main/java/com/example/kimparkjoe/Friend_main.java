@@ -88,7 +88,7 @@ public class Friend_main extends Fragment implements View.OnClickListener{
 
             databaseReference = database.getInstance().getReference();
 
-            databaseReference.child("user").child(MainActivity.userEmail).child("friend").child("accept");
+            databaseReference.child("user").child(MainActivity.userEmail).child("friend");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

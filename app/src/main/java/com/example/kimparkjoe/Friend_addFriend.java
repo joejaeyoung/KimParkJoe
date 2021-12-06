@@ -68,7 +68,6 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // TODO : DB에서 et_keyword에 입력되어 있는 것으로 유저 정보를 불러옴
     private void getUserFromDB(){
         friendEmail = String.valueOf(et_keyword.getText());
 
@@ -113,14 +112,13 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // TODO : 위에서 찾은 유저에게 친구 요청을 보냄
     private void sendFriendRequest(){
         FriendRequestItemList userInfo = new FriendRequestItemList(MainActivity.userEmail, userName);
         System.out.println("User email is " + MainActivity.userEmail + " User name is " + userName);
 
         databaseReference = database.getInstance().getReference();
 
-        databaseReference.child("user").child(friendEmail).child("friend").child("request").child(MainActivity.userEmail).setValue(userInfo);
+        databaseReference.child("user").child(friendEmail).child("request").child(MainActivity.userEmail).setValue(userInfo);
 
         System.out.println("Complete!!");
     }

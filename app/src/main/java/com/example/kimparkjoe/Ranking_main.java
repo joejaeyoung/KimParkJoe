@@ -95,12 +95,14 @@ public class Ranking_main extends Fragment  {
         });
 
         if(Setting_main.RankTypeNum == 0) {
-            friendReference = friendDatabase.getInstance().getReference().child("user").child(MainActivity.userEmail).child("friend").child("accept");
+            friendReference = friendDatabase.getInstance().getReference().child("user").child(MainActivity.userEmail).child("friend");
             friendReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot friendInfo : dataSnapshot.getChildren()) {
-                        String friendEmail = friendInfo.getValue(String.class);
+                        FriendRequestItemList friendList = friendInfo.getValue(FriendRequestItemList.class);
+
+                        String friendEmail = friendList.getEmail();
 
                         databaseReference = database.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).child(friendEmail);
                         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -109,15 +111,11 @@ public class Ranking_main extends Fragment  {
                                 arrayList.clear();
                                 // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                                 if(dataSnapshot.exists()) {
-                                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                                        RankingItemList rankingItemList = snapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-
-                                        arrayList.add(rankingItemList);
-                                    }
-                                    adapter.notifyDataSetChanged();
+                                    RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                                    arrayList.add(rankingItemList);
                                 }
                                 else {
-                                    isNotExists();
+                                    System.out.println(friendEmail + "의 Ranking이 존재하지 않습니다.");
                                 }
                             }
                             @Override
@@ -127,6 +125,7 @@ public class Ranking_main extends Fragment  {
                             }
                         });
                     }
+                    adapter.notifyDataSetChanged();
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {

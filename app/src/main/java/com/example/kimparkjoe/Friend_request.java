@@ -24,38 +24,45 @@ public class Friend_request extends AppCompatActivity {
     private ArrayList<Number> PROFILE_list = new ArrayList<>();
     private FirebaseDatabase database, friendDatabase;
     private DatabaseReference databaseReference, friendReference;
+    private FriendRequestAdapter adapter;
 
-    public static TreeMap<PersonItemList, Number> friendRequestMap = new TreeMap<>();
+    public static TreeMap<String, Number> friendRequestMap = new TreeMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_request);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        databaseReference.child("user").child(MainActivity.userEmail).child("friend").child("request");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        database = FirebaseDatabase.getInstance();
+
+        String path = "user/" + MainActivity.userEmail + "/request";
+
+        databaseReference = database.getReference(path);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
+                if (dataSnapshot.exists()) {
                     friendRequestMap.clear(); // 기존 배열리스트가 존재하지않게 초기화
                     int num = 0;
+                    FRIENDPROF_list.clear();
                     for (DataSnapshot friendInfo : dataSnapshot.getChildren()) {
                         FriendRequestItemList friendList = friendInfo.getValue(FriendRequestItemList.class);
 
                         String friendEmail = friendList.getEmail();
 
-                        friendReference = friendDatabase.getReference(friendEmail).child("profile");
+                        friendReference = friendDatabase.getInstance().getReference("user").child(friendEmail).child("profile");
                         friendReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                                 PersonItemList profile = snapshot.getValue(PersonItemList.class);
 
+                                String image = profile.getProfile();
+                                String name = profile.getName();
 
                                 FRIENDPROF_list.add(profile);
-                                friendRequestMap.put(profile, (Number) num);
+                                //friendRequestMap.put(name, (Number) num);
                             }
 
                             @Override
@@ -65,8 +72,7 @@ public class Friend_request extends AppCompatActivity {
                             }
                         });
                     }
-                }
-                else {
+                } else {
                     isNotRequest();
                     finish();
                 }
@@ -79,6 +85,7 @@ public class Friend_request extends AppCompatActivity {
         });
 
 
+
         //TODO : DB에서 친구 요청을 보낸 사용자의 프로필 사진 숫자와 이름을 불러옴
         /*{
             friendRequestMap.put("REQUESTER_1",1);
@@ -88,17 +95,19 @@ public class Friend_request extends AppCompatActivity {
             friendRequestMap.put("REQUESTER_5",5);
         }
 
-         */
 
-        for(PersonItemList key : friendRequestMap.keySet()){
+
+        for(String key : friendRequestMap.keySet()){
             FRIENDPROF_list.add(key);
             PROFILE_list.add(friendRequestMap.get(key));
         }
 
+         */
+
         RecyclerView recyclerView = findViewById(R.id.rv_received_request_container);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FriendRequestAdapter adapter = new FriendRequestAdapter(FRIENDPROF_list, PROFILE_list);
+        adapter = new FriendRequestAdapter(FRIENDPROF_list, this);
         recyclerView.setAdapter(adapter);
     }
 
