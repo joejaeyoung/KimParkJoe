@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-interface OnItemClickListener{
+interface OnRequestItemClickListener{
     void onAcceptClick(View view, int position); //추가
     void onRefuseClick(View view, int position);//삭제
 }
@@ -30,9 +30,9 @@ interface OnItemClickListener{
 public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdapter.ViewHolder> {
 
     //리스너 객체 참조를 어댑터에 전달 메서드
-    private OnItemClickListener mListener = null;
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.mListener = listener;
+    private OnRequestItemClickListener rListener = null;
+    public void setOnRequestItemClickListener(OnRequestItemClickListener listener) {
+        this.rListener = listener;
     }
 
     private ArrayList<PersonItemList> FRIENDPROF_data;
@@ -61,11 +61,10 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
             btn_accept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO : 친구 요청 수락 처리
                     int position = getAdapterPosition();
                     if (position!=RecyclerView.NO_POSITION){
-                        if (mListener!=null){
-                            mListener.onAcceptClick(view, position);
+                        if (rListener!=null){
+                            rListener.onAcceptClick(view, position);
                         }
                     }
                     System.out.println(tv_name.getText()+"요청 수락!");
@@ -76,11 +75,10 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
             btn_refuse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO : 친구 요청 거절 처리
                     int position = getAdapterPosition();
                     if (position!=RecyclerView.NO_POSITION){
-                        if (mListener!=null){
-                            mListener.onRefuseClick(view, position);
+                        if (rListener!=null){
+                            rListener.onRefuseClick(view, position);
                         }
                     }
                     System.out.println(tv_name.getText()+"요청 거절!");

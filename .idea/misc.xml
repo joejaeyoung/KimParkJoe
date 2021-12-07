@@ -26,18 +26,33 @@
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/ranking_pager_item.xml" value="0.2" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/test_selectweek_item.xml" value="0.14010416666666667" />
         <entry key="..\:/Users/Master/AndroidStudioProjects/KimParkJoe/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/btn_to_bookmark.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_check_40.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_close_40_white.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_group_35.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_achievement_list.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_add_friend.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_main.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_request.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_zero.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_login_main.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_list.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_main.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_method_select.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_select.xml" value="0.1" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_memorize_touch.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_ranking_main.xml" value="0.1196319018404908" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_register_main.xml" value="0.15" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_setting_main.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/activity_test_result_main.xml" value="0.1" />
-        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/friend_list_item.xml" value="0.14" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/friend_list_item.xml" value="0.11" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/item_friend_request.xml" value="0.12" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/item_memorize_list.xml" value="0.12" />
+        <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/item_wrong_ans_list.xml" value="0.1" />
         <entry key="..\:/Users/SAMSUNG/StudioProjects/KimParkJoe/app/src/main/res/layout/ranking_pager_item.xml" value="0.1196319018404908" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_achievement_list.xml" value="0.264" />
         <entry key="..\:/Users/User/AndroidStudioProjects/KimParkJoe/app/src/main/res/layout/activity_friend_main.xml" value="0.25317028985507245" />

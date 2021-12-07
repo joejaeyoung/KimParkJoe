@@ -1,24 +1,46 @@
 package com.example.kimparkjoe;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
+
+interface OnMemItemClickListener{
+    void onBookMarkClick(View view, int position); //즐겨찾기 추가
+    void onDelBookMarkClick(View view, int position); //즐겨찾기 삭제
+}
 
 public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapter.ViewHolder>{
 
     private ArrayList<String> ENG_Data = null;
     private ArrayList<String> KOR_Data = null;
+    Button btn_bookmark;
+
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
+
+    //리스너 객체 참조를 어댑터에 전달 메서드
+    private OnMemItemClickListener mListener = null;
+    public void setOnMemItemClickListener(OnMemItemClickListener listener) {
+        this.mListener = listener;
+    }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
     MemorizeListAdapter(ArrayList<String> ENG_list, ArrayList<String> KOR_list){
@@ -29,7 +51,6 @@ public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapte
     // 뷰홀더
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView tv_ENG, tv_KOR;
-        ImageButton btn_bookmark;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -42,7 +63,20 @@ public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapte
             btn_bookmark.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO : 북마크 추가 버튼 구현
+                    int position = getAdapterPosition();
+
+                    if (position!=RecyclerView.NO_POSITION){
+                        if (mListener!=null){
+                            if(btn_bookmark.isSelected() == false) {
+                                btn_bookmark.setSelected(true);
+                                mListener.onBookMarkClick(view, position);
+                            }
+                            else if(btn_bookmark.isSelected() == true) {
+                                btn_bookmark.setSelected(false);
+                                mListener.onDelBookMarkClick(view, position);
+                            }
+                        }
+                    }
                 }
             });
         }
@@ -61,12 +95,30 @@ public class MemorizeListAdapter extends RecyclerView.Adapter<MemorizeListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MemorizeListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MemorizeListAdapter.ViewHolder viewHolder, int position) {
         String ENG_word = ENG_Data.get(position);
-        holder.tv_ENG.setText(ENG_word);
+        viewHolder.tv_ENG.setText(ENG_word);
         String KOR_word = KOR_Data.get(position);
-        holder.tv_KOR.setText(KOR_word);
-        //TODO : 즐겨찾기 IMAGE BUTTON 넣기
+        viewHolder.tv_KOR.setText(KOR_word);
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("Bookmark").child(ENG_word);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    btn_bookmark.setSelected(true);
+                }
+                else {
+                    btn_bookmark.setSelected(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
     }
 
     @Override

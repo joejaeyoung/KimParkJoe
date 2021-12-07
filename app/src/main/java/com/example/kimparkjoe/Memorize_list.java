@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,6 +22,8 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
     private ArrayList<WordItemList> arrayList;
     private ArrayList<String> ENG_list, KOR_list;
     private TextView upperBar;
+    private FirebaseDatabase bookmarkDatabase;
+    private DatabaseReference bookmarkReference;
 
     MainActivity mainActivity;
     Word_main wordMain;
@@ -53,8 +58,21 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         RecyclerView recyclerView = findViewById(R.id.rv_memorize_list_content );
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        MemorizeListAdapter adapter = new MemorizeListAdapter(ENG_list,KOR_list);
+        MemorizeListAdapter adapter = new MemorizeListAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnMemItemClickListener(new OnMemItemClickListener() {
+            @Override
+            public void onBookMarkClick(View view, int position) {
+                ((MainActivity)MainActivity.context_main).putBookmarkWordsToDB(ENG_list.get(position), KOR_list.get(position));
+            }
+
+            @Override
+            public void onDelBookMarkClick(View view, int position) {
+                bookmarkReference = bookmarkDatabase.getInstance().getReference();
+                bookmarkReference.child("user").child(MainActivity.userEmail).child("Bookmark").removeValue();
+            }
+        });
     }
 
     @Override

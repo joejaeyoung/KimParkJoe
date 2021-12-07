@@ -27,11 +27,13 @@
             android:text="temp2"
             android:gravity="center"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_memorize_list_bookmark"
-            android:layout_width="70dp"
-            android:layout_height="70dp"/>
-
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btn_to_bookmark" />
 
     </LinearLayout>
 

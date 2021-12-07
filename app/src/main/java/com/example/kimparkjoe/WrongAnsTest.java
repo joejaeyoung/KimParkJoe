@@ -34,7 +34,7 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+/*
         //TODO : DB에 정보 추가 후 아래 코드 삭제
         {
             testWordMap.put("temp_1.1","temp_1.2");
@@ -43,6 +43,8 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
             testWordMap.put("temp_4.1","temp_4.2");
             testWordMap.put("temp_5.1","temp_5.2");
         }
+
+ */
 
         setContentView(R.layout.activity_wrong_ans_test);
         findViewById(R.id.btn_wrong_ans_touch_pre).setOnClickListener(this);
@@ -58,16 +60,18 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
         KOR_list = new ArrayList<>();
 
         if(WrongANS_main.isBookMark){
+            testWordMap = WrongANS_bookmark_main.bookmarkWordMap;
             upperBar.setText("즐겨찾기");
             System.out.println("즐겨찾기 test -> "+testWordMap);
-            for(String key:testWordMap.keySet()){
+            for(String key:WrongANS_bookmark_main.bookmarkWordMap.keySet()){
                 ENG_list.add(key);
-                KOR_list.add(testWordMap.get(key));
+                KOR_list.add(WrongANS_bookmark_main.bookmarkWordMap.get(key));
             }
             System.out.println("ENG_list : "+ENG_list);
             System.out.println("KOR_list : "+KOR_list);
         }
         else {
+            testWordMap = WrongANS_wrongquestion_main.wrongWordMap;
             upperBar.setText("틀린 단어");
             System.out.println("오답 노트 test -> "+testWordMap);
             for(String key: testWordMap.keySet()){

@@ -95,7 +95,7 @@ public class Friend_request extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //클릭 이벤트 처리
-        adapter.setOnItemClickListener(new OnItemClickListener() {
+        adapter.setOnRequestItemClickListener(new OnRequestItemClickListener() {
             String requestPath = "user/" + MainActivity.userEmail + "/request";
             @Override
             public void onAcceptClick(View view, int position) {

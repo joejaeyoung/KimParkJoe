@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         //화면 전환
         NavigationBarView navigationBarView = findViewById(R.id.navigationView);
+        navigationBarView.setItemIconTintList(null);
         navigationBarView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -193,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("user").child(userEmail).child("Bookmark");
 
-        WrongANS_bookmark_main.bookmarkWordMap.clear();
         ANSItemList BookmarkWord = new ANSItemList(Eng, Kor);
 
         databaseReference.child(Eng).setValue(BookmarkWord);
@@ -205,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("user").child(userEmail).child("Bookmark");
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -219,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
                     WrongANS_bookmark_main.bookmarkWordMap.put(Eng, Kor);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // 디비를 가져오던중 에러 발생 시
@@ -235,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("user").child(userEmail).child("Wrong");
 
-        WrongANS_wrongquestion_main.wrongWordMap.clear();
         ANSItemList WrongWord = new ANSItemList(Eng, Kor);
 
         databaseReference.child(Eng).setValue(WrongWord);

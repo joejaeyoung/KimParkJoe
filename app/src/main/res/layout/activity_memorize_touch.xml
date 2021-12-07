@@ -41,12 +41,14 @@
             android:text="apple"
             android:textSize="80dp" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_memorize_touch_bookmark"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_above="@id/tv_memorize_touch_word"
-            android:layout_alignRight="@id/tv_memorize_touch_word" />
+            android:layout_alignRight="@id/tv_memorize_touch_word"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_to_bookmark" />
 
     </RelativeLayout>
 

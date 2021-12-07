@@ -27,10 +27,13 @@
             android:text="temp2"
             android:gravity="center"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_wrong_ans_item_delete"
-            android:layout_width="70dp"
-            android:layout_height="70dp"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/icon_x_mark" />
 
 
     </LinearLayout>

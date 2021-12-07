@@ -35,14 +35,7 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrong_ans_bookmark_main);
 
-        //TODO : DB에 정보 추가 후 아래 코드 삭제
-        {
-            bookmarkWordMap.put("temp_1.1","temp_1.2");
-            bookmarkWordMap.put("temp_2.1","temp_2.2");
-            bookmarkWordMap.put("temp_3.1","temp_3.2");
-            bookmarkWordMap.put("temp_4.1","temp_4.2");
-            bookmarkWordMap.put("temp_5.1","temp_5.2");
-        }
+        ((MainActivity)MainActivity.context_main).getBookmarkWordsFromDB();
 
         btn_start = (Button) findViewById(R.id.btn_wrong_ans_bookmark_start);
         btn_start.setOnClickListener(this);
@@ -55,12 +48,20 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
             ENG_list.add(key);
             KOR_list.add(bookmarkWordMap.get(key));
         }
+
         RecyclerView recyclerView = findViewById(R.id.rv_wrong_ans_bookmark);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         WrongANSAdapter adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnWrongtItemClickListener(new OnWrongItemClickListener() {
+            @Override
+            public void onDeleteClick(View view, int position) {
+                databaseReference = database.getInstance().getReference();
+                databaseReference.child("user").child(MainActivity.userEmail).child("Bookmark").child(ENG_list.get(position)).removeValue();
+            }
+        });
     }
 
     @Override

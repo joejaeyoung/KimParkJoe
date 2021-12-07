@@ -1,12 +1,21 @@
 package com.example.kimparkjoe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +30,10 @@ public class Memorize_select extends AppCompatActivity {
     private ImageView firstCheckIMG, secondCheckIMG, thirdCheckIMG, forthCheckIMG;
     private ImageView firstXIMG, secondXIMG, thirdXIMG, forthXIMG;
     private TextView upperBar;
+    private Button BookMark;
+
+    private FirebaseDatabase database, bookmarkDatabase;
+    private DatabaseReference databaseReference, bookmarkReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +51,8 @@ public class Memorize_select extends AppCompatActivity {
         selection_4 = (TextView) findViewById(R.id.tv_memorize_select_FORTH);
         selection_4.setOnClickListener(onClickListener);
         findViewById(R.id.btn_memorize_select_quit).setOnClickListener(onClickListener);
-        findViewById(R.id.btn_memorize_select_bookmark).setOnClickListener(onClickListener);
+        BookMark = findViewById(R.id.btn_memorize_select_bookmark);
+        BookMark.setOnClickListener(onClickListener);
         firstCheckIMG = findViewById(R.id.img_memorize_check_FIRST);
         firstXIMG = findViewById(R.id.img_memorize_x_FIRST);
         secondCheckIMG = findViewById(R.id.img_memorize_check_SECOND);
@@ -91,13 +105,34 @@ public class Memorize_select extends AppCompatActivity {
                     finish();
                     break;
                 case R.id.btn_memorize_select_bookmark:
-                    //TODO : 북마크 추가 구현
+                    getBookMark();
+                    break;
                 default:
                     answerSelected((TextView) view);
 
             }
         }
     };
+
+    private void getBookMark(){
+        BookMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(BookMark.isSelected() == false) {
+                    BookMark.setSelected(true);
+
+                    ((MainActivity)MainActivity.context_main).putBookmarkWordsToDB(ENG_list.get(position), KOR_list.get(position));
+
+                }
+                else if(BookMark.isSelected() == true){
+                    BookMark.setSelected(false);
+
+                    bookmarkReference = bookmarkDatabase.getInstance().getReference();
+                    bookmarkReference.child("user").child(MainActivity.userEmail).child("Bookmark").removeValue();
+                }
+            }
+        });
+    }
 
     private void goPreWord(){
         System.out.println("pushed pre!");
@@ -123,6 +158,26 @@ public class Memorize_select extends AppCompatActivity {
         // 상단 단어 바꾸기
         if(currShownIsENG) wordShown.setText(ENG_list.get(position));
         else wordShown.setText(KOR_list.get(position));
+
+        //즐겨찾기 여부 표시
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("Bookmark").child(ENG_list.get(position));
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    BookMark.setSelected(true);
+                }
+                else {
+                    BookMark.setSelected(false);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                    Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+                }
+            });
 
         // 하단 선택지 바꾸기
         // TODO : 나머지 선택지도 DB에서 긁어서 넣어야함

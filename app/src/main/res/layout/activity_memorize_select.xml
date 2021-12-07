@@ -40,12 +40,15 @@
             android:text="apple"
             android:textSize="70dp" />
 
-        <ImageButton
+        <Button
             android:id="@+id/btn_memorize_select_bookmark"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignTop="@id/tv_memorize_select_word"
-            android:layout_alignRight="@id/tv_memorize_select_word" />
+            android:layout_alignRight="@id/tv_memorize_select_word"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_to_bookmark" />
 
         <TextView
             android:id="@+id/tv_memorize_select_FIRST"
