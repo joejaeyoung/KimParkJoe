@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,8 @@ public class Friend_request extends AppCompatActivity {
     private FriendRequestAdapter adapter;
 
     private String fEmail, fName, userName;
+
+    private ImageButton finishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,10 +154,33 @@ public class Friend_request extends AppCompatActivity {
                 databaseReference.child(requestPath).child(fEmail).removeValue();
             }
         });
+
+        finishBtn = findViewById(R.id.btn_friend_request_close);
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void isNotRequest() {
         Toast.makeText(this, "친구요청이 없습니다.", Toast.LENGTH_SHORT).show();
         System.out.println("NO REQUEST");
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //배경 클릭시 꺼지는거 막음
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        //안드로이드 백버튼 막기
+        return ;
     }
 }

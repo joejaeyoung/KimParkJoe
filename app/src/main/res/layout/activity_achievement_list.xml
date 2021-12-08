@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:text="도전과제"
-        android:textAlignment="center"
-        android:textSize="50dp"/>
+        android:background="@color/teal_200"
+        android:textSize="50dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_achieve_list"

@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Random;
+
 
 public class Test_testing_main extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,13 +29,9 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private int position;
     private boolean currShownIsEng; // true면 영어 띄움
     private TextView upperBar, totalNum;
+    private TextView testTimer;
+    private CountDownTimer countDownTimer;
 
-    //타이머
-    private TextView test_timer = (TextView)findViewById(R.id.test_timer);
-    String conversionTime;
-    {
-        conversionTime = "001000";
-    }
 
 
     public static int correct_ans_num;
@@ -39,10 +39,15 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
 
     MainActivity mainActivity;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_testing_main);
+        testTimer = (TextView) findViewById(R.id.test_timer);
+
+        countDownTimer();
+        countDownTimer.start();
 
         test_testing_activity = Test_testing_main.this;
 
@@ -91,6 +96,17 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         shuffleList();
         setRandAnsNum();
         setTextWordShown();
+    }
+
+    public void countDownTimer(){
+        countDownTimer = new CountDownTimer(90000, 1000){
+            public void onTick(long millisUntilFinished){
+                testTimer.setText(String.valueOf(millisUntilFinished/1000));
+            }
+            public void onFinish(){
+                submit();
+            }
+        };
     }
 
     @Override

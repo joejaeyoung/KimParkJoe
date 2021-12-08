@@ -221,7 +221,7 @@
                 android:text="가입하기"
                 android:textColor="#080808"
                 android:textStyle="bold"
-                android:backgroundTint="#AAC9CC"/>
+                android:backgroundTint="#AAC9CC" />
 
         </LinearLayout>
 
