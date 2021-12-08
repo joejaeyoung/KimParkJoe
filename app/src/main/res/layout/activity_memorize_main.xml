@@ -10,7 +10,8 @@
         android:layout_height="80dp"
         android:gravity="start|center"
         android:text="  암기"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:background="@color/teal_200"/>
     <ScrollView
         android:id="@+id/sv_memorize_main"
         android:layout_width="match_parent"

@@ -108,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:text="Yes"
                     android:textSize="30dp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    />
 
                 <View
                     android:layout_width="0dp"
