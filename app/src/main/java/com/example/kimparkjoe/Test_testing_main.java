@@ -98,7 +98,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     }
 
     public void countDownTimer(){
-        countDownTimer = new CountDownTimer(90000, 10000){
+        countDownTimer = new CountDownTimer(90000, 1000){
             public void onTick(long millisUntilFinished){
                 testTimer.setText(String.valueOf(millisUntilFinished/1000));
             }
