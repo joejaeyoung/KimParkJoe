@@ -42,7 +42,7 @@
             android:layout_weight="0.8"/>
 
         <ImageButton
-            android:id="@+id/btn_friend_request"
+            android:id="@+id/btn_friend_zero_request"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
@@ -57,7 +57,7 @@
             android:layout_weight="0.3"/>
 
         <ImageButton
-            android:id="@+id/btn_friend_add"
+            android:id="@+id/btn_friend_zero_add"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
