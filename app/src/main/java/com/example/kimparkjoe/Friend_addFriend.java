@@ -7,6 +7,7 @@ import androidx.arch.core.executor.TaskExecutor;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,6 +35,7 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
     private int isFriendExist = 0;
     private FirebaseDatabase database, addDatabase;
     private DatabaseReference databaseReference, addReference;
+    private ImageButton finishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,15 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
         btn_search.setOnClickListener(this);
         btn_send_request = (ImageButton) findViewById(R.id.btn_send_friend_request);
         btn_send_request.setOnClickListener(this);
+        finishBtn = findViewById(R.id.btn_friend_add_close);
+
 
         userName = Setting_main.DBName;
+
+        finishBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){finish();}
+        });
 
     }
 
@@ -135,5 +144,19 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
             return false;
         }
         return true;
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        //배경 클릭시 꺼지는거 막음
+        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        //안드로이드 백버튼 막음
+        return ;
     }
 }
