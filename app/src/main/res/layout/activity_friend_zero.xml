@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,22 +39,30 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="0.3"/>
+            android:layout_weight="0.8"/>
 
         <ImageButton
-            android:id="@+id/btn_friend_zero_request"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:id="@+id/btn_friend_request"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+
             android:scaleType="centerCrop"
             android:src="@drawable/friend_bell" />
 
-        <ImageButton
-            android:id="@+id/btn_friend_zero_add"
+        <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:src="@drawable/friend_plus"
+            android:layout_weight="0.3"/>
+
+        <ImageButton
+            android:id="@+id/btn_friend_add"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/board_layout"
+            android:src="@drawable/add"
             android:scaleType="centerCrop"/>
 
 
