@@ -12,12 +12,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Random;
 
 public class Test_testing_main extends AppCompatActivity implements View.OnClickListener {
 
-    private ArrayList<String> ENG_list, KOR_list, User_ans_list;
+    private ArrayList<String> ENG_list, KOR_list, User_ans_list, Part_list;
     private ArrayList<Integer> ans_num_list, User_ans_index;
+    public static ArrayList<ANSItemList> WrongWord = new ArrayList<>();
     private TextView wordShown, selection_1, selection_2, selection_3, selection_4;
     private ImageView check_1, check_2, check_3, check_4;
     private int position;
@@ -70,19 +72,18 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         upperBar = (TextView)findViewById(R.id.tv_testing_upper_bar);
         upperBar.setText(" "+Test_selectweeks_main.curr_week+"주차");
 
-        ENG_list = new ArrayList<>();
-        KOR_list = new ArrayList<>();
-
         position = 0;
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
+        Part_list = new ArrayList<>();
         User_ans_list = new ArrayList<>();
         User_ans_index = new ArrayList<>();
         ans_num_list = new ArrayList<>();
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
+            Part_list.add(MainActivity.wordMap.get(key).getPart());
             User_ans_list.add("temp_answer");
             User_ans_index.add(-1);
         }
@@ -135,9 +136,84 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
         Collections.shuffle(ENG_list);
         KOR_list.clear();
         for(String key : ENG_list){
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
+            Part_list.add(MainActivity.wordMap.get(key).getPart());
         }
     }
+
+    private void shuffleWord(String part) {
+        int num[] = new int[4];
+        Random rand = new Random();
+
+        System.out.println("part : " + part);
+
+        if(Objects.equals(part, "noun")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(426);
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "verb")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(127) + 427;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "adverb")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(97) + 755;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "adjective")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(199) + 555;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+
+        selection_1.setText(MainActivity.part_Kor_list.get(num[0]));
+        selection_2.setText(MainActivity.part_Kor_list.get(num[1]));
+        selection_3.setText(MainActivity.part_Kor_list.get(num[2]));
+        selection_4.setText(MainActivity.part_Kor_list.get(num[3]));
+    }
+
     private void setRandAnsNum(){
         Random rand = new Random();
         int r=-1;
@@ -151,11 +227,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private void setTextWordShown(){
         wordShown.setText(ENG_list.get(position));
 
-        // TODO : 나머지 선택지도 DB에서 긁어서 넣어야함
-        selection_1.setText("TEMP_WORD_1");
-        selection_2.setText("TEMP_WORD_2");
-        selection_3.setText("TEMP_WORD_3");
-        selection_4.setText("TEMP_WORD_4");
+        shuffleWord(Part_list.get(position));
 
         switch(ans_num_list.get(position)){
             case 1:
@@ -229,10 +301,16 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private void submit(){
         int pos = 0;
         correct_ans_num =0;
+        WrongWord.clear();
         for(String key : KOR_list){
             if(User_ans_list.get(pos).equals(KOR_list.get(pos))){
                 correct_ans_num++;
                 System.out.println("정답!");
+            }
+            else {
+                ANSItemList word = new ANSItemList(ENG_list.get(pos), KOR_list.get(pos));
+                WrongWord.add(word);
+                System.out.println("오답");
             }
             pos++;
         }

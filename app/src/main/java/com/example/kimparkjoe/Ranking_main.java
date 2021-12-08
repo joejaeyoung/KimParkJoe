@@ -112,7 +112,9 @@ public class Ranking_main extends Fragment  {
                                 // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                                 if(dataSnapshot.exists()) {
                                     RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                                    System.out.println(rankingItemList.getName() + rankingItemList.getScore());
                                     arrayList.add(rankingItemList);
+                                    adapter.notifyDataSetChanged();
                                 }
                                 else {
                                     System.out.println(friendEmail + "의 Ranking이 존재하지 않습니다.");
@@ -125,7 +127,6 @@ public class Ranking_main extends Fragment  {
                             }
                         });
                     }
-                    adapter.notifyDataSetChanged();
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -144,6 +145,7 @@ public class Ranking_main extends Fragment  {
                     if(dataSnapshot.exists()) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
                             RankingItemList rankingItemList = snapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                            System.out.println(rankingItemList.getName() + rankingItemList.getScore());
 
                             arrayList.add(rankingItemList);
                         }

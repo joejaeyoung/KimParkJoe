@@ -48,9 +48,6 @@ public class Friend_addFriend extends AppCompatActivity implements View.OnClickL
         btn_search.setOnClickListener(this);
         btn_send_request = (ImageButton) findViewById(R.id.btn_send_friend_request);
         btn_send_request.setOnClickListener(this);
-
-        userName = Setting_main.DBName;
-
     }
 
     @Override

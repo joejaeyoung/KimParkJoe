@@ -50,7 +50,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
         }
         if(Memorize_method_select.isRandom){
             shuffleList();
@@ -94,7 +94,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
         Collections.shuffle(ENG_list);
         KOR_list.clear();
         for(String key : ENG_list){
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
         }
     }
 

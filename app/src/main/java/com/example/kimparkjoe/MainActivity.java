@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.TreeMap;
 
@@ -39,14 +40,16 @@ public class MainActivity extends AppCompatActivity {
     private Setting_main setting_main;
     private WrongANS_main wrongANS_main;
 
-    private FirebaseDatabase database;
-    private DatabaseReference databaseReference;
-    public static String userEmail;
-    public static TreeMap<String, String> wordMap = new TreeMap<String, String>();    // 단어 불러올 공간
+    public static ArrayList<String> part_Eng_list, part_Kor_list;
+    private FirebaseDatabase database, userDatabase, partDatabase;
+    private DatabaseReference databaseReference, userReference, partReference;
+    public static String userEmail, userName, userMessage, userImage;
+    public static TreeMap<String, WordItemList> wordMap = new TreeMap<String, WordItemList>();    // 단어 불러올 공간
     public static Context context_main;
     public static Activity activity_main;
 
     public static int friendNum;
+    public static String val;
 
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
@@ -66,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.hide();
 
+        part_Eng_list = new ArrayList<>();
+        part_Kor_list = new ArrayList<>();
+
+        getNounPartFromDB();
+        getVerbPartFromDB();
+        getAdverbPartFromDB();
+        getAdjectPartFromDB();
+
         putWordsFromDB(1);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -74,6 +85,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         userEmail = encodeUserEmail(userEmail);
+
+        userReference = userDatabase.getInstance().getReference();
+        userReference.child("user").child(MainActivity.userEmail).child("profile").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                PersonItemList userInfo = dataSnapshot.getValue(PersonItemList.class);
+
+                userName = userInfo.getName();
+                userMessage = userInfo.getMessage();
+                userImage = userInfo.getProfile();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
 
         //화면 전환
         NavigationBarView navigationBarView = findViewById(R.id.navigationView);
@@ -157,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         //주차 path 설정
         String level = "level";
-        String val = level.concat(Integer.toString((Integer) week));
+        val = level.concat(Integer.toString((Integer) week));
         System.out.println(val);
 
         database = FirebaseDatabase.getInstance();
@@ -172,10 +199,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String Eng = word.getEng();
                     String Kor = word.getKor();
-                    
+
                     Log.d("TAG", "Eng is " + Eng + "/Kor is " + Kor);
                     
-                    wordMap.put(Eng, Kor);
+                    wordMap.put(Eng, word);
                 }
             }
 
@@ -227,20 +254,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //WrongWord DB에 집어넣는 함수
-    public void putWrongWordsToDB(String Eng, String Kor){
+    public void putWrongWordsToDB(ArrayList<ANSItemList> ansItemLists){
         System.out.println("put Wrong words to DB...");
 
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("user").child(userEmail).child("Wrong");
 
-        ANSItemList WrongWord = new ANSItemList(Eng, Kor);
-
-        databaseReference.child(Eng).setValue(WrongWord);
+        databaseReference.setValue(ansItemLists);
     }
 
 
     //WrongWord DB에서 가져오는 함수
-    public void getWrongWordsFromDB(Number week){
+    public void getWrongWordsFromDB(){
         System.out.println("getting Wrong words from DB...");
 
         database = FirebaseDatabase.getInstance();
@@ -263,6 +288,102 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // 디비를 가져오던중 에러 발생 시
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
+
+
+    public void getNounPartFromDB(){
+        System.out.println("getting Part from DB...");
+
+        partDatabase = FirebaseDatabase.getInstance();
+        partReference = partDatabase.getReference("part").child("noun");
+        partReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wordList = dataSnapshot.getValue(ANSItemList.class);
+
+                    part_Eng_list.add(wordList.getEng());
+                    part_Kor_list.add(wordList.getKor());
+                }
+                System.out.println("Noun : " + part_Eng_list.size() + " " + part_Kor_list.size());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
+
+    public void getVerbPartFromDB(){
+        System.out.println("getting Part from DB...");
+
+        partDatabase = FirebaseDatabase.getInstance();
+        partReference = partDatabase.getReference("part").child("verb");
+        partReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wordList = dataSnapshot.getValue(ANSItemList.class);
+
+                    part_Eng_list.add(wordList.getEng());
+                    part_Kor_list.add(wordList.getKor());
+                }
+                System.out.println("Verb : " + part_Eng_list.size() + " " + part_Kor_list.size());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
+
+    public void getAdverbPartFromDB(){
+        System.out.println("getting Part from DB...");
+
+        partDatabase = FirebaseDatabase.getInstance();
+        partReference = partDatabase.getReference("part").child("adverb");
+        partReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wordList = dataSnapshot.getValue(ANSItemList.class);
+
+                    part_Eng_list.add(wordList.getEng());
+                    part_Kor_list.add(wordList.getKor());
+                }
+                System.out.println("Adverb : " + part_Eng_list.size() + " " + part_Kor_list.size());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
+            }
+        });
+    }
+
+    public void getAdjectPartFromDB(){
+        System.out.println("getting Part from DB...");
+
+        partDatabase = FirebaseDatabase.getInstance();
+        partReference = partDatabase.getReference("part").child("adjective");
+        partReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                    ANSItemList wordList = dataSnapshot.getValue(ANSItemList.class);
+
+                    part_Eng_list.add(wordList.getEng());
+                    part_Kor_list.add(wordList.getKor());
+                }
+                System.out.println("Adject : " + part_Eng_list.size() + " " + part_Kor_list.size());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });

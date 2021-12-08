@@ -99,7 +99,7 @@ public class Friend_request extends AppCompatActivity {
             String requestPath = "user/" + MainActivity.userEmail + "/request";
             @Override
             public void onAcceptClick(View view, int position) {
-                int Num = MainActivity.friendNum++;
+                int Num = 1;
 
                 databaseReference = database.getInstance().getReference();
                 databaseReference.child(requestPath).child(fEmail).removeValue();

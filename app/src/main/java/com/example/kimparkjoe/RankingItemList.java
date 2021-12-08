@@ -1,8 +1,8 @@
 package com.example.kimparkjoe;
 
 public class RankingItemList {
-    private int score;
     private String name;
+    private int score;
 
     public RankingItemList(){
 

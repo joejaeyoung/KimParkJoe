@@ -34,17 +34,6 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*
-        //TODO : DB에 정보 추가 후 아래 코드 삭제
-        {
-            testWordMap.put("temp_1.1","temp_1.2");
-            testWordMap.put("temp_2.1","temp_2.2");
-            testWordMap.put("temp_3.1","temp_3.2");
-            testWordMap.put("temp_4.1","temp_4.2");
-            testWordMap.put("temp_5.1","temp_5.2");
-        }
-
- */
 
         setContentView(R.layout.activity_wrong_ans_test);
         findViewById(R.id.btn_wrong_ans_touch_pre).setOnClickListener(this);

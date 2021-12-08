@@ -39,7 +39,7 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name_ranking.setText(arrayList.get(position).getName());
-        holder.score_ranking.setText(arrayList.get(position).getScore());
+        holder.score_ranking.setText(Integer.toString(arrayList.get(position).getScore()));
     }
 
     @Override
@@ -57,7 +57,7 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
 
             //this.image_ranking = itemView.findViewById(R.id.ranking_image);
             this.name_ranking = itemView.findViewById(R.id.ranking_name);
-            this.name_ranking = itemView.findViewById(R.id.ranking_score);
+            this.score_ranking = itemView.findViewById(R.id.ranking_score);
         }
 
     }

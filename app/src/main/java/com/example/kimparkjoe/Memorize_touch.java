@@ -52,7 +52,7 @@ public class Memorize_touch extends AppCompatActivity {
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
         }
         if(Memorize_method_select.isRandom){        // 랜덤이면
             shuffleList();
@@ -178,7 +178,7 @@ public class Memorize_touch extends AppCompatActivity {
         Collections.shuffle(ENG_list);
         KOR_list.clear();
         for(String key : ENG_list){
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
         }
     }
 }

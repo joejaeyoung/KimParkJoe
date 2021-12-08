@@ -19,21 +19,24 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Random;
 
 public class Memorize_select extends AppCompatActivity {
-    private ArrayList<String> ENG_list, KOR_list;
+
+    private ArrayList<String> ENG_list, KOR_list, Part_list;
     private ArrayList<Integer> ans_num_list;
     private TextView wordShown, selection_1, selection_2, selection_3, selection_4;
-    private int position;
+    private int position, Num;
     private boolean currShownIsENG;  // true 면 영어 띄우기
     private ImageView firstCheckIMG, secondCheckIMG, thirdCheckIMG, forthCheckIMG;
     private ImageView firstXIMG, secondXIMG, thirdXIMG, forthXIMG;
     private TextView upperBar;
     private Button BookMark;
+    private String part;
 
-    private FirebaseDatabase database, bookmarkDatabase;
-    private DatabaseReference databaseReference, bookmarkReference;
+    private FirebaseDatabase database, bookmarkDatabase, wordDatabase;
+    private DatabaseReference databaseReference, bookmarkReference, wordReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +68,18 @@ public class Memorize_select extends AppCompatActivity {
         upperBar = (TextView) findViewById(R.id.memorize_select_upper_bar);
         upperBar.setText(" "+Word_main.curr_week+"주차");
 
+        wordDatabase = FirebaseDatabase.getInstance();
+
         position =0;
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
+        Part_list = new ArrayList<>();
         ans_num_list = new ArrayList<>();
 
         for(String key : MainActivity.wordMap.keySet()){
             ENG_list.add(key);
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
+            Part_list.add(MainActivity.wordMap.get(key).getPart());
         }
         if(Memorize_method_select.isRandom){        // 랜덤이면
             shuffleList();
@@ -179,27 +186,29 @@ public class Memorize_select extends AppCompatActivity {
                 }
             });
 
+        System.out.println(part);
+
         // 하단 선택지 바꾸기
-        // TODO : 나머지 선택지도 DB에서 긁어서 넣어야함
-        selection_1.setText("TEMP_WORD_1");
-        selection_2.setText("TEMP_WORD_2");
-        selection_3.setText("TEMP_WORD_3");
-        selection_4.setText("TEMP_WORD_4");
+        shuffleWord(Part_list.get(position));
 
         switch(ans_num_list.get(position)){
             case 1:
+                System.out.println("case1");
                 if(currShownIsENG) selection_1.setText(KOR_list.get(position));
                 else selection_1.setText(ENG_list.get(position));
                 break;
             case 2:
+                System.out.println("case2");
                 if(currShownIsENG) selection_2.setText(KOR_list.get(position));
                 else selection_2.setText(ENG_list.get(position));
                 break;
             case 3:
+                System.out.println("case3");
                 if(currShownIsENG) selection_3.setText(KOR_list.get(position));
                 else selection_3.setText(ENG_list.get(position));
                 break;
             case 4:
+                System.out.println("case4");
                 if(currShownIsENG) selection_4.setText(KOR_list.get(position));
                 else selection_4.setText(ENG_list.get(position));
                 break;
@@ -229,9 +238,88 @@ public class Memorize_select extends AppCompatActivity {
     private void shuffleList(){
         Collections.shuffle(ENG_list);
         KOR_list.clear();
+        Part_list.clear();
         for(String key : ENG_list){
-            KOR_list.add(MainActivity.wordMap.get(key));
+            KOR_list.add(MainActivity.wordMap.get(key).getKor());
+            Part_list.add(MainActivity.wordMap.get(key).getPart());
         }
+    }
+
+    private void shuffleWord(String part) {
+        int num[] = new int[4];
+        Random rand = new Random();
+
+        System.out.println("part : " + part);
+
+        if(Objects.equals(part, "noun")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(426);
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "verb")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(127) + 427;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "adverb")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(97) + 755;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+        else if(Objects.equals(part, "adjective")) {
+            for(int i=0; i<4; i++) {
+                num[i] = rand.nextInt(199) + 555;
+                System.out.println("Num : " + num[i]);
+                if(MainActivity.part_Eng_list.get(num[i]) == ENG_list.get(position)) {
+                    i--;
+                }
+                for(int j=0; j<i; j++) {
+                    if(num[i] == num[j]) {
+                        i--;
+                    }
+                }
+                System.out.println(num[i]);
+            }
+        }
+
+        if(currShownIsENG) selection_1.setText(MainActivity.part_Kor_list.get(num[0]));
+        else selection_1.setText(MainActivity.part_Eng_list.get(num[0]));
+        if(currShownIsENG) selection_2.setText(MainActivity.part_Kor_list.get(num[1]));
+        else selection_2.setText(MainActivity.part_Eng_list.get(num[1]));
+        if(currShownIsENG) selection_3.setText(MainActivity.part_Kor_list.get(num[2]));
+        else selection_3.setText(MainActivity.part_Eng_list.get(num[2]));
+        if(currShownIsENG) selection_4.setText(MainActivity.part_Kor_list.get(num[3]));
+        else selection_4.setText(MainActivity.part_Eng_list.get(num[3]));
     }
 
     private void answerSelected(TextView textView){

@@ -42,8 +42,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
     private ImageView myImage;
     private TextView myName, myMessage, AchieveNum;
-    private String DBImage, DBMessage, Num;
-    public static String DBName;
+    private String Num;
     private View view;
     private String[] rankingType = {"친구만","전체 사용자"};
     private AlertDialog rankTypeSelectDialog;
@@ -68,35 +67,16 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         myMessage = (TextView)view.findViewById(R.id.my_message);
         AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
 
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("profile");
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                PersonItemList myProfile = snapshot.getValue(PersonItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-
-                DBImage = myProfile.getProfile();
-                DBName = myProfile.getName();
-                DBMessage = myProfile.getMessage();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // 디비를 가져오던중 에러 발생 시
-                Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-            }
-        });
-
         //개인정보 DB에서 받아오기
         Glide.with(this)
-                .load(DBImage)
+                .load(MainActivity.userImage)
                 .into(myImage);
 
-        myName.setText(DBName);
-        if(Objects.equals(DBMessage, "null")) {
+        myName.setText(MainActivity.userName);
+        if(Objects.equals(MainActivity.userMessage, "null")) {
         }
         else {
-            myMessage.setText(DBMessage);
+            myMessage.setText(MainActivity.userMessage);
         }
 
         AchieveNum.setText(Num);
