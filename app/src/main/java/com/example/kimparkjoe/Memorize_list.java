@@ -85,7 +85,7 @@ public class Memorize_list extends AppCompatActivity implements View.OnClickList
                 toggleKORVisibility();
                 break;
             case R.id.btn_memorize_list_quit:
-                finish();
+                onBackPressed();
                 break;
         }
     }

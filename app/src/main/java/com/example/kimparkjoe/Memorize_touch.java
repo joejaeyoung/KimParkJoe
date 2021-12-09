@@ -83,7 +83,7 @@ public class Memorize_touch extends AppCompatActivity {
                     toggleWordShown();
                     break;
                 case R.id.btn_memorize_touch_quit:
-                    finish();
+                    onBackPressed();
                     break;
                 case R.id.btn_memorize_touch_bookmark:
                     getBookMark();

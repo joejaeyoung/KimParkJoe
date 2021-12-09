@@ -43,7 +43,7 @@ public class Memorize_method_select extends AppCompatActivity {
         findViewById(R.id.tv_memorize_type_select).setOnClickListener(onClickListener);         // 유형 선택 버튼
         findViewById(R.id.tv_memorize_method_select).setOnClickListener(onClickListener);       // 방식 선택 버튼
         findViewById(R.id.btn_memorize_start).setOnClickListener(onClickListener);              // 시작 버튼
-        findViewById(R.id.btn_memorize_method_select_back).setOnClickListener(onClickListener); //뒤로가기 버튼
+        findViewById(R.id.btn_memorize_method_select_quit).setOnClickListener(onClickListener); //뒤로가기 버튼
 
         typeSelectDialog = new AlertDialog.Builder(Memorize_method_select.this)
                 .setItems(type, new DialogInterface.OnClickListener() {
@@ -84,8 +84,8 @@ public class Memorize_method_select extends AppCompatActivity {
                 case R.id.tv_memorize_method_select:
                     methodSelectDialog.show();
                     break;
-                case R.id.btn_memorize_method_select_back:
-                    finish();
+                case R.id.btn_memorize_method_select_quit:
+                    onBackPressed();
                     break;
 
             }

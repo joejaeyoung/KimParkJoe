@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -34,14 +35,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 public class Setting_main extends Fragment implements View.OnClickListener {
 
     private FirebaseDatabase database, achieveDatabase;
     private DatabaseReference databaseReference, achieveReference;
 
-    private ImageView myImage;
-    private TextView myName, myMessage, AchieveNum;
+    public static ImageView myImage;
+    public static TextView myName, myMessage, AchieveNum;
     private String Num;
     private View view;
     private String[] rankingType = {"친구만","전체 사용자"};
@@ -50,34 +52,24 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     public static int RankTypeNum;
     public static TreeMap<String, Boolean> achieveMap = new TreeMap<>();    // 도전과제 <"도전과제명",달성여부>
     public int achieveNum = 0;
+    private String TAG = "Setting_main";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("세팅 메인 전환!");
 
-        getAchievementsFromDB();
         view=inflater.inflate(R.layout.activity_setting_main,container,false);
+        getAchievementsFromDB();
 
         view.findViewById(R.id.tv_setting_main_rankTypeSelect).setOnClickListener(this);
         view.findViewById(R.id.Linear_setting_achieve).setOnClickListener(this);
+        view.findViewById(R.id.btn_change_profile).setOnClickListener(this);
 
         myImage = (ImageView)view.findViewById(R.id.my_image);
         myName = (TextView)view.findViewById(R.id.my_name);
         myMessage = (TextView)view.findViewById(R.id.my_message);
         AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
-
-        //개인정보 DB에서 받아오기
-        Glide.with(this)
-                .load(MainActivity.userImage)
-                .into(myImage);
-
-        myName.setText(MainActivity.userName);
-        if(Objects.equals(MainActivity.userMessage, "null")) {
-        }
-        else {
-            myMessage.setText(MainActivity.userMessage);
-        }
 
         AchieveNum.setText(Num);
 
@@ -98,7 +90,23 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 .setNegativeButton("취소",null)
                 .create();
 
+        setUserProfile();
+
         return view;
+    }
+
+    private void setUserProfile() {
+        //개인정보 DB에서 받아오기
+        Glide.with(this)
+                .load(MainActivity.userImage)
+                .into(myImage);
+
+        myName.setText(MainActivity.userName);
+        if(Objects.equals(MainActivity.userMessage, "null")) {
+        }
+        else {
+            myMessage.setText(MainActivity.userMessage);
+        }
     }
 
     @Override
@@ -110,12 +118,13 @@ public class Setting_main extends Fragment implements View.OnClickListener {
             case R.id.Linear_setting_achieve:
                 getActivity().startActivity(new Intent(getActivity(),Achievement_list.class));
                 break;
-
+            case R.id.btn_change_profile:
+                getActivity().startActivity(new Intent(getActivity(),ChangeProfile.class));
+                break;
         }
     }
 
     private void getAchievementsFromDB(){
-
         achieveDatabase = FirebaseDatabase.getInstance();
 
         achieveReference = achieveDatabase.getReference("user").child(MainActivity.userEmail).child("achievement");

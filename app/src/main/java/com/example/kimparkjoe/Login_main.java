@@ -65,7 +65,7 @@ public class Login_main extends AppCompatActivity {
         CheckBox checkBox = findViewById(R.id.auto_login_check) ;
 
         //자동로그인
-        //if(checkBox.isChecked() == true) SaveSharedPreference.setUserName(Login_main.this, email);
+        if(checkBox.isChecked() == true) SaveSharedPreference.setUserName(Login_main.this, email);
 
         if(email.length() >0 && password.length() >0){
             email = MainActivity.decodeUserEmail(email);

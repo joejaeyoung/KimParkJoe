@@ -6,13 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Achievement_list">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/tv_achieve_upper_bar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="도전과제"
-        android:background="@color/teal_200"
-        android:textSize="50dp" />
+        android:gravity="center_vertical"
+        android:background="@color/teal_200">
+        <Button
+            android:id="@+id/btn_achieve_quit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_toRightOf="@+id/btn_achieve_quit"
+            android:text="도전과제"
+            android:textSize="50dp"/>
+
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_achieve_list"

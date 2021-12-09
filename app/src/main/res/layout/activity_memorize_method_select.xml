@@ -4,22 +4,29 @@
     android:layout_height="match_parent"
     android:weightSum="10">
 
-    <ImageButton
-        android:id="@+id/btn_memorize_method_select_back"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:scaleType="centerInside"
-        android:background="#00FFFFFF"
-        android:src="@drawable/back"/>
-
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="center"
-        android:text="암기 방식 선택"
-        android:textSize="50dp"
-        android:background="#FFFFFF"/>
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_memorize_method_select_quit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back"/>
+
+        <TextView
+            android:id="@+id/memorize_select_upper_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/btn_memorize_method_select_quit"
+            android:text="암기 방식 선택"
+            android:textSize="50dp"/>
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/Lnr_selection"

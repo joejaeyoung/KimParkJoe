@@ -11,26 +11,23 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:weightSum="10"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:background="@color/teal_200">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="틀린문제"
-            android:textSize="50dp"
-            android:layout_weight="8.5"
-            android:textStyle="bold"/>
-
-        <ImageButton
+        <Button
             android:id="@+id/btn_wrong_ans_wrong_question_quit"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:scaleType="centerInside"
-            android:background="#00FFFFFF"
-            android:src="@drawable/back"/>
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text=" 틀린문제"
+            android:textSize="50dp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

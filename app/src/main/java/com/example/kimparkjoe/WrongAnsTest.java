@@ -86,7 +86,7 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
                 toggleWordShown();
                 break;
             case R.id.btn_wrong_ans_touch_quit:
-                finish();
+                onBackPressed();
                 break;
         }
     }

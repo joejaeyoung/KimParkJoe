@@ -11,7 +11,7 @@ public class SaveSharedPreference {
 
     //모든 액티비티에서 인스턴스를 얻기위한 메소드
     static SharedPreferences getSharedPreferences(Context ctx) {
-        return PreferenceManager.getDefaultSharedPreferences(ctx);
+        return ctx.getSharedPreferences(PREF_USER_NAME,Context.MODE_PRIVATE);
     }
 
     // 계정 정보 저장. 로그인시 자동로그인 여부에 따라 호출 될 메소드. username이 저장
@@ -24,5 +24,11 @@ public class SaveSharedPreference {
     // 저장된 정보 가져오기.
     public static String getUserName(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
+    }
+
+    public static void clearUserName(Context ctx) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.clear(); //clear all stored data editor.commit();
+        editor.commit();
     }
 }

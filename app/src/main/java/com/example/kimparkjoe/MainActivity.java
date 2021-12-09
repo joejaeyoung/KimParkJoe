@@ -199,8 +199,6 @@ public class MainActivity extends AppCompatActivity {
 
                     String Eng = word.getEng();
                     String Kor = word.getKor();
-
-                    Log.d("TAG", "Eng is " + Eng + "/Kor is " + Kor);
                     
                     wordMap.put(Eng, word);
                 }
@@ -308,7 +306,6 @@ public class MainActivity extends AppCompatActivity {
                     part_Eng_list.add(wordList.getEng());
                     part_Kor_list.add(wordList.getKor());
                 }
-                System.out.println("Noun : " + part_Eng_list.size() + " " + part_Kor_list.size());
             }
 
             @Override
@@ -332,7 +329,6 @@ public class MainActivity extends AppCompatActivity {
                     part_Eng_list.add(wordList.getEng());
                     part_Kor_list.add(wordList.getKor());
                 }
-                System.out.println("Verb : " + part_Eng_list.size() + " " + part_Kor_list.size());
             }
 
             @Override
@@ -356,7 +352,6 @@ public class MainActivity extends AppCompatActivity {
                     part_Eng_list.add(wordList.getEng());
                     part_Kor_list.add(wordList.getKor());
                 }
-                System.out.println("Adverb : " + part_Eng_list.size() + " " + part_Kor_list.size());
             }
 
             @Override
@@ -380,7 +375,6 @@ public class MainActivity extends AppCompatActivity {
                     part_Eng_list.add(wordList.getEng());
                     part_Kor_list.add(wordList.getKor());
                 }
-                System.out.println("Adject : " + part_Eng_list.size() + " " + part_Kor_list.size());
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

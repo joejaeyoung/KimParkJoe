@@ -109,7 +109,7 @@ public class Memorize_select extends AppCompatActivity {
                     goNextWord();
                     break;
                 case R.id.btn_memorize_select_quit:
-                    finish();
+                    onBackPressed();
                     break;
                 case R.id.btn_memorize_select_bookmark:
                     getBookMark();

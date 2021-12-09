@@ -9,21 +9,21 @@
         android:layout_width="match_parent"
         android:layout_height="70dp">
 
+        <Button
+            android:id="@+id/btn_memorize_touch_quit"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back"/>
+
         <TextView
             android:id="@+id/memorize_touch_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_toRightOf="@+id/btn_memorize_touch_quit"
             android:text=" N주차"
             android:textSize="50dp"/>
-
-        <ImageButton
-            android:id="@+id/btn_memorize_touch_quit"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentRight="true"
-            android:scaleType="centerInside"
-            android:background="#00FFFFFF"
-            android:src="@drawable/back"/>
 
     </RelativeLayout>
 

@@ -43,6 +43,9 @@ public class Test_selectweeks_main extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.btn_test_week_quit:
+                onBackPressed();
+                break;
 //            case R.id.temp_btn_to_method_select:
 //                ((MainActivity)MainActivity.context_main).putWordsFromDB(1);
 //

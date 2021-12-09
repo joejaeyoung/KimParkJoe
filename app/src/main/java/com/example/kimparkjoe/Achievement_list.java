@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -13,10 +16,20 @@ public class Achievement_list extends AppCompatActivity {
     private ArrayList<String> achievement_list;
     private ArrayList<Boolean> isCompleted_list;
 
+    private Button button_quit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement_list);
+
+        button_quit = findViewById(R.id.btn_achieve_quit);
+        button_quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         achievement_list = new ArrayList<>();
         isCompleted_list = new ArrayList<>();
