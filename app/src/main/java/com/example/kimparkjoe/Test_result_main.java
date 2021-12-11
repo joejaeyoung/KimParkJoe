@@ -2,6 +2,7 @@ package com.example.kimparkjoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +17,8 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-
+    private Test_testing_main testing_activity;
+    private Test_selectweeks_main test_selectweeks_activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +37,19 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
             case R.id.btn_test_result_yes:
                 ((MainActivity)MainActivity.context_main).putWrongWordsToDB(Test_testing_main.WrongWord);
                 putRankToDB();
+                finish();
+                testing_activity = (Test_testing_main) Test_testing_main.test_testing_activity;
+                testing_activity.finish();
+                test_selectweeks_activity = (Test_selectweeks_main) Test_selectweeks_main.test_select_weeks_activity;
+                test_selectweeks_activity.finish();
                 break;
             case R.id.btn_test_result_no:
                 // 랭킹탭으로 나가기
                 putRankToDB();
                 finish();
-                Test_testing_main testing_activity = (Test_testing_main) Test_testing_main.test_testing_activity;
+                testing_activity = (Test_testing_main) Test_testing_main.test_testing_activity;
                 testing_activity.finish();
-                Test_selectweeks_main test_selectweeks_activity = (Test_selectweeks_main) Test_selectweeks_main.test_select_weeks_activity;
+                test_selectweeks_activity = (Test_selectweeks_main) Test_selectweeks_main.test_select_weeks_activity;
                 test_selectweeks_activity.finish();
                 break;
         }
@@ -59,4 +66,20 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
 
         databaseReference.child(MainActivity.userEmail).setValue(rankingItemList);
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        //배경 클릭시 꺼지는거 막음
+        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        //안드로이드 백버튼 막음
+        return ;
+    }
+
 }

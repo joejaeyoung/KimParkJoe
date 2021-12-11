@@ -99,7 +99,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     }
 
     public void countDownTimer(){
-        countDownTimer = new CountDownTimer(90000, 1000){
+        countDownTimer = new CountDownTimer(180000, 1000){
             public void onTick(long millisUntilFinished){
                 testTimer.setText(String.valueOf(millisUntilFinished/1000));
             }
@@ -108,6 +108,8 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
             }
         };
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -119,7 +121,8 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
                 goNextWord();
                 break;
             case R.id.btn_testing_submit:
-                submit();
+                countDownTimer.cancel();
+                countDownTimer.onFinish();
                 break;
             //TODO : 즐찾이랑 뒤로가기 등 나머지 버튼 구현할 것
             default:

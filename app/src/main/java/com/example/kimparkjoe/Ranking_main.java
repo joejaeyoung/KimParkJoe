@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -47,8 +48,7 @@ public class Ranking_main extends Fragment  {
 
     private FirebaseDatabase database, friendDatabase;
     private DatabaseReference databaseReference, friendReference;
-
-    private static int weekNum;
+    private TextView rankingWeeks;
 
 
     //Instance 반환 메소드
@@ -63,10 +63,10 @@ public class Ranking_main extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("랭킹 메인 전환!");
         view = inflater.inflate(R.layout.activity_ranking_main,container,false);
-        weekNum=0;
 
         nextButton = view.findViewById(R.id.btn_next_ranking);
         prevButton = view.findViewById(R.id.btn_prev_ranking);
+        rankingWeeks = view.findViewById(R.id.rankign_weeks);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.ranking_recycler);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
@@ -79,11 +79,13 @@ public class Ranking_main extends Fragment  {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                if((++pageNum)>16){
+                if((pageNum)>15){
                     Toast toast = Toast.makeText(getActivity(), "마지막 랭킹입니다.", Toast.LENGTH_SHORT);
                     toast.show();
-                }else {
-                    weekNum++; //주차 저장
+               }else {
+                    pageNum++; //주차 저장
+                    rankingWeeks.setText(pageNum+"단계 랭킹");
+                    rankingDB();
                 }
             }
         });
@@ -92,15 +94,22 @@ public class Ranking_main extends Fragment  {
         prevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if((--pageNum)<1){
+                if((pageNum)<=1){
                     Toast toast = Toast.makeText(getActivity(), "이전 랭킹이 없습니다.", Toast.LENGTH_SHORT);
                     toast.show();
                 }else {
-                    weekNum--; //주차 저장
+                    pageNum--; //주차 저장
+                    rankingWeeks.setText(pageNum+"단계 랭킹");
+                    rankingDB();
                 }
             }
         });
 
+
+        return view;
+    }
+
+    private void rankingDB(){
         if(Setting_main.RankTypeNum == 0) {
             friendReference = friendDatabase.getInstance().getReference().child("user").child(MainActivity.userEmail).child("friend");
             friendReference.addValueEventListener(new ValueEventListener() {
@@ -199,8 +208,6 @@ public class Ranking_main extends Fragment  {
 
             }
         });
-
-        return view;
     }
 
     private void isNotExists() {

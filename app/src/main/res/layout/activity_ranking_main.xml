@@ -39,9 +39,10 @@
                     android:background="@drawable/back" />
 
                 <TextView
+                    android:id="@+id/rankign_weeks"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
                     android:text="1단계 랭킹"
                     android:textSize="50dp"
 
