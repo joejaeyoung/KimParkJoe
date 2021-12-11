@@ -63,7 +63,7 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
         System.out.println("put Ranking words to DB...");
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("user").child("rank").child(String.valueOf(Test_selectweeks_main.curr_week));
+        databaseReference = database.getReference("rank").child(String.valueOf(Test_selectweeks_main.curr_week));
 
         RankingItemList rankingItemList = new RankingItemList(MainActivity.userName, Test_testing_main.correct_ans_num);
 
