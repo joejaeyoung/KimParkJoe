@@ -27,6 +27,7 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
     private DatabaseReference databaseReference;
     private ArrayList<String> ENG_list, KOR_list;
     private Button btn_start;
+    private WrongANSAdapter adapter;
 
     public static TreeMap<String, String> wrongWordMap = new TreeMap<String, String>();
 
@@ -35,12 +36,6 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wong_ans_wrongquestion_main);
 
-        ((MainActivity)MainActivity.context_main).getWrongWordsFromDB();
-
-        btn_start = (Button) findViewById(R.id.btn_wrong_ans_wrong_question_start);
-        btn_start.setOnClickListener(this);
-        findViewById(R.id.btn_wrong_ans_wrong_question_quit).setOnClickListener(this);
-
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
 
@@ -48,10 +43,15 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
             ENG_list.add(key);
             KOR_list.add(wrongWordMap.get(key));
         }
+
         RecyclerView recyclerView = findViewById(R.id.rv_wrong_ans_wrong_question);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        WrongANSAdapter adapter = new WrongANSAdapter(ENG_list, KOR_list);
+        btn_start = (Button) findViewById(R.id.btn_wrong_ans_wrong_question_start);
+        btn_start.setOnClickListener(this);
+        findViewById(R.id.btn_wrong_ans_wrong_question_quit).setOnClickListener(this);
+
+        adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnWrongtItemClickListener(new OnWrongItemClickListener() {

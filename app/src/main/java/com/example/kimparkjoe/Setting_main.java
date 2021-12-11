@@ -44,6 +44,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
     public static ImageView myImage;
     public static TextView myName, myMessage, AchieveNum;
+    public static int num = 0;
     private String Num;
     private View view;
     private String[] rankingType = {"친구만","전체 사용자"};
@@ -51,7 +52,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     private static String selectedRankType;
     public static int RankTypeNum;
     public static TreeMap<String, Boolean> achieveMap = new TreeMap<>();    // 도전과제 <"도전과제명",달성여부>
-    public int achieveNum = 0;
     private String TAG = "Setting_main";
 
     @Nullable
@@ -59,7 +59,10 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("세팅 메인 전환!");
 
+        num = 0;
+
         view=inflater.inflate(R.layout.activity_setting_main,container,false);
+        putAchieveToDB();
         getAchievementsFromDB();
 
         view.findViewById(R.id.tv_setting_main_rankTypeSelect).setOnClickListener(this);
@@ -71,7 +74,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         myMessage = (TextView)view.findViewById(R.id.my_message);
         AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
 
-        AchieveNum.setText(Num);
+        System.out.println(num);
 
         if(selectedRankType != null){
             ((TextView)view.findViewById(R.id.tv_setting_main_rankTypeSelect)).setText(selectedRankType);
@@ -91,6 +94,9 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 .create();
 
         setUserProfile();
+        Num = Integer.toString(num) + " / 45";
+        System.out.println(Num);
+        AchieveNum.setText(Num);
 
         return view;
     }
@@ -106,6 +112,17 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         }
         else {
             myMessage.setText(MainActivity.userMessage);
+        }
+    }
+
+    public void putAchieveToDB() {
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("achievement");
+        if (MainActivity.userImage != "https://firebasestorage.googleapis.com/v0/b/memorymate-d8aa5.appspot.com/o/profile_sample.png?alt=media&token=b2428a1a-fcd2-4e9e-a229-13dcecd709ff"
+                && MainActivity.userMessage != "null") {
+            Boolean check = new Boolean(true);
+            databaseReference.child("1").child("check").setValue(check);
+            num++;
         }
     }
 
@@ -141,7 +158,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                     Log.d("TAG", "Achieve is " + Achieve + "Check is " + Check);
 
                     if(Check == true) {
-                        achieveNum++;
+                        num++;
                     }
 
                     achieveMap.put(Achieve, Check);
@@ -154,8 +171,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });
-
-        Num = Integer.toString(achieveNum) + " / 50";
-        System.out.println(Num);
+        Num = Integer.toString(num) + " / 45";
     }
 }

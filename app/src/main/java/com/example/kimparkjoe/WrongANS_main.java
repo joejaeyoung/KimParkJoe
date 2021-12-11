@@ -33,6 +33,7 @@ public class WrongANS_main extends Fragment {
             @Override
             public void onClick(View v){
                 isBookMark = true;
+                ((MainActivity)MainActivity.context_main).getBookmarkWordsFromDB();
                 Intent intent1 = new Intent(getActivity(), WrongANS_bookmark_main.class);
                 startActivity(intent1);
             }
@@ -42,12 +43,12 @@ public class WrongANS_main extends Fragment {
             @Override
             public void onClick(View view) {
                 isBookMark = false;
+                ((MainActivity)MainActivity.context_main).getWrongWordsFromDB();
                 Intent intent2 = new Intent(getActivity(), WrongANS_wrongquestion_main.class);
                 startActivity(intent2);
+
             }
         });
-
-
         return view;
     }
 

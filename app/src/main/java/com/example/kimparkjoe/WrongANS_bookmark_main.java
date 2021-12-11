@@ -27,6 +27,7 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
     private DatabaseReference databaseReference;
     private ArrayList<String> ENG_list, KOR_list;
     private Button btn_start;
+    private WrongANSAdapter adapter;
 
     public static TreeMap<String, String> bookmarkWordMap = new TreeMap<String, String >();
 
@@ -34,12 +35,6 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrong_ans_bookmark_main);
-
-        ((MainActivity)MainActivity.context_main).getBookmarkWordsFromDB();
-
-        btn_start = (Button) findViewById(R.id.btn_wrong_ans_bookmark_start);
-        btn_start.setOnClickListener(this);
-        findViewById(R.id.btn_wrong_ans_bookmark_quit).setOnClickListener(this);
 
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
@@ -52,7 +47,11 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
         RecyclerView recyclerView = findViewById(R.id.rv_wrong_ans_bookmark);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        WrongANSAdapter adapter = new WrongANSAdapter(ENG_list, KOR_list);
+        btn_start = (Button) findViewById(R.id.btn_wrong_ans_bookmark_start);
+        btn_start.setOnClickListener(this);
+        findViewById(R.id.btn_wrong_ans_bookmark_quit).setOnClickListener(this);
+
+        adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnWrongtItemClickListener(new OnWrongItemClickListener() {
@@ -62,7 +61,34 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
                 databaseReference.child("user").child(MainActivity.userEmail).child("Bookmark").child(ENG_list.get(position)).removeValue();
             }
         });
+
+        putAchieveToDB();
     }
+
+    private void putAchieveToDB() {
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("achievement");
+        if(WrongANS_bookmark_main.bookmarkWordMap.size() >= 100) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("45").child("check").setValue(check);
+        }
+        else if(WrongANS_bookmark_main.bookmarkWordMap.size() >= 80) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("44").child("check").setValue(check);
+        }
+        else if(WrongANS_bookmark_main.bookmarkWordMap.size() >= 50) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("43").child("check").setValue(check);
+        }
+        else if(WrongANS_bookmark_main.bookmarkWordMap.size() >= 30) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("42").child("check").setValue(check);
+        }
+        else if(WrongANS_bookmark_main.bookmarkWordMap.size() >= 10) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("41").child("check").setValue(check);
+        }
+    };
 
     @Override
     public void onClick(View view) {

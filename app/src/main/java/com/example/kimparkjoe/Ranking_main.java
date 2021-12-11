@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Objects;
+import java.util.TreeMap;
 
 public class Ranking_main extends Fragment  {
 
@@ -49,6 +51,9 @@ public class Ranking_main extends Fragment  {
     private FirebaseDatabase database, friendDatabase;
     private DatabaseReference databaseReference, friendReference;
     private TextView rankingWeeks;
+    private String Num;
+
+    private int my_rank = 1;
 
 
     //Instance 반환 메소드
@@ -64,17 +69,17 @@ public class Ranking_main extends Fragment  {
         System.out.println("랭킹 메인 전환!");
         view = inflater.inflate(R.layout.activity_ranking_main,container,false);
 
-        nextButton = view.findViewById(R.id.btn_next_ranking);
-        prevButton = view.findViewById(R.id.btn_prev_ranking);
-        rankingWeeks = view.findViewById(R.id.rankign_weeks);
-
         recyclerView = (RecyclerView)view.findViewById(R.id.ranking_recycler);
         recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
 
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        arrayList = new ArrayList<>();
+        rankingDB();
+
+        nextButton = view.findViewById(R.id.btn_next_ranking);
+        prevButton = view.findViewById(R.id.btn_prev_ranking);
+        rankingWeeks = view.findViewById(R.id.rankign_weeks);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +95,6 @@ public class Ranking_main extends Fragment  {
             }
         });
 
-
         prevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -105,11 +109,17 @@ public class Ranking_main extends Fragment  {
             }
         });
 
+        my_rank = RankingListAdapter.pos;
+
+        putAchieveToDB();
 
         return view;
     }
 
     private void rankingDB(){
+        System.out.println(pageNum + "주차");
+        arrayList = new ArrayList<>();
+
         if(Setting_main.RankTypeNum == 0) {
             friendReference = friendDatabase.getInstance().getReference().child("user").child(MainActivity.userEmail).child("friend");
             friendReference.addValueEventListener(new ValueEventListener() {
@@ -208,6 +218,36 @@ public class Ranking_main extends Fragment  {
 
             }
         });
+    }
+
+    public void putAchieveToDB() {
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("achievement");
+        if(my_rank == 1) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("29").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(my_rank <= 3) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("30").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(my_rank <= 5) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("31").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(my_rank <= 7) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("32").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(my_rank <= 10) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("33").child("check").setValue(check);
+            Setting_main.num++;
+        }
     }
 
     private void isNotExists() {

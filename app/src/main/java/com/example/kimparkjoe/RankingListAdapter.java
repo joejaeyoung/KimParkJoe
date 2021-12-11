@@ -4,19 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.ViewHolder> {
-
+    public static int pos;
     private ArrayList<RankingItemList> arrayList;
     private Context context;
 
@@ -58,6 +55,11 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
             //this.image_ranking = itemView.findViewById(R.id.ranking_image);
             this.name_ranking = itemView.findViewById(R.id.ranking_name);
             this.score_ranking = itemView.findViewById(R.id.ranking_score);
+
+            if(Objects.equals(MainActivity.userName, name_ranking)) {
+                pos = getAdapterPosition();
+            }
+
         }
 
     }

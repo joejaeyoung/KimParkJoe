@@ -1,6 +1,8 @@
 package com.example.kimparkjoe;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,11 +16,12 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Test_result_main extends AppCompatActivity implements View.OnClickListener {
 
     private TextView result;
-
+    private String Num;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     private Test_testing_main testing_activity;
     private Test_selectweeks_main test_selectweeks_activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +33,6 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
 
         findViewById(R.id.btn_test_result_yes).setOnClickListener(this);
         findViewById(R.id.btn_test_result_no).setOnClickListener(this);
-
-
     }
 
     @Override
@@ -55,6 +56,57 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
                 test_selectweeks_activity = (Test_selectweeks_main) Test_selectweeks_main.test_select_weeks_activity;
                 test_selectweeks_activity.finish();
                 break;
+        }
+    }
+
+    public void putAchieveToDB() {
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("user").child(MainActivity.userEmail).child("achievement");
+        if (Test_selectweeks_main.curr_week > 0) {
+            Boolean check = new Boolean(true);
+            databaseReference.child(String.valueOf(Test_selectweeks_main.curr_week + 1)).child("check").setValue(check);
+            Setting_main.num++;
+        }
+
+        /*if(time){
+
+        }
+         */
+
+        if(Test_testing_main.correct_ans_num >= 50) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("40").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 45) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("39").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 40) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("38").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 35) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("37").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 30) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("36").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 25) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("35").child("check").setValue(check);
+            Setting_main.num++;
+        }
+        else if(Test_testing_main.correct_ans_num >= 20) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("34").child("check").setValue(check);
+            Setting_main.num++;
         }
     }
 
