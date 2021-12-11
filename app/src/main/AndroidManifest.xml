@@ -70,7 +70,8 @@
             android:exported="true" />
         <activity
             android:name=".RegisterAccept_main"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.KimParkJoe."/>
         <activity
             android:name=".Memorize_method_select"
             android:exported="true" />

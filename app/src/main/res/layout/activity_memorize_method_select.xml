@@ -17,16 +17,12 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/back"/>
 
-        <TextView
-            android:id="@+id/memorize_select_upper_bar"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/btn_memorize_method_select_quit"
-            android:text="암기 방식 선택"
-            android:textSize="50dp"/>
-    </RelativeLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="암기 방식 선택"
+        android:textSize="50dp" />
 
     <LinearLayout
         android:id="@+id/Lnr_selection"
@@ -98,7 +94,7 @@
         android:text="START!"
         android:textSize="35dp"
         android:background="@drawable/board_layout"/>
-
+    </RelativeLayout>
 
 
 </RelativeLayout>
