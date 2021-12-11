@@ -53,6 +53,14 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
 
         WrongANSAdapter adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnWrongtItemClickListener(new OnWrongItemClickListener() {
+            @Override
+            public void onDeleteClick(View view, int position) {
+                databaseReference = database.getInstance().getReference();
+                databaseReference.child("user").child(MainActivity.userEmail).child("Bookmark").child(ENG_list.get(position)).removeValue();
+            }
+        });
     }
 
     @Override
