@@ -31,6 +31,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private TextView upperBar, totalNum;
     private TextView testTimer;
     private CountDownTimer countDownTimer;
+    public static long finalExamTime;
 
 
 
@@ -101,6 +102,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     public void countDownTimer(){
         countDownTimer = new CountDownTimer(180000, 1000){
             public void onTick(long millisUntilFinished){
+                finalExamTime = millisUntilFinished;
                 testTimer.setText(String.valueOf(millisUntilFinished/1000));
             }
             public void onFinish(){
@@ -339,6 +341,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
 
     private void myStartActivity(Class c){
         Intent intent = new Intent(this, c);
+        intent.putExtra("FINALTIME",finalExamTime);
         startActivity(intent);
     }
 }

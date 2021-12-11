@@ -24,11 +24,14 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_result_main);
 
+
         result = (TextView) findViewById(R.id.tv_test_result_score);
         result.setText(Test_testing_main.correct_ans_num+"/"+MainActivity.wordMap.size());
 
         findViewById(R.id.btn_test_result_yes).setOnClickListener(this);
         findViewById(R.id.btn_test_result_no).setOnClickListener(this);
+
+
     }
 
     @Override
