@@ -68,14 +68,6 @@ public class Ranking_main extends Fragment  {
         prevButton = view.findViewById(R.id.btn_prev_ranking);
         rankingWeeks = view.findViewById(R.id.rankign_weeks);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.ranking_recycler);
-        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
-
-        layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-
-        arrayList = new ArrayList<>();
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -105,11 +97,18 @@ public class Ranking_main extends Fragment  {
             }
         });
 
-
         return view;
     }
 
     private void rankingDB(){
+        recyclerView = (RecyclerView)view.findViewById(R.id.ranking_recycler);
+        recyclerView.setHasFixedSize(true); // 리사이클러뷰 기존성능 강화
+
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        arrayList = new ArrayList<>();
+
         if(Setting_main.RankTypeNum == 0) {
             friendReference = friendDatabase.getInstance().getReference().child("user").child(MainActivity.userEmail).child("friend");
             friendReference.addValueEventListener(new ValueEventListener() {

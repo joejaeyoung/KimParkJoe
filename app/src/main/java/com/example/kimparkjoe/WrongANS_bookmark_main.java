@@ -2,6 +2,8 @@ package com.example.kimparkjoe;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,8 +27,8 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private ArrayList<String> ENG_list, KOR_list;
     private Button btn_start;
+    public static ArrayList<String> ENG_list, KOR_list;
 
     public static TreeMap<String, String> bookmarkWordMap = new TreeMap<String, String >();
 
@@ -34,8 +36,6 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrong_ans_bookmark_main);
-
-        ((MainActivity)MainActivity.context_main).getBookmarkWordsFromDB();
 
         btn_start = (Button) findViewById(R.id.btn_wrong_ans_bookmark_start);
         btn_start.setOnClickListener(this);
