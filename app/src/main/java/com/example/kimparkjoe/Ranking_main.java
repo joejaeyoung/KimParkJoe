@@ -48,6 +48,8 @@ public class Ranking_main extends Fragment  {
     private FirebaseDatabase database, friendDatabase;
     private DatabaseReference databaseReference, friendReference;
 
+    private static int weekNum;
+
 
     //Instance 반환 메소드
     public static Ranking_main newInstance(){
@@ -61,6 +63,7 @@ public class Ranking_main extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("랭킹 메인 전환!");
         view = inflater.inflate(R.layout.activity_ranking_main,container,false);
+        weekNum=0;
 
         nextButton = view.findViewById(R.id.btn_next_ranking);
         prevButton = view.findViewById(R.id.btn_prev_ranking);
@@ -79,6 +82,8 @@ public class Ranking_main extends Fragment  {
                 if((++pageNum)>16){
                     Toast toast = Toast.makeText(getActivity(), "마지막 랭킹입니다.", Toast.LENGTH_SHORT);
                     toast.show();
+                }else {
+                    weekNum++; //주차 저장
                 }
             }
         });
@@ -90,6 +95,8 @@ public class Ranking_main extends Fragment  {
                 if((--pageNum)<1){
                     Toast toast = Toast.makeText(getActivity(), "이전 랭킹이 없습니다.", Toast.LENGTH_SHORT);
                     toast.show();
+                }else {
+                    weekNum--; //주차 저장
                 }
             }
         });
