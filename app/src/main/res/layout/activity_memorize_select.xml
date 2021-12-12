@@ -27,7 +27,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:background="@drawable/close"/>
+            android:background="@drawable/close" />
 
     </RelativeLayout>
 
@@ -55,9 +55,9 @@
             android:layout_height="60dp"
             android:layout_alignTop="@id/tv_memorize_select_word"
             android:layout_alignRight="@id/tv_memorize_select_word"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_to_bookmark"/>
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_to_bookmark" />
 
         <TextView
             android:id="@+id/tv_memorize_select_FIRST"

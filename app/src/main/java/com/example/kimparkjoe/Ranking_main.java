@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,8 +46,8 @@ public class Ranking_main extends Fragment  {
     //View Pager
     private static final int NUM_PAGES = 16;
     private int pageNum=1;
-    private Button nextButton;
-    private Button prevButton;
+    private ImageButton nextButton;
+    private ImageButton prevButton;
 
     private FirebaseDatabase database, friendDatabase;
     private DatabaseReference databaseReference, friendReference;
