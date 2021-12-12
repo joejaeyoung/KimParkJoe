@@ -6,35 +6,38 @@
     android:orientation="vertical"
     android:weightSum="10">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="10"
-        android:orientation="horizontal"
+        android:layout_height="80dp"
         android:gravity="center_vertical"
-        android:background="@color/teal_200">
+        android:background="@color/blue_200">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_wrong_ans_bookmark_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/back"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:text=" 즐겨찾기"
-            android:textSize="50dp"/>
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_wrong_ans_bookmark_quit"
+            android:layout_marginLeft="10dp"
+            android:text="즐겨찾기"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_wrong_ans_bookmark"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7.5"
+        android:layout_weight="8.5"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp"
@@ -49,11 +52,13 @@
 
         <Button
             android:id="@+id/btn_wrong_ans_bookmark_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
             android:gravity="center"
             android:text="START!"
-            android:textSize="50dp"/>
+            android:textSize="50dp"
+            android:textColor="@color/black"
+            android:background="@drawable/button_blue"/>
 
     </LinearLayout>
 

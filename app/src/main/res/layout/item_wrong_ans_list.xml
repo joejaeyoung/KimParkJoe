@@ -16,6 +16,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp1"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <TextView
@@ -25,15 +26,17 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp2"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <Button
             android:id="@+id/btn_wrong_ans_item_delete"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginRight="20dp"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/icon_x_mark" />
+            android:background="@drawable/delete"
+            android:backgroundTint="@color/gray_700"/>
 
 
     </LinearLayout>

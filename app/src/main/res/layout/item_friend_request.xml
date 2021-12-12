@@ -41,6 +41,7 @@
                 android:gravity="center|left"
                 android:textSize="25dp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 android:paddingLeft="13dp"/>
 
             <LinearLayout
@@ -59,8 +60,8 @@
                         android:id="@+id/btn_item_accept_friend"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/ic_baseline_check_40"
-                        android:backgroundTint="@color/black">
+                        android:background="@drawable/check"
+                        android:backgroundTint="#00FF0A">
                     </Button>
                 </LinearLayout>
 
@@ -70,12 +71,12 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/btn_item_refuse_friend"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/ic_baseline_close_40_white"
-                        android:backgroundTint="@color/black"/>
+                        android:background="@drawable/close"
+                        android:backgroundTint="#FF0000"/>
                 </LinearLayout>
 
             </LinearLayout>

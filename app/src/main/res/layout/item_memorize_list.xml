@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:gravity="center"
         android:weightSum="10">
 
         <TextView
@@ -16,6 +17,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp1"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <TextView
@@ -25,14 +27,15 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp2"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <Button
             android:id="@+id/btn_memorize_list_bookmark"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
             android:background="@drawable/btn_to_bookmark" />
 
     </LinearLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -39,17 +40,17 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
 
-        for(String key : bookmarkWordMap.keySet()){
-            ENG_list.add(key);
-            KOR_list.add(bookmarkWordMap.get(key));
-        }
-
         RecyclerView recyclerView = findViewById(R.id.rv_wrong_ans_bookmark);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         btn_start = (Button) findViewById(R.id.btn_wrong_ans_bookmark_start);
         btn_start.setOnClickListener(this);
         findViewById(R.id.btn_wrong_ans_bookmark_quit).setOnClickListener(this);
+
+        for(String key : bookmarkWordMap.keySet()){
+            ENG_list.add(key);
+            KOR_list.add(bookmarkWordMap.get(key));
+        }
 
         adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);

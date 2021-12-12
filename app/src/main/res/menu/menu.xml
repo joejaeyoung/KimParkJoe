@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/ranking_menu"
-        android:icon="@drawable/tab_ranking"
+        android:icon="@drawable/ranking"
         android:title="랭킹"></item>
 
     <item
         android:id="@+id/word_menu"
-        android:icon="@drawable/tab_memory"
+        android:icon="@drawable/memory"
         android:title="암기"></item>
 
     <item
         android:id="@+id/wrongANS_menu"
-        android:icon="@drawable/tab_check"
+        android:icon="@drawable/check"
         android:title="오답"></item>
 
     <item
         android:id="@+id/friend_menu"
-        android:icon="@drawable/tab_friend"
+        android:icon="@drawable/group"
         android:title="친구"></item>
 
     <item
         android:id="@+id/setting_menu"
-        android:icon="@drawable/tab_setting"
+        android:icon="@drawable/setting"
         android:title="설정"></item>
 
 </menu>

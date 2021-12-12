@@ -39,17 +39,17 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();
 
-        for(String key : wrongWordMap.keySet()){
-            ENG_list.add(key);
-            KOR_list.add(wrongWordMap.get(key));
-        }
-
         RecyclerView recyclerView = findViewById(R.id.rv_wrong_ans_wrong_question);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         btn_start = (Button) findViewById(R.id.btn_wrong_ans_wrong_question_start);
         btn_start.setOnClickListener(this);
         findViewById(R.id.btn_wrong_ans_wrong_question_quit).setOnClickListener(this);
+
+        for(String key : wrongWordMap.keySet()){
+            ENG_list.add(key);
+            KOR_list.add(wrongWordMap.get(key));
+        }
 
         adapter = new WrongANSAdapter(ENG_list, KOR_list);
         recyclerView.setAdapter(adapter);

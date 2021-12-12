@@ -7,23 +7,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <Button
-            android:id="@+id/btn_memorize_touch_quit"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/back"/>
+        android:layout_height="80dp"
+        android:background="@color/green_200">
 
         <TextView
             android:id="@+id/memorize_touch_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_toRightOf="@+id/btn_memorize_touch_quit"
-            android:text=" N주차"
-            android:textSize="50dp"/>
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="N주차"
+            android:textSize="50dp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:id="@+id/btn_memorize_touch_quit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/close"/>
 
     </RelativeLayout>
 
@@ -35,11 +39,15 @@
         <TextView
             android:id="@+id/tv_memorize_touch_word"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="330dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="apple"
-            android:textSize="80dp" />
+            android:textSize="70dp"
+            android:textColor="@color/black"
+            android:background="@drawable/round_green_500"/>
 
         <Button
             android:id="@+id/btn_memorize_touch_bookmark"
@@ -58,23 +66,27 @@
 
         <Button
             android:id="@+id/btn_memorize_touch_pre"
-            android:layout_width="80dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_green"/>
 
         <Button
             android:id="@+id/btn_memorize_touch_next"
-            android:layout_width="80dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_green"/>
 
     </RelativeLayout>
 

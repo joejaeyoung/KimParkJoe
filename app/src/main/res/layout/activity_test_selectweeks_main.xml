@@ -5,29 +5,32 @@
     android:layout_height="match_parent"
     android:weightSum="10">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/tv_test_week_upper_bar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/teal_200">
+        android:background="@color/pink_200">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_test_week_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/back"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="start|center"
-            android:text="  TEST"
-            android:textSize="40dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_test_week_quit"
+            android:layout_marginLeft="10dp"
+            android:text="TEST"
+            android:textSize="50dp"
+            android:textColor="@color/black"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ScrollView
         android:id="@+id/sv_test_main"

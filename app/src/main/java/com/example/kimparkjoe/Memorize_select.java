@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +32,7 @@ public class Memorize_select extends AppCompatActivity {
     private ImageView firstCheckIMG, secondCheckIMG, thirdCheckIMG, forthCheckIMG;
     private ImageView firstXIMG, secondXIMG, thirdXIMG, forthXIMG;
     private TextView upperBar;
-    private Button BookMark;
+    private ImageButton BookMark;
     private String part;
 
     private FirebaseDatabase database, bookmarkDatabase, wordDatabase;

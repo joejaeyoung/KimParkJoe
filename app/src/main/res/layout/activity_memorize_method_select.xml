@@ -5,32 +5,41 @@
     android:weightSum="10">
 
     <RelativeLayout
+        android:id="@+id/memorize_method_select_upper_bar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center_vertical">
+        android:layout_height="200dp"
+        android:gravity="center_vertical"
+        android:background="@color/blue_200">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_memorize_method_select_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/back"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="암기 방식 선택"
-        android:textSize="50dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_memorize_method_select_quit"
+            android:layout_marginLeft="10dp"
+            android:text="암기 방식 선택"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/Lnr_selection"
-        android:layout_width="300dp"
+        android:layout_width="320dp"
         android:layout_height="120dp"
-        android:orientation="vertical"
+        android:layout_below="@+id/memorize_method_select_upper_bar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp">
+        android:layout_marginTop="110dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,20 +48,25 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/round_left2"
+                android:gravity="center"
                 android:text="유형"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/tv_memorize_type_select"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/round_right2"
+                android:gravity="center"
                 android:text="유형 선택"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textSize="25dp" />
 
         </LinearLayout>
 
@@ -64,37 +78,41 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/round_left2"
+                android:gravity="center"
                 android:text="방식"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/tv_memorize_method_select"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/round_right2"
+                android:gravity="center"
                 android:text="방식 선택"
-                android:textSize="25dp"
-                android:gravity="center"/>
+                android:textColor="@color/black"
+                android:textSize="25dp" />
 
         </LinearLayout>
-        
+
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_memorize_start"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_below="@id/Lnr_selection"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:text="START!"
         android:textSize="35dp"
-        android:background="@drawable/board_layout"/>
-    </RelativeLayout>
-
+        android:textColor="@color/black"
+        android:background="@drawable/button_green"/>
 
 </RelativeLayout>

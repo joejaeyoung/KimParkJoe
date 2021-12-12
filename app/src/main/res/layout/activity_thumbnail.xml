@@ -16,6 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Memory Mate"
-        android:textSize="20dp"/>
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/gray_700"/>
 
 </LinearLayout>

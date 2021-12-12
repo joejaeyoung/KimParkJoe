@@ -4,14 +4,24 @@
     android:layout_height="match_parent"
     android:weightSum="10">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/tv_memorize_main_upper_bar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:gravity="start|center"
-        android:text="  암기"
-        android:textSize="40dp"
-        android:background="@color/teal_200"/>
+        android:background="@color/blue_200">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="start|center"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:text="암기"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+
     <ScrollView
         android:id="@+id/sv_memorize_main"
         android:layout_width="match_parent"

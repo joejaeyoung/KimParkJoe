@@ -7,23 +7,30 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:background="@color/pink_200">
 
         <TextView
             android:id="@+id/tv_testing_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text=" N주차"
-            android:textSize="50dp" />
+            android:layout_marginLeft="10dp"
+            android:text="N주차"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/test_timer"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_alignParentRight="true"
-            android:gravity="center_horizontal"
+            android:layout_marginRight="10dp"
             android:text="1:59"
-            android:textSize="45dp" />
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
@@ -35,11 +42,15 @@
         <TextView
             android:id="@+id/tv_test_select_word"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@color/teal_200"
+            android:layout_height="230dp"
             android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:text="apple"
-            android:textSize="70dp" />
+            android:textSize="70dp"
+            android:textColor="@color/black"
+            android:background="@drawable/round_pink"/>
 
         <TextView
             android:id="@+id/tv_testing_totalNum"
@@ -47,10 +58,11 @@
             android:layout_height="60dp"
             android:layout_alignTop="@id/tv_test_select_word"
             android:layout_alignRight="@id/tv_test_select_word"
-            android:layout_marginTop="189dp"
+            android:layout_marginTop="160dp"
             android:gravity="center"
             android:text="1/50"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv_test_select_FIRST"
@@ -58,10 +70,10 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_test_select_word"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="사진"
-            android:textSize="25dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_test_select_SECOND"
@@ -69,9 +81,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_test_select_FIRST"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="사과"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"/>
 
         <TextView
@@ -80,9 +92,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_test_select_SECOND"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="사망"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"/>
 
         <TextView
@@ -91,9 +103,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_test_select_THIRD"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="사랑"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"/>
 
         <ImageView
@@ -136,36 +148,39 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="80dp">
 
         <Button
             android:id="@+id/btn_testing_select_pre"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="25dp"
             android:text="이전"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:background="@drawable/button_pink"/>
 
         <Button
             android:id="@+id/btn_testing_select_next"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="25dp"
             android:layout_centerVertical="true"
             android:text="다음"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_pink"/>
 
         <Button
             android:id="@+id/btn_testing_submit"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:text="제출"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_pink"/>
 
     </RelativeLayout>
 

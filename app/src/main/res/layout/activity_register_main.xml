@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.5"
         android:gravity="center_vertical"
-        android:background="@color/teal_200">
+        android:background="@color/blue_200">
 
         <Button
             android:id="@+id/back_login"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/back" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:text="회원가입"
             android:textSize="50dp"
-            android:textAlignment="center"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
     </LinearLayout>
@@ -33,7 +33,7 @@
     <!-- email ~ 가입하기 버튼 (세로 : 1.5 ~ 8.5)-->
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="7"
+        android:layout_weight="7.5"
         android:orientation="horizontal"
         android:weightSum="5">
 
@@ -64,10 +64,10 @@
                 <TextView android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
-                    android:text="e-mail"
+                    android:text="E-mail"
                     android:gravity="bottom|left"
                     android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textStyle="bold"/>
 
                 <!-- 입력 부분 (세로 : 1.9 ~ 2.5) -->
@@ -76,8 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:hint="e-mail을 입력해주세요"
-                    android:textColorHint="#808080"
+                    android:hint="E-mail을 입력해주세요"
+                    android:textColorHint="@color/gray_700"
                     android:inputType="textPersonName">
 
                 </EditText>
@@ -86,7 +86,6 @@
                 <LinearLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5">
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -106,7 +105,7 @@
                     android:text="비밀번호"
                     android:gravity="bottom|left"
                     android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textStyle="bold"/>
 
                 <!-- 입력 부분 (세로 : 3.4 ~ 4) -->
@@ -116,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:hint="6 ~ 13자리까지 입력 가능합니다"
-                    android:textColorHint="#808080"
+                    android:textColorHint="@color/gray_700"
                     android:inputType="textPersonName">
 
                 </EditText>
@@ -144,7 +143,7 @@
                     android:text="비밀번호 재확인"
                     android:gravity="bottom|left"
                     android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textStyle="bold"/>
 
                 <!-- 입력 부분 (세로 : 4.9 ~ 5.5) -->
@@ -154,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:hint="비밀번호를 한 번 더 입력해주세요"
-                    android:textColorHint="#808080"
+                    android:textColorHint="@color/gray_700"
                     android:inputType="textPersonName">
 
                 </EditText>
@@ -182,7 +181,7 @@
                     android:text="이름"
                     android:gravity="bottom|left"
                     android:textSize="20dp"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textStyle="bold"/>
 
                 <!-- 입력 부분 (세로 : 6.4 ~ 7) -->
@@ -191,8 +190,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:hint="2 ~ 8자리까지 입력 가능합니다"
-                    android:textColorHint="#808080"
+                    android:hint="이름을 입력해주세요"
+                    android:textColorHint="@color/gray_700"
                     android:inputType="textPersonName">
 
                 </EditText>
@@ -201,7 +200,6 @@
                 <LinearLayout android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5">
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -220,9 +218,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
                 android:text="가입하기"
-                android:textColor="#080808"
+                android:textSize="30dp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                android:backgroundTint="#AAC9CC" />
+                android:background="@drawable/round_blue_500" />
 
         </LinearLayout>
 
@@ -238,7 +237,7 @@
     <!-- 아래쪽 여백(세로 : 8.5 ~ 10)-->
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5">
+        android:layout_weight="1.0">
 
     </LinearLayout>
 

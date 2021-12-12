@@ -3,101 +3,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="9">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:layout_weight="10"
-        android:weightSum="5">
+        android:layout_weight="9"
+        android:weightSum="4">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:orientation="vertical"
-            android:weightSum="9">
-
+            android:weightSum="8">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"
+                android:layout_height="80dp"
                 android:orientation="horizontal"
-                android:weightSum="4"
-                android:background="@color/teal_200"
-                android:textAlignment="center">
+                android:background="@color/blue_200"
+                android:gravity="center_vertical">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btn_prev_ranking"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/back" />
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/left" />
 
                 <TextView
                     android:id="@+id/rankign_weeks"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_gravity="center"
                     android:text="1단계 랭킹"
                     android:textSize="50dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
-                    android:gravity="center" />
-
-                <Button
+                <ImageButton
                     android:id="@+id/btn_next_ranking"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="50dp"
-                    android:background="@drawable/back" />
-
-
-
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/right" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.01"
-                android:background="#989898"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ranking_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="6.5"/>
+                android:layout_weight="0.5"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:background="@color/teal_200"
+                android:layout_weight="5"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/round_stroke">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ranking_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.0"
+                android:background="@color/blue_500"
                 android:orientation="vertical"
                 android:weightSum="5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2.0"
+                    android:layout_weight="2.5"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="나의 등수 n등"
-                        android:textSize="30dp"
-                        android:textAlignment="center"/>
+                        android:textSize="40dp"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2.5"
+                    android:layout_weight="2.0"
                     android:orientation="horizontal"
                     android:weightSum="5">
 
@@ -112,12 +124,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2.6"
                         android:text="Test"
+                        android:textSize="25dp"
+                        android:textColor="@color/black"
                         android:layout_gravity="center"
-                        android:background="@drawable/board_layout"/>
-
-
-
-
+                        android:background="@drawable/button_pink"/>
 
                 </LinearLayout>
             </LinearLayout>

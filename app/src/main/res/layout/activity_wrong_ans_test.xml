@@ -7,25 +7,32 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:background="@color/blue_200">
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_wrong_ans_touch_quit"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:background="@drawable/back"/>
 
         <TextView
             android:id="@+id/tv_wrong_ans_test_upper_bar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:layout_toRightOf="@id/btn_wrong_ans_touch_quit"
-            android:text=" 즐겨찾기"
-            android:textSize="50dp"/>
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_wrong_ans_touch_quit"
+            android:layout_marginLeft="10dp"
+            android:text="즐겨찾기"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,18 +42,15 @@
         <TextView
             android:id="@+id/tv_wrong_ans_touch_word"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="330dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="apple"
-            android:textSize="80dp" />
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_wrong_ans_touch_bookmark"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:layout_above="@id/tv_wrong_ans_touch_word"-->
-<!--            android:layout_alignRight="@id/tv_wrong_ans_touch_word" />-->
+            android:textSize="70dp"
+            android:textColor="@color/black"
+            android:background="@drawable/round_blue_500"/>
 
     </RelativeLayout>
 
@@ -56,23 +60,27 @@
 
         <Button
             android:id="@+id/btn_wrong_ans_touch_pre"
-            android:layout_width="80dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_blue"/>
 
         <Button
             android:id="@+id/btn_wrong_ans_touch_next"
-            android:layout_width="80dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_blue"/>
 
     </RelativeLayout>
 

@@ -8,60 +8,68 @@
     android:orientation="vertical"
     android:weightSum="7.2"
     android:gravity="center"
-    android:background="#B9CEAC">
+    android:background="@drawable/round_stroke_blue">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="right|bottom"
         android:layout_weight="0.6"
-        android:orientation="horizontal"
-        android:background="@color/white">
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:orientation="horizontal">
 
 
         <ImageButton
-
             android:id="@+id/btn_friend_request_close"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_gravity="top"
-            android:background="@drawable/ic_baseline_close_24"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/close"
+            android:backgroundTint="@color/gray_700"/>
 
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="받은 친구 요청"
+        android:paddingLeft="25dp"
+        android:textSize="25dp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_baseline_group_35"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6.6"
+        android:layout_weight="5.6"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="6dp"
         android:weightSum="5"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="  받은 친구 요청"
-            android:paddingLeft="15dp"
-            android:textSize="25dp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:background="@drawable/round"
-            android:drawableLeft="@drawable/ic_baseline_group_35"/>
-
+        android:orientation="vertical"
+        android:background="@drawable/round_bottom">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_received_request_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:background="@color/white"/>
+            android:background="@drawable/round_bottom"/>
 
     </LinearLayout>
 
 </LinearLayout>
+
+

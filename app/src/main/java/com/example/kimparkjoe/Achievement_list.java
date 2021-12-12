@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class Achievement_list extends AppCompatActivity {
     private ArrayList<String> achievement_list;
     private ArrayList<Boolean> isCompleted_list;
 
-    private Button button_quit;
+    private ImageButton button_quit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

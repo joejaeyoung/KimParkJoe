@@ -7,23 +7,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
-
-        <Button
-            android:id="@+id/btn_memorize_select_quit"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/back"/>
+        android:layout_height="80dp"
+        android:background="@color/green_200">
 
         <TextView
             android:id="@+id/memorize_select_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_toRightOf="@+id/btn_memorize_select_quit"
-            android:text=" N주차"
-            android:textSize="50dp"/>
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="N주차"
+            android:textSize="50dp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:id="@+id/btn_memorize_select_quit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/close"/>
 
     </RelativeLayout>
 
@@ -35,12 +39,17 @@
         <TextView
             android:id="@+id/tv_memorize_select_word"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="220dp"
             android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:text="apple"
-            android:textSize="70dp" />
+            android:textSize="60dp"
+            android:textColor="@color/black"
+            android:background="@drawable/round_green_500"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_memorize_select_bookmark"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -48,7 +57,7 @@
             android:layout_alignRight="@id/tv_memorize_select_word"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/btn_to_bookmark" />
+            android:background="@drawable/btn_to_bookmark"/>
 
         <TextView
             android:id="@+id/tv_memorize_select_FIRST"
@@ -56,10 +65,10 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_memorize_select_word"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="사진"
-            android:textSize="25dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_memorize_select_SECOND"
@@ -67,10 +76,10 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_memorize_select_FIRST"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="사과"
-            android:textSize="25dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tv_memorize_select_THIRD"
@@ -78,9 +87,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_memorize_select_SECOND"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="사망"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"/>
 
         <TextView
@@ -89,9 +98,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_memorize_select_THIRD"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="사랑"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:gravity="center"/>
 
         <ImageView
@@ -166,27 +175,31 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="80dp">
 
         <Button
             android:id="@+id/btn_memorize_select_pre"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:background="@drawable/button_green"/>
 
         <Button
             android:id="@+id/btn_memorize_select_next"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:background="@drawable/button_green"/>
 
     </RelativeLayout>
 

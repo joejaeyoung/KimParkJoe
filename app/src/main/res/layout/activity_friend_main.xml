@@ -10,61 +10,42 @@
         android:layout_height="0dp"
         android:layout_weight="1.0"
         android:orientation="horizontal"
-        android:weightSum="5"
-        android:background="@color/teal_200">
+        android:gravity="center_vertical"
+        android:background="@color/blue_200">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3.4"
-            android:orientation="horizontal"
-            android:weightSum="1">
+        <RelativeLayout
+            android:id="@+id/tv_friend_upper_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:text="친구목록"
-                android:textSize="50dp"/>
+                android:textSize="50dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <ImageButton
+                android:id="@+id/btn_friend_request"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bell"
+                android:layout_toLeftOf="@+id/btn_friend_add"
+                android:layout_centerVertical="true"/>
+
+            <ImageButton
+                android:id="@+id/btn_friend_add"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/add"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
 
 
-        </LinearLayout>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.15"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"/>
-
-        <ImageButton
-            android:id="@+id/btn_friend_request"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
-
-            android:scaleType="centerCrop"
-            android:src="@drawable/friend_bell" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.3"/>
-
-        <ImageButton
-            android:id="@+id/btn_friend_add"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/board_layout"
-            android:src="@drawable/add"
-            android:scaleType="centerCrop"/>
-
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -72,7 +53,7 @@
         android:id="@+id/friend_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8.8"
+        android:layout_weight="9.0"
         android:overScrollMode="never"
         android:scrollbars="vertical"/>
 
