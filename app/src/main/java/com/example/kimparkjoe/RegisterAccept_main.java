@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -100,5 +101,19 @@ public class RegisterAccept_main extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        //배경 클릭시 꺼지는거 막음
+        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        //안드로이드 백버튼 막음
+        return ;
     }
 }
