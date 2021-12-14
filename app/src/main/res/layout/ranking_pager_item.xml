@@ -63,7 +63,9 @@
                 android:fontFamily="@font/reguler"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:ellipsize="end"/>
 
         </LinearLayout>
 
