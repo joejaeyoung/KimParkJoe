@@ -62,8 +62,8 @@
 
                     <ImageButton
                         android:id="@+id/btn_item_accept_friend"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@drawable/check"
                         android:backgroundTint="#00FF0A">
                     </ImageButton>
@@ -77,8 +77,8 @@
 
                     <ImageButton
                         android:id="@+id/btn_item_refuse_friend"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:background="@drawable/close"
                         android:backgroundTint="#FF0000"/>
                 </LinearLayout>
