@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -137,15 +138,14 @@ public class Ranking_main extends Fragment  {
 
                         String friendEmail = friendList.getEmail();
 
-                        databaseReference = database.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).child(friendEmail);
-                        databaseReference.addValueEventListener(new ValueEventListener() {
+                        Query scoreQuery = FirebaseDatabase.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).child(friendEmail).orderByChild("score");
+                        scoreQuery.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 arrayList.clear();
                                 // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                                 if(dataSnapshot.exists()) {
                                     RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                                    System.out.println(rankingItemList.getName() + rankingItemList.getScore());
                                     arrayList.add(rankingItemList);
                                     adapter.notifyDataSetChanged();
                                 }
@@ -167,32 +167,10 @@ public class Ranking_main extends Fragment  {
                     Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
                 }
             });
-
-            userReference = userDatabase.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).child(MainActivity.userEmail);
-            userReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
-                    if(dataSnapshot.exists()) {
-                        RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                        System.out.println(rankingItemList.getName() + rankingItemList.getScore());
-                        arrayList.add(rankingItemList);
-                        adapter.notifyDataSetChanged();
-                    }
-                    else {
-                        System.out.println("나의 Ranking이 존재하지 않습니다.");
-                    }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    // 디비를 가져오던중 에러 발생 시
-                    Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-                }
-            });
         }
         else if(Setting_main.RankTypeNum == 1) {
-            databaseReference = database.getInstance().getReference().child("rank").child(String.valueOf(pageNum));
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            Query scoreQuery = FirebaseDatabase.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).orderByChild("score");
+            scoreQuery.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     arrayList.clear();
@@ -200,7 +178,6 @@ public class Ranking_main extends Fragment  {
                     if(dataSnapshot.exists()) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
                             RankingItemList rankingItemList = snapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
-                            System.out.println(rankingItemList.getName() + rankingItemList.getScore());
 
                             arrayList.add(rankingItemList);
                         }

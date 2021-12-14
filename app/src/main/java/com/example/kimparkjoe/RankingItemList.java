@@ -1,11 +1,12 @@
 package com.example.kimparkjoe;
 
-public class RankingItemList {
-    private String name;
-    private int score;
+import java.util.Comparator;
+
+public class RankingItemList implements Comparable<RankingItemList>{
+    public String name;
+    public int score;
 
     public RankingItemList(){
-
     }
 
     public RankingItemList(String name, int score){
@@ -25,4 +26,13 @@ public class RankingItemList {
         this.score = score;
     }
 
+    @Override
+    public int compareTo(RankingItemList rankingItemList) {
+        if (rankingItemList.getScore() < score) {
+            return 1;
+        } else if (rankingItemList.getScore() > score) {
+            return -1;
+        }
+        return 0;
+    }
 }
