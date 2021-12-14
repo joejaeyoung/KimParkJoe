@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +42,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("final_log","테스트 화면 전환");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_testing_main);
         testTimer = (TextView) findViewById(R.id.test_timer);

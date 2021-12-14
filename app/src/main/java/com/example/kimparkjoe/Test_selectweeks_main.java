@@ -20,6 +20,7 @@ public class Test_selectweeks_main extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_selectweeks_main);
+        Log.d("final_log","테스트 주차 선택 전환");
 
         test_select_weeks_activity = Test_selectweeks_main.this;
 

@@ -46,8 +46,11 @@ public class Friend_main extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("친구 메인 전환!");
+        Log.d("final_log","친구 탭 전환");
 
         if(MainActivity.friendNum == 0) {
+
+            Log.d("final_log","친구 수 : 0");
             view=inflater.inflate(R.layout.activity_friend_zero,container,false);
 
             requestButton = view.findViewById(R.id.btn_friend_zero_request);
@@ -56,6 +59,8 @@ public class Friend_main extends Fragment implements View.OnClickListener{
             addButton.setOnClickListener(this);
         }
         else {
+
+            Log.d("final_log","친구 정보 리사이클러뷰에 띄우는중...");
             view=inflater.inflate(R.layout.activity_friend_main,container,false);
 
             requestButton = view.findViewById(R.id.btn_friend_request);

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class WrongANS_main extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("오답 메인 전환!");
+        Log.d("final_log","오답노트 탭 전환");
         view=inflater.inflate(R.layout.activity_wrong_ans_main,container,false);
 
         bookmarkButton = view.findViewById(R.id.btn_wrong_bookmark);

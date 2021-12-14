@@ -34,6 +34,7 @@ public class WrongAnsTest extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("final_log","오답단어 탭 전환");
 
         setContentView(R.layout.activity_wrong_ans_test);
         findViewById(R.id.btn_wrong_ans_touch_pre).setOnClickListener(this);

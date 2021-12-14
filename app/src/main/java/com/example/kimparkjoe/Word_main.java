@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class Word_main extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("암기 메인 전환!");
+        Log.d("final_log","암기 탭 전환");
         view=inflater.inflate(R.layout.activity_memorize_main,container,false);
 //        btn_temp = (Button) view.findViewById(R.id.temp_btn_to_method_select);
 //        btn_temp.setOnClickListener(this);

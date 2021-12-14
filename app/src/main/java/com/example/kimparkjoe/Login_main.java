@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -26,6 +27,8 @@ public class Login_main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
+
+        Log.d("final_log","로그인 화면 전환");
 
         if(SaveSharedPreference.getUserName(Login_main.this).length() == 0) {
             // call Login Activity
@@ -49,10 +52,12 @@ public class Login_main extends AppCompatActivity {
         public void onClick(View v) {
             switch(v.getId()){
                 case R.id.btn_login_register:
+                    Log.d("final_log","회원가입 버튼 클릭");
                     myStartActivity(Register_main.class);
                     finish();
                     break;
                 case R.id.btn_login:
+                    Log.d("final_log","로그인 버튼 클릭");
                     login();
                     break;
             }

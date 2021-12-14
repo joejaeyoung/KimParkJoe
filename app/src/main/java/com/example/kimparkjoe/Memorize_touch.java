@@ -33,6 +33,7 @@ public class Memorize_touch extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("final_log","암기 터치형 전환");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memorize_touch);
         wordShown = (TextView) findViewById(R.id.tv_memorize_touch_word);

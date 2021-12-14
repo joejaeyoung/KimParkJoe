@@ -36,6 +36,7 @@ public class WrongANS_bookmark_main extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrong_ans_bookmark_main);
+        Log.d("final_log","즐겨찾기 탭 전환");
 
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();

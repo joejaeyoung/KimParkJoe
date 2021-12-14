@@ -35,6 +35,7 @@ public class WrongANS_wrongquestion_main extends AppCompatActivity implements Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wong_ans_wrongquestion_main);
+        Log.d("final_log","틀린단어 탭 전환");
 
         ENG_list = new ArrayList<>();
         KOR_list = new ArrayList<>();

@@ -67,6 +67,7 @@ public class Ranking_main extends Fragment  {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("랭킹 메인 전환!");
+        Log.d("final_log","랭킹 탭 전환");
         view = inflater.inflate(R.layout.activity_ranking_main,container,false);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.ranking_recycler);
@@ -85,6 +86,7 @@ public class Ranking_main extends Fragment  {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                Log.d("final_log","다음 랭킹 버튼 클릭됨");
                 if((pageNum)>15){
                     Toast toast = Toast.makeText(getActivity(), "마지막 랭킹입니다.", Toast.LENGTH_SHORT);
                     toast.show();
@@ -99,6 +101,7 @@ public class Ranking_main extends Fragment  {
         prevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Log.d("final_log","이번 랭킹 버튼 클릭됨");
                 if((pageNum)<=1){
                     Toast toast = Toast.makeText(getActivity(), "이전 랭킹이 없습니다.", Toast.LENGTH_SHORT);
                     toast.show();
@@ -120,6 +123,7 @@ public class Ranking_main extends Fragment  {
     }
 
     private void rankingDB(){
+        Log.d("final_log","랭킹 DB에서 불러오는 중...");
         System.out.println(pageNum + "주차");
         arrayList = new ArrayList<>();
 

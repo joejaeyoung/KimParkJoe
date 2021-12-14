@@ -37,6 +37,7 @@ public class Friend_request extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_request);
+        Log.d("final_log","친구 요청창 전환");
 
 
         database = FirebaseDatabase.getInstance();

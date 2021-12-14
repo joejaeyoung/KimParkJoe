@@ -3,6 +3,7 @@ package com.example.kimparkjoe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class Register_main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_main);
+        Log.d("final_log","회원가입 화면 전환");
 
         userName_edit = findViewById(R.id.et_register_name);
         userEmail_edit = findViewById(R.id.et_register_email);
@@ -51,10 +53,12 @@ public class Register_main extends AppCompatActivity {
 
             switch(view.getId()){
                 case R.id.btn_register:
+                    Log.d("final_log","회원가입 버튼 클릭");
                     signUp();
                     break;
 
                 case R.id.back_login:
+                    Log.d("final_log","회원가입 종료 버튼 클릭");
                     myStartActivity(Login_main.class);
                     finish();
                     break;

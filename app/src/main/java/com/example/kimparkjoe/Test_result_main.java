@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("final_log","테스트 결과 전환");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_result_main);
 
@@ -40,6 +42,7 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_test_result_yes:
+                Log.d("final_log","오답노트에 단어 추가");
                 ((MainActivity)MainActivity.context_main).putWrongWordsToDB(Test_testing_main.WrongWord);
                 putRankToDB();
                 finish();
@@ -49,6 +52,7 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
                 test_selectweeks_activity.finish();
                 break;
             case R.id.btn_test_result_no:
+                Log.d("final_log","오답노트에 단어 추가 안함");
                 // 랭킹탭으로 나가기
                 putRankToDB();
                 finish();

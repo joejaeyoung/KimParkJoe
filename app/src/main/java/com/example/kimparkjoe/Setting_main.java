@@ -58,6 +58,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("세팅 메인 전환!");
+        Log.d("final_log","세팅 탭 전환");
 
         getAchievementsFromDB();
 
@@ -83,6 +84,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 .setItems(rankingType, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        Log.d("final_log","랭킹 타입 선택 다이얼로그 띄우기");
                         ((TextView)view.findViewById(R.id.tv_setting_main_rankTypeSelect)).setText(rankingType[i]);
                         selectedRankType = rankingType[i];
                         RankTypeNum = i;
@@ -99,6 +101,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
     private void setUserProfile() {
         //개인정보 DB에서 받아오기
+        Log.d("final_log","개인정보 DB에서 받아오는중...");
         Glide.with(this)
                 .load(MainActivity.userImage)
                 .into(myImage);
@@ -131,12 +134,14 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 getActivity().startActivity(new Intent(getActivity(),Achievement_list.class));
                 break;
             case R.id.btn_change_profile:
+                Log.d("final_log","프로필 변경 버튼 클릭됨");
                 getActivity().startActivity(new Intent(getActivity(),ChangeProfile.class));
                 break;
         }
     }
 
     private void getAchievementsFromDB(){
+        Log.d("final_log","도전과제 DB에서 불러오는 중");
         num=0;
         achieveDatabase = FirebaseDatabase.getInstance();
 
