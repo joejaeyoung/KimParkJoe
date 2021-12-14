@@ -154,11 +154,25 @@
             android:orientation="horizontal"
             android:weightSum="1">
 
-            <ImageView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/iv_add_friend_result_image"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.25"/>
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.33"
+                app:cardCornerRadius="100dp"
+                app:cardElevation="0dp" >
+
+                <ImageView
+                    android:id="@+id/image_friend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:background="@drawable/profile"
+                    android:src="@drawable/sample" />
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -172,12 +186,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.6"
+                    android:text="이름"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
                     android:textSize="30dp"/>
                 <TextView
                     android:id="@+id/tv_add_friend_result_status"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.4"
+                    android:text="메세지"
+                    android:textColor="@color/black"
                     android:textSize="15dp"/>
 
             </LinearLayout>
