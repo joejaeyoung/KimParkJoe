@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:background="@color/blue_200"
         android:gravity="center_vertical"
         android:layout_marginBottom="100dp">
@@ -78,28 +78,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="100">
 
-        <Button
-            android:id="@+id/btn_change_profile_quit"
-            android:layout_width="180dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/reguler"
-            android:text="취소"
-            android:textSize="25dp"
-            android:background="@drawable/round_blue_200"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
 
-        <Button
-            android:id="@+id/btn_change_profile_save"
-            android:layout_width="180dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:fontFamily="@font/reguler"
-            android:text="확인"
-            android:textSize="25dp"
-            android:background="@drawable/round_blue_200"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="36">
+
+            <Button
+                android:id="@+id/btn_change_profile_quit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:fontFamily="@font/reguler"
+                android:text="취소"
+                android:textSize="25dp"
+                android:background="@drawable/round_blue_200"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="36">
+            <Button
+                android:id="@+id/btn_change_profile_save"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:fontFamily="@font/reguler"
+                android:text="확인"
+                android:textSize="25dp"
+                android:background="@drawable/round_blue_200"/>
+        </LinearLayout>
 
     </LinearLayout>
 
