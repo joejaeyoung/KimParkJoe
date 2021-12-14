@@ -24,10 +24,12 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:gravity="center"
             android:layout_toRightOf="@+id/btn_wrong_ans_bookmark_quit"
             android:layout_marginLeft="10dp"
             android:text="즐겨찾기"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -57,11 +59,10 @@
             android:gravity="center"
             android:text="START!"
             android:textSize="50dp"
+            android:fontFamily="@font/reguler"
             android:textColor="@color/black"
             android:background="@drawable/button_blue"/>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

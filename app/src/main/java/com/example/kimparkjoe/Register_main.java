@@ -96,7 +96,6 @@ public class Register_main extends AppCompatActivity {
                         }
                         else{
                             if(task.getException() != null){
-                                startToast("이미 등록된 이메일입니다.");
                             }
                         }
                     }

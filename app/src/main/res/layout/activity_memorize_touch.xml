@@ -15,8 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:text="N주차"
+            android:fontFamily="@font/bold"
+            android:textStyle="bold"
             android:textSize="50dp"
             android:textColor="@color/black"/>
 
@@ -45,7 +48,8 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="apple"
-            android:textSize="70dp"
+            android:fontFamily="@font/bold"
+            android:textSize="60dp"
             android:textColor="@color/black"
             android:background="@drawable/round_green_500"/>
 
@@ -73,7 +77,9 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:background="@drawable/button_green"/>
 
         <Button
@@ -85,7 +91,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:background="@drawable/button_green"/>
 
     </RelativeLayout>

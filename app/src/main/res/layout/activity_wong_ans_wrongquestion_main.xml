@@ -26,8 +26,10 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/btn_wrong_ans_wrong_question_quit"
             android:layout_marginLeft="10dp"
+            android:gravity="center"
             android:text="틀린문제"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 

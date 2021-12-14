@@ -41,6 +41,7 @@
                 android:gravity="center|left"
                 android:textSize="25dp"
                 android:textStyle="bold"
+                android:fontFamily="@font/reguler"
                 android:textColor="@color/black"
                 android:paddingLeft="13dp"/>
 
@@ -56,13 +57,13 @@
                     android:layout_weight="1"
                     android:gravity="center">
 
-                    <Button
+                    <ImageButton
                         android:id="@+id/btn_item_accept_friend"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/check"
                         android:backgroundTint="#00FF0A">
-                    </Button>
+                    </ImageButton>
                 </LinearLayout>
 
                 <LinearLayout

@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         part_Eng_list = new ArrayList<>();
         part_Kor_list = new ArrayList<>();
 
+        getBookmarkWordsFromDB();
+        getWrongWordsFromDB();
+
         getNounPartFromDB();
         getVerbPartFromDB();
         getAdverbPartFromDB();
@@ -142,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int number = dataSnapshot.getValue(int.class);
                 friendNum = number;
-
             }
 
             @Override

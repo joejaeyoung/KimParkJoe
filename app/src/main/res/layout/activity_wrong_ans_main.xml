@@ -19,6 +19,7 @@
             android:layout_centerVertical="true"
             android:text="오답노트"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
     </RelativeLayout>
@@ -53,6 +54,7 @@
                 android:layout_weight="4"
                 android:text="즐겨찾기"
                 android:textSize="35dp"
+                android:fontFamily="@font/reguler"
                 android:textColor="@color/black"
                 android:background="@drawable/round_stroke_blue2"/>
 
@@ -68,6 +70,7 @@
                 android:layout_weight="4"
                 android:text="틀린문제"
                 android:textSize="35dp"
+                android:fontFamily="@font/reguler"
                 android:textColor="@color/black"
                 android:background="@drawable/round_stroke_blue2"/>
 

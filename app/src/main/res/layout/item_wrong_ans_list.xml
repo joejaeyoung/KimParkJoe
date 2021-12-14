@@ -16,6 +16,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp1"
+            android:fontFamily="@font/reguler"
             android:textColor="@color/black"
             android:gravity="center"/>
 
@@ -26,6 +27,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp2"
+            android:fontFamily="@font/reguler"
             android:textColor="@color/black"
             android:gravity="center"/>
 
@@ -33,10 +35,10 @@
             android:id="@+id/btn_wrong_ans_item_delete"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/delete"
-            android:backgroundTint="@color/gray_700"/>
+            android:backgroundTint="@color/blue_200"/>
 
 
     </LinearLayout>

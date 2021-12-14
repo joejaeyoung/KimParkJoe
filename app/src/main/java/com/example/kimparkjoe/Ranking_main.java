@@ -49,10 +49,9 @@ public class Ranking_main extends Fragment  {
     private ImageButton nextButton;
     private ImageButton prevButton;
 
-    private FirebaseDatabase database, friendDatabase;
-    private DatabaseReference databaseReference, friendReference;
-    private TextView rankingWeeks;
-    private String Num;
+    private FirebaseDatabase database, friendDatabase, userDatabase;
+    private DatabaseReference databaseReference, friendReference, userReference;
+    private TextView rankingWeeks, myRank;
 
     private int my_rank = 1;
 
@@ -78,6 +77,7 @@ public class Ranking_main extends Fragment  {
 
         rankingDB();
 
+        myRank = view.findViewById(R.id.tv_my_ranking);
         nextButton = view.findViewById(R.id.btn_next_ranking);
         prevButton = view.findViewById(R.id.btn_prev_ranking);
         rankingWeeks = view.findViewById(R.id.rankign_weeks);
@@ -111,6 +111,8 @@ public class Ranking_main extends Fragment  {
         });
 
         my_rank = RankingListAdapter.pos;
+        System.out.println("나의 등수 " + my_rank + "등");
+        myRank.setText("나의 등수 " + my_rank + "등");
 
         putAchieveToDB();
 
@@ -153,6 +155,29 @@ public class Ranking_main extends Fragment  {
                                 Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
                             }
                         });
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // 디비를 가져오던중 에러 발생 시
+                    Log.e("TestActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+                }
+            });
+
+            userReference = userDatabase.getInstance().getReference().child("rank").child(String.valueOf(pageNum)).child(MainActivity.userEmail);
+            userReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    arrayList.clear();
+                    // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
+                    if(dataSnapshot.exists()) {
+                        RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
+                        System.out.println(rankingItemList.getName() + rankingItemList.getScore());
+                        arrayList.add(rankingItemList);
+                        adapter.notifyDataSetChanged();
+                    }
+                    else {
+                        System.out.println("나의 Ranking이 존재하지 않습니다.");
                     }
                 }
                 @Override
@@ -227,27 +252,32 @@ public class Ranking_main extends Fragment  {
         if(my_rank == 1) {
             Boolean check = new Boolean(true);
             databaseReference.child("29").child("check").setValue(check);
-            Setting_main.num++;
+            databaseReference.child("30").child("check").setValue(check);
+            databaseReference.child("31").child("check").setValue(check);
+            databaseReference.child("32").child("check").setValue(check);
+            databaseReference.child("33").child("check").setValue(check);
         }
         else if(my_rank <= 3) {
             Boolean check = new Boolean(true);
             databaseReference.child("30").child("check").setValue(check);
-            Setting_main.num++;
+            databaseReference.child("31").child("check").setValue(check);
+            databaseReference.child("32").child("check").setValue(check);
+            databaseReference.child("33").child("check").setValue(check);
         }
         else if(my_rank <= 5) {
             Boolean check = new Boolean(true);
             databaseReference.child("31").child("check").setValue(check);
-            Setting_main.num++;
+            databaseReference.child("32").child("check").setValue(check);
+            databaseReference.child("33").child("check").setValue(check);
         }
         else if(my_rank <= 7) {
             Boolean check = new Boolean(true);
             databaseReference.child("32").child("check").setValue(check);
-            Setting_main.num++;
+            databaseReference.child("33").child("check").setValue(check);
         }
         else if(my_rank <= 10) {
             Boolean check = new Boolean(true);
             databaseReference.child("33").child("check").setValue(check);
-            Setting_main.num++;
         }
     }
 

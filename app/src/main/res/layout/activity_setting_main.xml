@@ -31,9 +31,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
+                    android:gravity="center"
                     android:layout_marginLeft="10dp"
                     android:text="설정"
                     android:textSize="50dp"
+                    android:fontFamily="@font/bold"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -86,6 +88,7 @@
                             android:layout_height="60dp"
                             android:text="닉네임"
                             android:textSize="30dp"
+                            android:fontFamily="@font/reguler"
                             android:layout_marginLeft="20dp"
                             android:textColor="@color/black"/>
                         <TextView
@@ -94,6 +97,7 @@
                             android:layout_height="40dp"
                             android:text="상태메세지를 입력해 주세요."
                             android:layout_marginLeft="20dp"
+                            android:fontFamily="@font/reguler"
                             android:textColor="@color/black"/>
                     </LinearLayout>
 
@@ -109,6 +113,7 @@
                     android:text="프로필 변경하기"
                     android:textSize="35dp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/reguler"
                     android:background="@drawable/button_blue"/>
 
             </LinearLayout>
@@ -136,6 +141,8 @@
                     android:layout_height="wrap_content"
                     android:text="달성한 도전과제"
                     android:textSize="25dp"
+                    android:fontFamily="@font/reguler"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_gravity="center"/>
                 <TextView
@@ -144,6 +151,8 @@
                     android:layout_height="wrap_content"
                     android:text="13 / 50"
                     android:textSize="25dp"
+                    android:fontFamily="@font/reguler"
+                    android:textColor="@color/black"
                     android:layout_gravity="center"/>
 
             </LinearLayout>
@@ -165,6 +174,8 @@
                     android:layout_height="wrap_content"
                     android:text="랭킹"
                     android:textSize="25dp"
+                    android:fontFamily="@font/reguler"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_gravity="center"/>
                 <TextView
@@ -174,6 +185,8 @@
                     android:text="친구만"
                     android:textSize="25dp"
                     android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/reguler"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
                     android:layout_gravity="center"/>
 

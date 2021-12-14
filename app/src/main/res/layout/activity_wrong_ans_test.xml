@@ -24,10 +24,12 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:gravity="center"
             android:layout_toRightOf="@+id/btn_wrong_ans_touch_quit"
             android:layout_marginLeft="10dp"
             android:text="즐겨찾기"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -48,7 +50,8 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="apple"
-            android:textSize="70dp"
+            android:textSize="60dp"
+            android:fontFamily="@font/bold"
             android:textColor="@color/black"
             android:background="@drawable/round_blue_500"/>
 
@@ -67,7 +70,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_blue"/>
 
         <Button
@@ -79,7 +83,8 @@
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_blue"/>
 
     </RelativeLayout>

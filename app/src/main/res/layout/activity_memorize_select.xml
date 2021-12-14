@@ -15,8 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:text="N주차"
+            android:fontFamily="@font/bold"
+            android:textStyle="bold"
             android:textSize="50dp"
             android:textColor="@color/black"/>
 
@@ -46,6 +49,7 @@
             android:layout_marginRight="5dp"
             android:text="apple"
             android:textSize="60dp"
+            android:fontFamily="@font/bold"
             android:textColor="@color/black"
             android:background="@drawable/round_green_500"/>
 
@@ -68,6 +72,8 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="사진"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -79,6 +85,8 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="사과"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -90,6 +98,8 @@
             android:layout_marginTop="20dp"
             android:text="사망"
             android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <TextView
@@ -101,6 +111,8 @@
             android:layout_marginTop="20dp"
             android:text="사랑"
             android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <ImageView
@@ -179,26 +191,30 @@
 
         <Button
             android:id="@+id/btn_memorize_select_pre"
-            android:layout_width="100dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="20dp"
             android:text="이전"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:background="@drawable/button_green"/>
 
         <Button
             android:id="@+id/btn_memorize_select_next"
-            android:layout_width="100dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="20dp"
             android:text="다음"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:background="@drawable/button_green"/>
 
     </RelativeLayout>

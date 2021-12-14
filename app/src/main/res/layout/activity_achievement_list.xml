@@ -26,6 +26,9 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/btn_achieve_quit"
             android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:fontFamily="@font/bold"
+            android:textStyle="bold"
             android:text="도전과제"
             android:textSize="50dp"
             android:textColor="@color/black"/>

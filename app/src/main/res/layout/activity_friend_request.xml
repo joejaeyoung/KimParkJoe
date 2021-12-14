@@ -41,6 +41,8 @@
         android:text="받은 친구 요청"
         android:paddingLeft="25dp"
         android:textSize="25dp"
+        android:fontFamily="@font/reguler"
+        android:textColor="@color/black"
         android:gravity="center_vertical"
         android:textStyle="bold"
         android:drawableLeft="@drawable/ic_baseline_group_35"/>

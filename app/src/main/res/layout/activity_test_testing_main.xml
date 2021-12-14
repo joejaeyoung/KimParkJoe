@@ -15,9 +15,11 @@
             android:id="@+id/tv_testing_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:text="N주차"
             android:textSize="40dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -25,10 +27,12 @@
             android:id="@+id/test_timer"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:gravity="center_vertical"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:text="1:59"
             android:textSize="40dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black" />
 
@@ -48,7 +52,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:text="apple"
-            android:textSize="70dp"
+            android:textSize="60dp"
+            android:fontFamily="@font/bold"
             android:textColor="@color/black"
             android:background="@drawable/round_pink"/>
 
@@ -61,7 +66,8 @@
             android:layout_marginTop="160dp"
             android:gravity="center"
             android:text="1/50"
-            android:textSize="40dp"
+            android:fontFamily="@font/reguler"
+            android:textSize="35dp"
             android:textColor="@color/black"/>
 
         <TextView
@@ -73,7 +79,9 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:text="사진"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv_test_select_SECOND"
@@ -84,6 +92,8 @@
             android:layout_marginTop="20dp"
             android:text="사과"
             android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <TextView
@@ -95,6 +105,8 @@
             android:layout_marginTop="20dp"
             android:text="사망"
             android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <TextView
@@ -106,6 +118,8 @@
             android:layout_marginTop="20dp"
             android:text="사랑"
             android:textSize="20dp"
+            android:fontFamily="@font/reguler"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
         <ImageView
@@ -158,7 +172,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
             android:text="이전"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_pink"/>
 
         <Button
@@ -169,7 +184,8 @@
             android:layout_marginRight="25dp"
             android:layout_centerVertical="true"
             android:text="다음"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_pink"/>
 
         <Button
@@ -179,7 +195,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:text="제출"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_pink"/>
 
     </RelativeLayout>

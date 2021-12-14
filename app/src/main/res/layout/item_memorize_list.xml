@@ -17,6 +17,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp1"
+            android:fontFamily="@font/reguler"
             android:textColor="@color/black"
             android:gravity="center"/>
 
@@ -27,6 +28,7 @@
             android:layout_weight="5"
             android:textSize="20dp"
             android:text="temp2"
+            android:fontFamily="@font/reguler"
             android:textColor="@color/black"
             android:gravity="center"/>
 

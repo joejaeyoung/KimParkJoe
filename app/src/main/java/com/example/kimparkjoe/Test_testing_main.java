@@ -33,8 +33,6 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private CountDownTimer countDownTimer;
     public static long finalExamTime;
 
-
-
     public static int correct_ans_num;
     public static Activity test_testing_activity;
 
@@ -322,6 +320,7 @@ public class Test_testing_main extends AppCompatActivity implements View.OnClick
     private void submit(){
         int pos = 0;
         correct_ans_num =0;
+
         WrongWord.clear();
         for(String key : KOR_list){
             if(User_ans_list.get(pos).equals(KOR_list.get(pos))){

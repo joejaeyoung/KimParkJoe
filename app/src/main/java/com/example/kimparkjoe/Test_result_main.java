@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Test_result_main extends AppCompatActivity implements View.OnClickListener {
 
     private TextView result;
-    private String Num;
+    private long totalTime;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
     private Test_testing_main testing_activity;
@@ -27,12 +27,13 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_result_main);
 
-
         result = (TextView) findViewById(R.id.tv_test_result_score);
         result.setText(Test_testing_main.correct_ans_num+"/"+MainActivity.wordMap.size());
 
         findViewById(R.id.btn_test_result_yes).setOnClickListener(this);
         findViewById(R.id.btn_test_result_no).setOnClickListener(this);
+
+        totalTime = 180000  - Test_testing_main.finalExamTime;
     }
 
     @Override
@@ -65,48 +66,80 @@ public class Test_result_main extends AppCompatActivity implements View.OnClickL
         if (Test_selectweeks_main.curr_week > 0) {
             Boolean check = new Boolean(true);
             databaseReference.child(String.valueOf(Test_selectweeks_main.curr_week + 1)).child("check").setValue(check);
-            Setting_main.num++;
         }
 
-        /*if(time){
-
+        if(totalTime >= 155000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("18").child("check").setValue(check);
         }
-         */
+        if(totalTime >= 150000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("19").child("check").setValue(check);
+        }
+        if(totalTime >= 145000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("20").child("check").setValue(check);
+        }
+        if(totalTime >= 140000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("21").child("check").setValue(check);
+        }
+        if(totalTime >= 130000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("22").child("check").setValue(check);
+        }
+        if(totalTime >= 120000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("23").child("check").setValue(check);
+        }
+        if(totalTime >= 90000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("24").child("check").setValue(check);
+        }
+        if(totalTime >= 60000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("25").child("check").setValue(check);
+        }
+        if(totalTime >= 40000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("26").child("check").setValue(check);
+        }
+        if(totalTime >= 20000) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("27").child("check").setValue(check);
+        }
+        if(totalTime >= 0) {
+            Boolean check = new Boolean(true);
+            databaseReference.child("28").child("check").setValue(check);
+        }
 
         if(Test_testing_main.correct_ans_num >= 50) {
             Boolean check = new Boolean(true);
             databaseReference.child("40").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 45) {
+        if(Test_testing_main.correct_ans_num >= 45) {
             Boolean check = new Boolean(true);
             databaseReference.child("39").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 40) {
+        if(Test_testing_main.correct_ans_num >= 40) {
             Boolean check = new Boolean(true);
             databaseReference.child("38").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 35) {
+        if(Test_testing_main.correct_ans_num >= 35) {
             Boolean check = new Boolean(true);
             databaseReference.child("37").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 30) {
+        if(Test_testing_main.correct_ans_num >= 30) {
             Boolean check = new Boolean(true);
             databaseReference.child("36").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 25) {
+        if(Test_testing_main.correct_ans_num >= 25) {
             Boolean check = new Boolean(true);
             databaseReference.child("35").child("check").setValue(check);
-            Setting_main.num++;
         }
-        else if(Test_testing_main.correct_ans_num >= 20) {
+        if(Test_testing_main.correct_ans_num >= 20) {
             Boolean check = new Boolean(true);
             databaseReference.child("34").child("check").setValue(check);
-            Setting_main.num++;
         }
     }
 

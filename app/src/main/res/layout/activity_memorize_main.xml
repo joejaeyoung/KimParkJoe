@@ -18,6 +18,7 @@
             android:layout_centerVertical="true"
             android:text="암기"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>
     </RelativeLayout>
@@ -39,6 +40,8 @@
                 android:layout_height="60dp"
                 android:text=" 1 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -47,6 +50,8 @@
                 android:layout_height="60dp"
                 android:text=" 2 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -55,6 +60,8 @@
                 android:layout_height="60dp"
                 android:text=" 3 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -63,6 +70,8 @@
                 android:layout_height="60dp"
                 android:text=" 4 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -71,6 +80,8 @@
                 android:layout_height="60dp"
                 android:text=" 5 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -79,6 +90,8 @@
                 android:layout_height="60dp"
                 android:text=" 6 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -87,6 +100,8 @@
                 android:layout_height="60dp"
                 android:text=" 7 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -95,6 +110,8 @@
                 android:layout_height="60dp"
                 android:text=" 8 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -103,6 +120,8 @@
                 android:layout_height="60dp"
                 android:text=" 9 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -111,6 +130,8 @@
                 android:layout_height="60dp"
                 android:text=" 10 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -119,6 +140,8 @@
                 android:layout_height="60dp"
                 android:text=" 11 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -127,6 +150,8 @@
                 android:layout_height="60dp"
                 android:text=" 12 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -135,6 +160,8 @@
                 android:layout_height="60dp"
                 android:text=" 13 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -143,6 +170,8 @@
                 android:layout_height="60dp"
                 android:text=" 14 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -151,6 +180,8 @@
                 android:layout_height="60dp"
                 android:text=" 15 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
             <TextView
@@ -159,18 +190,12 @@
                 android:layout_height="60dp"
                 android:text=" 16 주차"
                 android:textSize="30dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/reguler"
                 android:gravity="center|left"/>
 
         </LinearLayout>
 
     </ScrollView>
-
-
-<!--    <Button-->
-<!--        android:id="@+id/temp_btn_to_method_select"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:text="temp button" />-->
 
 </RelativeLayout>

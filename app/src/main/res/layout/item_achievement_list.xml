@@ -21,8 +21,9 @@
         android:layout_height="match_parent"
         android:layout_weight="10"
         android:text="temp_achieve_name_temp_achieve_name"
+        android:fontFamily="@font/reguler"
         android:gravity="center_vertical"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:textColor="@color/black"/>
 
     <ImageView

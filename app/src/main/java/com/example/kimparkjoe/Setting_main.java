@@ -59,11 +59,12 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         System.out.println("세팅 메인 전환!");
 
+        getAchievementsFromDB();
+
         num = 0;
 
         view=inflater.inflate(R.layout.activity_setting_main,container,false);
         putAchieveToDB();
-        getAchievementsFromDB();
 
         view.findViewById(R.id.tv_setting_main_rankTypeSelect).setOnClickListener(this);
         view.findViewById(R.id.Linear_setting_achieve).setOnClickListener(this);
@@ -122,7 +123,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 && MainActivity.userMessage != "null") {
             Boolean check = new Boolean(true);
             databaseReference.child("1").child("check").setValue(check);
-            num++;
         }
     }
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,7 +48,7 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_name;
         ImageView iv_profile;
-        Button btn_accept, btn_refuse;
+        ImageButton btn_accept, btn_refuse;
 
         public ViewHolder(@NonNull View view) {
             super(view);

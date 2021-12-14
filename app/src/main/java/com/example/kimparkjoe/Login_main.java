@@ -77,7 +77,6 @@ public class Login_main extends AppCompatActivity {
                         startToast("로그인 성공");
                         myStartActivity(MainActivity.class);
                         finish();
-
                     }
                     else{
                         if(task.getException() != null){

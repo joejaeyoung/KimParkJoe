@@ -15,9 +15,12 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:text="N주차"
             android:textSize="50dp"
+            android:fontFamily="@font/bold"
+            android:textStyle="bold"
             android:textColor="@color/black"/>
 
         <ImageButton
@@ -84,7 +87,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:text="영어 가리기"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_green"/>
 
         <Button
@@ -95,7 +100,9 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:text="뜻 가리기"
-            android:textSize="20dp"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/reguler"
             android:background="@drawable/button_green"/>
 
     </RelativeLayout>
