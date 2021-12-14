@@ -69,7 +69,7 @@
                 android:textSize="20dp"
                 android:fontFamily="@font/reguler"
                 android:textColor="@color/gray_700"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/gray_700"
                 android:background="@drawable/round_right"/>
 
