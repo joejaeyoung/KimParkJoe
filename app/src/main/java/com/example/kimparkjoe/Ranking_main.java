@@ -168,7 +168,6 @@ public class Ranking_main extends Fragment  {
             userReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    arrayList.clear();
                     // 파이어베이스 데이터베이스의 데이터를 받아오는 곳
                     if(dataSnapshot.exists()) {
                         RankingItemList rankingItemList = dataSnapshot.getValue(RankingItemList.class); // 만들어뒀던 User 객체에 데이터를 담는다.
