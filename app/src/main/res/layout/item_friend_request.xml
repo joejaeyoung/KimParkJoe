@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/tv_item_friend_request_name"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="match_parent"
                 android:text="이름"
                 android:gravity="center|left"

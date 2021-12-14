@@ -61,8 +61,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
         getAchievementsFromDB();
 
-        num = 0;
-
         view=inflater.inflate(R.layout.activity_setting_main,container,false);
         putAchieveToDB();
 
@@ -75,7 +73,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
         myMessage = (TextView)view.findViewById(R.id.my_message);
         AchieveNum = (TextView)view.findViewById(R.id.achieve_num);
 
-        System.out.println(num);
+        System.out.println("num : "+num);
 
         if(selectedRankType != null){
             ((TextView)view.findViewById(R.id.tv_setting_main_rankTypeSelect)).setText(selectedRankType);
@@ -95,9 +93,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 .create();
 
         setUserProfile();
-        Num = Integer.toString(num) + " / 45";
-        System.out.println(Num);
-        AchieveNum.setText(Num);
 
         return view;
     }
@@ -142,6 +137,7 @@ public class Setting_main extends Fragment implements View.OnClickListener {
     }
 
     private void getAchievementsFromDB(){
+        num=0;
         achieveDatabase = FirebaseDatabase.getInstance();
 
         achieveReference = achieveDatabase.getReference("user").child(MainActivity.userEmail).child("achievement");
@@ -159,10 +155,15 @@ public class Setting_main extends Fragment implements View.OnClickListener {
 
                     if(Check == true) {
                         num++;
+                        Log.d("TAG","num++! -> num : "+num);
                     }
 
                     achieveMap.put(Achieve, Check);
                 }
+
+                Num = Integer.toString(num) + " / 45";
+                System.out.println(Num);
+                AchieveNum.setText(Num);
             }
 
             @Override
@@ -171,6 +172,6 @@ public class Setting_main extends Fragment implements View.OnClickListener {
                 Log.e("TestActivity", String.valueOf(error.toException())); // 에러문 출력
             }
         });
-        Num = Integer.toString(num) + " / 45";
+//        Num = Integer.toString(num) + " / 45";
     }
 }
