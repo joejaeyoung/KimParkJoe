@@ -16,14 +16,14 @@
         <TextView
             android:id="@+id/memorize_select_upper_bar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="center_vertical"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/bold"
-            android:textStyle="bold"
+            android:gravity="center_vertical"
             android:text="프로필 변경"
-            android:textSize="50dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

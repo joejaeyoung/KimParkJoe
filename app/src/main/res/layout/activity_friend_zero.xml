@@ -7,8 +7,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
+        android:layout_height="60dp"
+
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@color/blue_200">
@@ -22,13 +22,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_centerVertical="true"
-                android:gravity="center"
                 android:layout_marginLeft="10dp"
-                android:text="친구목록"
-                android:textSize="50dp"
                 android:fontFamily="@font/bold"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                android:gravity="center"
+                android:text="친구목록"
+                android:textColor="@color/black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btn_friend_zero_request"

@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:gravity="center_vertical"
         android:background="@color/pink_200">
 
@@ -15,13 +15,13 @@
             android:id="@+id/tv_testing_upper_bar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="N주차"
-            android:textSize="40dp"
             android:fontFamily="@font/bold"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:gravity="center_vertical"
+            android:text="N주차"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/test_timer"

@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:gravity="center_vertical"
         android:background="@color/blue_200">
 
@@ -28,7 +28,7 @@
             android:layout_toRightOf="@+id/btn_wrong_ans_bookmark_quit"
             android:layout_marginLeft="10dp"
             android:text="즐겨찾기"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:fontFamily="@font/bold"
             android:textStyle="bold"
             android:textColor="@color/black"/>

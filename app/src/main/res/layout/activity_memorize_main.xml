@@ -12,15 +12,15 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="start|center"
-            android:layout_marginLeft="10dp"
+            android:layout_height="60dp"
             android:layout_centerVertical="true"
-            android:text="암기"
-            android:textSize="50dp"
+            android:layout_marginLeft="10dp"
             android:fontFamily="@font/bold"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:gravity="start|center"
+            android:text="암기"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <ScrollView

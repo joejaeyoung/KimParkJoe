@@ -8,20 +8,20 @@
     <RelativeLayout
         android:id="@+id/tv_memorize_main_upper_bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:background="@color/blue_200">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:gravity="start|center"
-            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:text="오답노트"
-            android:textSize="50dp"
+            android:layout_marginLeft="10dp"
             android:fontFamily="@font/bold"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:gravity="start|center"
+            android:text="오답노트"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
