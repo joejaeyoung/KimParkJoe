@@ -72,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
         part_Eng_list = new ArrayList<>();
         part_Kor_list = new ArrayList<>();
 
-        getBookmarkWordsFromDB();
-        getWrongWordsFromDB();
-
         getNounPartFromDB();
         getVerbPartFromDB();
         getAdverbPartFromDB();
@@ -236,13 +233,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 WrongANS_bookmark_main.bookmarkWordMap.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
+                if(snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                        ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
 
-                    String Eng = wrongWord.getEng();
-                    String Kor = wrongWord.getKor();
+                        String Eng = wrongWord.getEng();
+                        String Kor = wrongWord.getKor();
 
-                    WrongANS_bookmark_main.bookmarkWordMap.put(Eng, Kor);
+                        WrongANS_bookmark_main.bookmarkWordMap.put(Eng, Kor);
+                    }
+                }
+                else {
+                    System.out.println("bookmark가 존재하지 않습니다.");
                 }
             }
             @Override
@@ -275,13 +277,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 WrongANS_wrongquestion_main.wrongWordMap.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
-                    ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
+                if(snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) { // 반복문으로 데이터 List를 추출해냄
+                        ANSItemList wrongWord = dataSnapshot.getValue(ANSItemList.class);
 
-                    String Eng = wrongWord.getEng();
-                    String Kor = wrongWord.getKor();
+                        String Eng = wrongWord.getEng();
+                        String Kor = wrongWord.getKor();
 
-                    WrongANS_wrongquestion_main.wrongWordMap.put(Eng, Kor);
+                        WrongANS_wrongquestion_main.wrongWordMap.put(Eng, Kor);
+                    }
+                }
+                else {
+                    System.out.println("wrongWord가 존재하지 않습니다.");
                 }
             }
 
