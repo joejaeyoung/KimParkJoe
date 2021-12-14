@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,19 +39,17 @@ public class Test_selectweeks_main extends AppCompatActivity implements View.OnC
         findViewById(R.id.tv_test_week_14).setOnClickListener(this);
         findViewById(R.id.tv_test_week_15).setOnClickListener(this);
         findViewById(R.id.tv_test_week_16).setOnClickListener(this);
+
+        findViewById(R.id.btn_test_week_quit).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_test_week_quit:
-                onBackPressed();
+                Log.d("final_log","테스트 주차선택 back 버튼 눌림");
+                finish();
                 break;
-//            case R.id.temp_btn_to_method_select:
-//                ((MainActivity)MainActivity.context_main).putWordsFromDB(1);
-//
-//                getActivity().startActivity(new Intent(getActivity(),Memorize_method_select.class));
-//                break;
             default:
                 String weekString = (String) ((TextView)view).getText();
                 String[] week_array = weekString.split(" ");
